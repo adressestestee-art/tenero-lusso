@@ -1,3 +1,5 @@
+const BACKEND_URL = "https://TU_PROJET_RENDER.onrender.com"; // <== Remplace par ton URL Render
+
 const products = [
     {id: 1, name: "T-shirt Urban", price: 25, img: "https://via.placeholder.com/200x200?text=T-shirt+Urban"},
     {id: 2, name: "Hoodie Street", price: 45, img: "https://via.placeholder.com/200x200?text=Hoodie+Street"},
@@ -59,7 +61,7 @@ document.getElementById("checkout-btn").addEventListener("click", async () => {
     }
 
     try {
-        const response = await fetch('http://localhost:3000/orders', {
+        const response = await fetch(`${BACKEND_URL}/orders`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({items: cart})

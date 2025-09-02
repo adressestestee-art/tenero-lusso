@@ -1,4 +1,12 @@
-npm init -y
-npm install express cors
-
-node backend/server.js
+{
+  "name": "tenero-lusso-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}

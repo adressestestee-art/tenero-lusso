@@ -1,4 +1,4 @@
-const BACKEND_URL = "https://TU_PROJET_RENDER.onrender.com"; // <== Remplace par ton URL Render
+const BACKEND_URL = "https://tenero-lusso.onrender.com"; // <== Remplace par ton URL Render
 
 const products = [
     {id: 1, name: "T-shirt Urban", price: 25, img: "https://via.placeholder.com/200x200?text=T-shirt+Urban"},

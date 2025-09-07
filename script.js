@@ -16,11 +16,14 @@ function displayProducts() {
         const prodDiv = document.createElement("div");
         prodDiv.className = "product";
         prodDiv.innerHTML = `
-            <img src="${product.img}" alt="${product.name}">
-            <h3>${product.name}</h3>
-            <p>Prix: ${product.price} €</p>
-            <button onclick="addToCart(${product.id})">Ajouter au panier</button>
-        `;
+            prodDiv.innerHTML = `
+    <img src="${product.img}" alt="${product.name}">
+    <div class="product-info-text">
+        <h3>${product.name}</h3>
+        <p>${product.price} €</p>
+    </div>
+    <button onclick="event.preventDefault(); addToCart(${product.id})">Ajouter au panier</button>
+`;
         container.appendChild(prodDiv);
     });
 }

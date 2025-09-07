@@ -36,13 +36,31 @@ function displayProducts() {
     });
 }
 
+// ... (le reste de ton script.js)
+
 // Fonction pour afficher les détails d'un produit
 function showProductDetails(id) {
     const product = products.find(p => p.id === id);
     const container = document.getElementById("product-details");
+    
+    if (!product || !container) {
+        container.innerHTML = "<p>Produit non trouvé.</p>";
+        return;
+    }
+
+    // Crée la galerie d'images
+    let imageGalleryHTML = `<img id="main-product-image" src="${product.img}" alt="${product.name}">`;
+    if (product.gallery && product.gallery.length > 1) {
+        imageGalleryHTML += `<div class="thumbnail-gallery">`;
+        product.gallery.forEach((imgSrc, index) => {
+            imageGalleryHTML += `<img src="${imgSrc}" alt="${product.name} vue ${index + 1}" class="thumbnail" onclick="changeMainImage('${imgSrc}')">`;
+        });
+        imageGalleryHTML += `</div>`;
+    }
+
     container.innerHTML = `
         <div class="product-image">
-            <img src="${product.img}" alt="${product.name}">
+            ${imageGalleryHTML}
         </div>
         <div class="product-info">
             <h2>${product.name}</h2>
@@ -53,6 +71,13 @@ function showProductDetails(id) {
     `;
     showSection('product-details-section');
 }
+
+// Nouvelle fonction pour changer l'image principale au clic sur une miniature
+function changeMainImage(newSrc) {
+    document.getElementById('main-product-image').src = newSrc;
+}
+
+// ... (le reste de ton script.js)
 
 // Fonctions du panier (à conserver de ton code précédent)
 function addToCart(id) {

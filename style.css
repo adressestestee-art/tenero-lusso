@@ -1,14 +1,14 @@
-/* Définition des variables */
+/* Définition des variables pour un thème sombre */
 :root {
-    --primary-bg: #FFFFFF;
-    --secondary-bg: #F5F5F5;
-    --text-dark: #333333;
-    --text-medium: #666666;
-    --accent-gold: #B8860B;
+    --primary-bg: #1A1A1A; /* Un noir très foncé pour le fond principal */
+    --secondary-bg: #2C2C2C; /* Un gris sombre pour les cartes et les sections */
+    --text-dark: #FFFFFF; /* Texte principal en blanc pour le contraste */
+    --text-medium: #DDDDDD; /* Gris clair pour les descriptions */
+    --accent-gold: #B8860B; /* La couleur or reste la même */
     --accent-gold-hover: #D4AF37;
-    --border-color: #DDDDDD;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --hero-text-color: #FFFFFF;
+    --border-color: #444444; /* Une couleur de bordure plus discrète */
+    --shadow-color: rgba(0, 0, 0, 0.5); /* Des ombres plus prononcées pour la profondeur */
+    --hero-text-color: #FFFFFF; /* Le texte sur la page d'accueil reste blanc */
 }
 
 /* Styles généraux */

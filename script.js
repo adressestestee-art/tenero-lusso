@@ -8,14 +8,37 @@ const products = [
 
 let cart = [];
 
-// Fonctions pour gérer les sections
 function showSection(sectionId) {
+    // Cache toutes les sections
     document.getElementById('shop-section').classList.add('hidden');
     document.getElementById('product-details-section').classList.add('hidden');
     document.getElementById('about-section').classList.add('hidden');
     document.getElementById('contact-section').classList.add('hidden');
+    document.getElementById('cart-section').classList.add('hidden'); // Ajoute cette ligne
+    
+    // Affiche la section demandée
     document.getElementById(sectionId).classList.remove('hidden');
 }
+
+// Gère le clic sur le logo "TENERO LUSSO"
+document.getElementById('home-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});
+
+// Gère le clic sur le lien "Retour à la boutique" depuis la page de détails
+document.getElementById('back-to-shop-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});
+
+// Gère le clic sur le lien "Retour à la boutique" depuis la page du panier (si tu as créé un ID différent)
+document.getElementById('back-to-shop-from-cart').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});
+
+// ... et les autres écouteurs pour "À propos", "Contact", etc.
 
 // Fonction pour afficher la page d'accueil avec les produits
 function displayProducts() {

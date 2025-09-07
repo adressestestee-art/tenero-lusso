@@ -278,3 +278,31 @@ document.addEventListener('DOMContentLoaded', () => {
     setupProductGallery();
     setupFadeInOnScroll(); /* Ajoute cette ligne */
 });
+// Fonction pour charger les détails d'un produit
+function loadProductDetails() {
+    const productDetailsContainer = document.querySelector('.product-details-container');
+    if (!productDetailsContainer) return;
+
+    const products = [
+        { id: '1', name: 'Veste en Cuir Élégante', price: '499,99 €', description: 'Confectionnée à la main avec un cuir de première qualité, cette veste allie l\'héritage du streetwear et un savoir-faire artisanal. Une pièce intemporelle pour un style affirmé.', image: 'images/vetement_1.jpg' },
+        { id: '2', name: 'Pantalon Cargo Moderne', price: '129,99 €', description: 'Un pantalon polyvalent, pensé pour le mouvement et le confort. Ses multiples poches et sa coupe contemporaine en font un indispensable de votre dressing.', image: 'images/vetement_2.jpg' },
+        { id: '3', name: 'Sweat à Capuche Luxueux', price: '89,99 €', description: 'Le parfait équilibre entre confort et élégance. Fabriqué en coton ultra-doux, ce sweat est rehaussé de détails discrets qui le rendent unique.', image: 'images/vetement_3.jpg' },
+        { id: '4', name: 'T-shirt Basique Sophistiqué', price: '49,99 €', description: 'Un classique revisité pour une qualité irréprochable. Ce T-shirt est coupé dans un jersey de coton épais, offrant un tombé parfait et une durabilité exceptionnelle.', image: 'images/vetement_4.jpg' },
+        { id: '5', name: 'Baskets Urbaines Premium', price: '159,99 €', description: 'Légères et robustes, ces baskets sont conçues pour la vie urbaine. Leur design minimaliste s\'associe à une semelle amortissante pour un confort absolu.', image: 'images/vetement_5.jpg' },
+        { id: '6', name: 'Casquette Brodée Signature', price: '39,99 €', description: 'Une casquette qui exprime votre style avec élégance. Confectionnée dans un twill de coton, elle arbore un logo brodé pour une finition soignée.', image: 'images/vetement_6.jpg' },
+    ];
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    const product = products.find(p => p.id === productId);
+
+    if (product) {
+        document.querySelector('.product-info h2').textContent = product.name;
+        document.querySelector('.product-info .price').textContent = product.price;
+        document.querySelector('.product-info .description').textContent = product.description;
+        document.getElementById('main-product-image').src = product.image;
+    } else {
+        productDetailsContainer.innerHTML = '<h2>Produit non trouvé</h2>';
+    }
+}

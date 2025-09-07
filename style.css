@@ -1,26 +1,27 @@
-/* Définition des variables pour un thème sombre */
+/* Définition des variables pour un thème LUXUEUX */
 :root {
-    --primary-bg: #1A1A1A; /* Un noir très foncé pour le fond principal */
-    --secondary-bg: #2C2C2C; /* Un gris sombre pour les cartes et les sections */
-    --text-dark: #FFFFFF; /* Texte principal en blanc pour le contraste */
-    --text-medium: #DDDDDD; /* Gris clair pour les descriptions */
-    --accent-gold: #B8860B; /* La couleur or reste la même */
-    --accent-gold-hover: #D4AF37;
-    --border-color: #444444; /* Une couleur de bordure plus discrète */
-    --shadow-color: rgba(0, 0, 0, 0.5); /* Des ombres plus prononcées pour la profondeur */
-    --hero-text-color: #FFFFFF; /* Le texte sur la page d'accueil reste blanc */
+    --primary-bg: #0F0F0F; /* Noir ultra profond pour le fond principal */
+    --secondary-bg: #1C1C1C; /* Gris charbon pour les cartes et sections */
+    --text-light: #F0F0F0; /* Blanc cassé pour le texte principal */
+    --text-medium: #B0B0B0; /* Gris clair élégant pour les descriptions */
+    --accent-gold: #B8860B; /* Or riche */
+    --accent-gold-hover: #D4AF37; /* Or plus lumineux au survol */
+    --border-color: #383838; /* Bordures sombres et discrètes */
+    --shadow-color-dark: rgba(0, 0, 0, 0.7); /* Ombre profonde pour la 3D */
+    --shadow-color-light: rgba(0, 0, 0, 0.3); /* Ombre plus légère */
+    --hero-text-color: #FFFFFF; /* Texte du carrousel en blanc pur */
 }
 
 /* Styles généraux */
 body {
-    font-family: 'Crimson Text', serif;
+    font-family: 'Crimson Text', serif; /* Police élégante pour le corps */
     margin: 0;
     padding: 0;
     background-color: var(--primary-bg);
-    color: var(--text-dark);
-    line-height: 1.7;
+    color: var(--text-light); /* Texte clair par défaut */
+    line-height: 1.8; /* Espacement de ligne généreux */
     font-weight: 300;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out; /* Animation plus douce */
 }
 
 @keyframes fadeIn {
@@ -37,7 +38,7 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4); /* Voile plus prononcé pour le luxe */
 }
 
 .carousel-bg img {
@@ -48,7 +49,7 @@ body {
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    transition: opacity 2s ease-in-out; /* Transition plus longue et douce */
 }
 
 .carousel-bg img.active {
@@ -58,7 +59,7 @@ body {
 /* En-tête et menu déroulant */
 header {
     background-color: transparent;
-    padding: 30px 60px;
+    padding: 40px 80px; /* Padding généreux */
     border-bottom: none;
     position: absolute;
     width: 100%;
@@ -69,7 +70,7 @@ header {
 }
 
 body:not(.homepage) header {
-    background-color: var(--primary-bg);
+    background-color: var(--primary-bg); /* Fond sombre pour les autres pages */
     border-bottom: 1px solid var(--border-color);
     position: relative;
 }
@@ -82,14 +83,14 @@ nav {
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Police Montserrat pour le logo */
     font-weight: 700;
-    font-size: 2em;
+    font-size: 2.5em; /* Logo plus grand */
     color: var(--hero-text-color);
     text-decoration: none;
-    letter-spacing: 4px;
+    letter-spacing: 5px; /* Espacement plus large */
     text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    text-shadow: 1px 1px 4px var(--shadow-color-dark); /* Ombre profonde */
 }
 
 body:not(.homepage) .logo {
@@ -100,8 +101,8 @@ body:not(.homepage) .logo {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 40px;
-    transition: all 0.3s ease-in-out;
+    gap: 50px; /* Espacement plus large */
+    transition: all 0.4s ease-in-out;
 }
 
 .nav-links a {
@@ -110,14 +111,14 @@ body:not(.homepage) .logo {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.2s ease;
-    padding: 5px 0;
+    padding: 8px 0; /* Padding accru */
     position: relative;
-    font-size: 1.1em;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1.2em; /* Taille de police plus grande */
+    text-shadow: 1px 1px 3px var(--shadow-color-light); /* Ombre légère */
 }
 
 body:not(.homepage) .nav-links a {
-    color: var(--text-dark);
+    color: var(--text-light);
     text-shadow: none;
 }
 
@@ -125,7 +126,7 @@ body:not(.homepage) .nav-links a {
     content: '';
     position: absolute;
     width: 0;
-    height: 1px;
+    height: 2px; /* Ligne plus épaisse */
     bottom: 0;
     left: 0;
     background-color: var(--accent-gold);
@@ -134,7 +135,7 @@ body:not(.homepage) .nav-links a {
 
 .nav-links a:hover {
     color: var(--accent-gold-hover);
-    transform: translateY(-2px);
+    transform: translateY(-3px); /* Effet plus prononcé */
 }
 .nav-links a:hover::after {
     width: 100%;
@@ -142,13 +143,13 @@ body:not(.homepage) .nav-links a {
 
 .cart-icon {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em;
+    font-size: 1.2em;
     color: var(--hero-text-color);
     cursor: pointer;
     font-weight: 500;
     letter-spacing: 1px;
     transition: color 0.3s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 3px var(--shadow-color-light);
 }
 .cart-icon:hover {
     color: var(--accent-gold);
@@ -168,20 +169,27 @@ main {
 }
 
 body:not(.homepage) main {
-    padding: 80px 60px;
+    padding: 100px 80px; /* Padding encore plus généreux */
     display: flex;
     flex-wrap: wrap;
-    gap: 100px;
+    gap: 120px; /* Espacement accru */
+}
+
+.product-container {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Taille des cartes ajustée */
+    gap: 60px; /* Espacement accru */
 }
 
 /* Style des cartes produits */
 .product {
     background-color: var(--secondary-bg);
     padding: 0;
-    border-radius: 3px;
+    border-radius: 6px; /* Coins plus arrondis */
     text-align: left;
-    box-shadow: 0 8px 30px var(--shadow-color);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 12px 40px var(--shadow-color-dark); /* Ombre profonde et luxueuse */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     overflow: hidden;
     display: block;
     text-decoration: none;
@@ -189,81 +197,81 @@ body:not(.homepage) main {
 }
 
 .product:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px var(--shadow-color);
+    transform: translateY(-10px); /* Effet de survol plus marqué */
+    box-shadow: 0 18px 50px var(--shadow-color-dark); /* Ombre encore plus intense */
 }
 
 .product img {
     width: 100%;
-    height: 350px;
+    height: 400px; /* Hauteur des images produit plus grande */
     object-fit: cover;
     border-radius: 0;
     margin-bottom: 0;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease; /* Transition d'image plus douce */
 }
 .product:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08); /* Zoom plus prononcé */
 }
 
 .product-info-text {
-    padding: 20px;
+    padding: 25px; /* Padding accru */
 }
 
 .product h3 {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    font-size: 1.3em;
-    color: var(--text-dark);
+    font-size: 1.5em; /* Taille de titre plus grande */
+    color: var(--text-light);
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 .product p {
     font-family: 'Crimson Text', serif;
-    margin: 8px 0 20px;
+    margin: 10px 0 25px; /* Espacement accru */
     color: var(--text-medium);
     font-weight: 400;
-    font-size: 1.1em;
+    font-size: 1.2em; /* Taille de police accrue */
 }
 
 /* Style du bouton */
 button {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--accent-gold);
-    color: var(--primary-bg);
+    color: var(--primary-bg); /* Texte bouton en noir profond */
     border: none;
-    padding: 15px 30px;
+    padding: 18px 35px; /* Boutons plus grands */
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 4px; /* Coins légèrement arrondis */
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4); /* Ombre plus luxueuse */
 }
 
 button:hover {
     background-color: var(--accent-gold-hover);
     color: var(--primary-bg);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.7); /* Ombre plus intense */
 }
 
 /* Panier */
 .cart-container {
     flex: 1;
-    min-width: 300px;
+    min-width: 350px; /* Panier plus large */
     background-color: var(--secondary-bg);
-    padding: 30px;
-    border-radius: 3px;
-    box-shadow: 0 8px 30px var(--shadow-color);
+    padding: 40px; /* Padding accru */
+    border-radius: 6px;
+    box-shadow: 0 12px 40px var(--shadow-color-dark);
     align-self: flex-start;
-    animation: slideInFromRight 0.8s ease-out;
+    animation: slideInFromRight 0.9s ease-out; /* Animation plus douce */
 }
 
 @keyframes slideInFromRight {
     from {
-        transform: translateX(50px);
+        transform: translateX(80px); /* Décalage initial plus grand */
         opacity: 0;
     }
     to {
@@ -275,18 +283,18 @@ button:hover {
 .cart-container h2 {
     font-family: 'Montserrat', sans-serif;
     text-align: left;
-    color: var(--text-dark);
+    color: var(--text-light);
     margin-top: 0;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 15px;
+    padding-bottom: 20px; /* Padding accru */
     font-weight: 600;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 }
 
 #cart-items {
     list-style: none;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 30px; /* Marge accrue */
 }
 
 #cart-items li {
@@ -294,30 +302,30 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Marge accrue */
     color: var(--text-medium);
-    font-size: 1.05em;
+    font-size: 1.1em;
 }
 
 .total {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.3em;
+    font-size: 1.5em; /* Taille du total plus grande */
     font-weight: 700;
     text-align: right;
     border-top: 1px solid var(--border-color);
-    padding-top: 15px;
-    margin-top: 20px;
+    padding-top: 20px;
+    margin-top: 30px;
     color: var(--accent-gold);
 }
 
 /* Pied de page */
 footer {
     text-align: center;
-    padding: 30px;
+    padding: 40px; /* Padding accru */
     color: var(--text-medium);
     border-top: 1px solid var(--border-color);
     font-family: 'Crimson Text', serif;
-    font-size: 0.9em;
+    font-size: 1em;
     position: relative;
     z-index: 1;
     background-color: var(--primary-bg);
@@ -325,27 +333,27 @@ footer {
 
 /* Pages À propos et Contact */
 .page-content {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 40px;
+    max-width: 1000px; /* Largeur max accrue */
+    margin: 80px auto; /* Marge accrue */
+    padding: 60px; /* Padding accru */
     background-color: var(--secondary-bg);
-    border-radius: 3px;
-    box-shadow: 0 8px 30px var(--shadow-color);
-    animation: fadeInScale 0.8s ease-in-out;
+    border-radius: 8px; /* Coins plus arrondis */
+    box-shadow: 0 12px 40px var(--shadow-color-dark);
+    animation: fadeInScale 0.9s ease-in-out;
 }
 
 @keyframes fadeInScale {
-    from { opacity: 0; transform: scale(0.95); }
+    from { opacity: 0; transform: scale(0.97); } /* Effet de zoom plus subtil */
     to { opacity: 1; transform: scale(1); }
 }
 
 .page-content h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
+    font-size: 3.5em; /* Titre plus grand */
     color: var(--accent-gold);
     text-align: center;
-    margin-bottom: 40px;
-    letter-spacing: 3px;
+    margin-bottom: 50px; /* Marge accrue */
+    letter-spacing: 4px;
     font-weight: 600;
 }
 
@@ -355,40 +363,40 @@ footer {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    gap: 100px;
-    padding: 80px 60px;
-    animation: fadeInScale 0.8s ease-in-out;
+    gap: 120px; /* Espacement accru */
+    padding: 100px 80px;
+    animation: fadeInScale 0.9s ease-in-out;
 }
 
 .product-image img {
-    max-width: 550px;
+    max-width: 600px; /* Image produit plus large */
     height: auto;
-    border-radius: 3px;
-    box-shadow: 0 10px 40px var(--shadow-color);
+    border-radius: 6px;
+    box-shadow: 0 15px 50px var(--shadow-color-dark);
 }
 
 .product-info h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.5em;
+    font-size: 4em; /* Titre produit très grand */
     margin-top: 0;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: var(--accent-gold);
 }
 
 .product-info .price {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.2em;
-    color: var(--text-dark);
+    font-size: 2.5em; /* Prix plus grand */
+    color: var(--text-light);
     font-weight: 500;
-    margin-bottom: 30px;
+    margin-bottom: 40px; /* Marge accrue */
 }
 
 .product-info .description {
     font-family: 'Crimson Text', serif;
-    font-size: 1.2em;
-    line-height: 1.8;
-    margin-bottom: 40px;
+    font-size: 1.3em; /* Description plus grande */
+    line-height: 1.9;
+    margin-bottom: 50px;
     color: var(--text-medium);
     font-weight: 400;
 }
@@ -396,7 +404,7 @@ footer {
 .back-link {
     font-family: 'Montserrat', sans-serif;
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 40px; /* Marge accrue */
     color: var(--text-medium);
     text-decoration: none;
     font-weight: 500;
@@ -405,34 +413,34 @@ footer {
 
 .back-link:hover {
     color: var(--accent-gold-hover);
-    transform: translateX(-5px);
+    transform: translateX(-8px); /* Effet de survol plus prononcé */
 }
 
 /* Galerie d'images et ajustements */
 .thumbnail-gallery {
     display: flex;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 15px; /* Espacement accru */
+    margin-top: 25px;
     justify-content: center;
 }
 
 .thumbnail-gallery .thumbnail {
-    width: 80px;
-    height: 80px;
+    width: 90px; /* Vignettes plus grandes */
+    height: 90px;
     object-fit: cover;
     border: 1px solid var(--border-color);
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
     transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .thumbnail-gallery .thumbnail:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px); /* Effet de survol plus marqué */
     border-color: var(--accent-gold-hover);
 }
 
 .product-details-container .product-image img#main-product-image {
-    max-width: 550px;
+    max-width: 600px;
     height: auto;
     display: block;
     margin-bottom: 0;
@@ -449,41 +457,46 @@ footer {
     position: relative;
     z-index: 1;
     color: var(--hero-text-color);
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-    padding: 0 60px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Ombre très profonde */
+    padding: 0 80px;
     box-sizing: border-box;
 }
 
 .hero-content h1 {
-    font-size: 4.5em;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    font-size: 5.5em; /* Titre gigantesque */
+    margin-bottom: 25px;
+    line-height: 1.1;
     color: var(--hero-text-color);
+    font-weight: 700;
+    letter-spacing: 6px; /* Espacement des lettres très large */
+    text-transform: uppercase;
 }
 
 .hero-content p {
-    font-size: 1.6em;
-    margin-bottom: 40px;
+    font-size: 1.8em; /* Paragraphe plus grand */
+    margin-bottom: 50px;
     color: var(--hero-text-color);
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
 .cta-button {
     background-color: var(--accent-gold);
     color: var(--primary-bg);
-    padding: 18px 35px;
+    padding: 20px 40px; /* Bouton encore plus grand */
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 1.5px;
-    border-radius: 3px;
+    letter-spacing: 2px;
+    border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.5); /* Ombre plus intense */
 }
 
 .cta-button:hover {
     background-color: var(--accent-gold-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.6);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.8);
 }
 
 /* Style du menu déroulant */
@@ -491,22 +504,23 @@ footer {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 6px;
+    gap: 8px; /* Espacement des barres accru */
 }
 
 .menu-toggle .bar {
-    width: 25px;
-    height: 3px;
+    width: 30px; /* Barres plus larges */
+    height: 4px; /* Barres plus épaisses */
     background-color: white;
     transition: all 0.3s ease-in-out;
 }
 
 @media (max-width: 768px) {
     header {
-        padding: 20px;
+        padding: 20px 30px;
     }
     .logo {
-        font-size: 1.5em;
+        font-size: 2em;
+        letter-spacing: 3px;
     }
     .menu-toggle {
         display: flex;
@@ -518,9 +532,9 @@ footer {
         top: 100%;
         left: 0;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.9); /* Fond du menu mobile plus opaque */
         width: 100%;
-        padding: 20px 0;
+        padding: 30px 0;
         box-sizing: border-box;
     }
 
@@ -530,58 +544,47 @@ footer {
 
     .nav-links a {
         text-align: center;
-        margin: 10px 0;
-        font-size: 1.2em;
+        margin: 15px 0;
+        font-size: 1.3em;
     }
 
     .hero-content {
-        padding: 0 20px;
+        padding: 0 30px;
     }
     .hero-content h1 {
-        font-size: 2.5em;
+        font-size: 3.5em;
+        letter-spacing: 4px;
     }
     .hero-content p {
-        font-size: 1.1em;
+        font-size: 1.3em;
     }
 
     main {
-        padding: 40px 20px;
+        padding: 60px 30px;
     }
-}
-/* ==================================== */
-/* Styles pour la page Boutique */
-/* ==================================== */
-
-.boutique-page body {
-    background-color: var(--secondary-bg); /* Un fond gris très clair */
-    color: var(--text-dark); /* Texte en noir */
-}
-
-.boutique-page .page-content {
-    background-color: var(--primary-bg); /* Un fond blanc pour le contenu */
-    padding: 60px 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Une ombre légère pour la profondeur */
-    border-radius: 8px;
-}
-
-.boutique-page header {
-    background-color: var(--primary-bg);
-    border-bottom: 1px solid var(--border-color);
-    position: relative;
-}
-
-.boutique-page .logo {
-    color: var(--accent-gold); /* Le logo reste en or */
-    text-shadow: none;
-}
-
-.boutique-page .nav-links a,
-.boutique-page .cart-icon {
-    color: var(--text-dark); /* Les liens de navigation deviennent sombres */
-    text-shadow: none;
-}
-
-.boutique-page footer {
-    background-color: var(--primary-bg);
-    border-top: 1px solid var(--border-color);
+    .product-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .product img {
+        height: 300px;
+    }
+    .cart-container {
+        min-width: unset;
+        width: 100%;
+    }
+    .product-details-container {
+        flex-direction: column;
+        gap: 60px;
+        padding: 60px 30px;
+    }
+    .product-image img {
+        max-width: 100%;
+    }
+    .product-info h2 {
+        font-size: 3em;
+    }
+    .product-info .price {
+        font-size: 2em;
+    }
 }

@@ -222,7 +222,20 @@ function setupDropdownMenu() {
         });
     }
 }
+// Fonction pour la galerie de vignettes produits
+function setupProductGallery() {
+    const mainImage = document.getElementById('main-product-image');
+    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
 
+    if (mainImage && thumbnails.length > 0) {
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                const newImageSrc = thumbnail.src.replace('_thumb.jpg', '.jpg');
+                mainImage.src = newImageSrc;
+            });
+        });
+    }
+}
 // Exécution des fonctions au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
     // ... tes fonctions existantes (updateCartCount, displayProducts, etc.)

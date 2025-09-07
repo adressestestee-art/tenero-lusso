@@ -591,3 +591,15 @@ footer {
         font-size: 2em;
     }
 }
+/* Style pour les liens de produits */
+.product-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Permet au lien de couvrir toute la section */
+}
+
+.product-link:hover .product-image {
+    /* Ajoute un effet de survol si tu le souhaites, par exemple un léger agrandissement */
+    transform: scale(1.03);
+    transition: transform 0.3s ease;
+}

@@ -236,9 +236,31 @@ function setupProductGallery() {
         });
     }
 }
-// Exécution des fonctions au chargement de la page
+// Fonction pour les animations d'apparition progressives
+function setupFadeInOnScroll() {
+    const fadeElements = document.querySelectorAll('.product, .product-details-container, .page-content');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(50px)';
+        element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        observer.observe(element);
+    });
+}
 document.addEventListener('DOMContentLoaded', () => {
-    // ... tes fonctions existantes (updateCartCount, displayProducts, etc.)
+    // ... tes fonctions existantes
     startCarousel();
     setupDropdownMenu();
+    setupProductGallery();
+    setupFadeInOnScroll(); /* Ajoute cette ligne */
 });

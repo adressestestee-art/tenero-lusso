@@ -4,7 +4,7 @@
     --secondary-bg: #1C1C1C; /* Gris charbon pour les cartes et sections */
     --text-light: #F0F0F0; /* Blanc cassé pour le texte principal */
     --text-medium: #B0B0B0; /* Gris clair élégant pour les descriptions */
-   --accent-gold: #C0C0C0; /* Couleur argent / champagne */
+    --accent-gold: #C0C0C0; /* Couleur argent / champagne */
     --accent-gold-hover: #E0E0E0; /* Argent plus lumineux au survol */
     --border-color: #383838; /* Bordures sombres et discrètes */
     --shadow-color-dark: rgba(0, 0, 0, 0.7); /* Ombre profonde pour la 3D */
@@ -184,43 +184,57 @@ body:not(.homepage) main {
 
 /* Style des cartes produits */
 .product {
-    background-color: var(--secondary-bg);
+    background-color: transparent;
     padding: 0;
-    border-radius: 6px; /* Coins plus arrondis */
+    border-radius: 6px;
     text-align: left;
-    box-shadow: 0 12px 40px var(--shadow-color-dark); /* Ombre profonde et luxueuse */
+    box-shadow: 0 12px 40px var(--shadow-color-dark);
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     overflow: hidden;
     display: block;
     text-decoration: none;
     color: inherit;
+    position: relative;
 }
 
 .product:hover {
-    transform: translateY(-10px); /* Effet de survol plus marqué */
-    box-shadow: 0 18px 50px var(--shadow-color-dark); /* Ombre encore plus intense */
+    transform: translateY(-10px);
+    box-shadow: 0 18px 50px var(--shadow-color-dark);
 }
 
 .product img {
     width: 100%;
-    height: 400px; /* Hauteur des images produit plus grande */
+    height: 400px;
     object-fit: cover;
     border-radius: 0;
     margin-bottom: 0;
-    transition: transform 0.6s ease; /* Transition d'image plus douce */
+    transition: transform 0.6s ease;
 }
 .product:hover img {
-    transform: scale(1.08); /* Zoom plus prononcé */
+    transform: scale(1.08);
 }
 
 .product-info-text {
-    padding: 25px; /* Padding accru */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+}
+
+.product:hover .product-info-text {
+    transform: translateY(0);
 }
 
 .product h3 {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    font-size: 1.5em; /* Taille de titre plus grande */
+    font-size: 1.5em;
     color: var(--text-light);
     font-weight: 600;
     letter-spacing: 1.5px;
@@ -228,50 +242,39 @@ body:not(.homepage) main {
 
 .product p {
     font-family: 'Crimson Text', serif;
-    margin: 10px 0 25px; /* Espacement accru */
+    margin: 10px 0 0;
     color: var(--text-medium);
     font-weight: 400;
-    font-size: 1.2em; /* Taille de police accrue */
+    font-size: 1.2em;
 }
 
-/* Style du bouton */
-button {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--accent-gold);
-    color: var(--primary-bg); /* Texte bouton en noir profond */
-    border: none;
-    padding: 18px 35px; /* Boutons plus grands */
-    cursor: pointer;
-    border-radius: 4px; /* Coins légèrement arrondis */
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.4); /* Ombre plus luxueuse */
+.add-to-cart-btn {
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-button:hover {
-    background-color: var(--accent-gold-hover);
-    color: var(--primary-bg);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.7); /* Ombre plus intense */
+.product:hover .add-to-cart-btn {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Panier */
 .cart-container {
     flex: 1;
-    min-width: 350px; /* Panier plus large */
+    min-width: 350px;
     background-color: var(--secondary-bg);
-    padding: 40px; /* Padding accru */
+    padding: 40px;
     border-radius: 6px;
     box-shadow: 0 12px 40px var(--shadow-color-dark);
     align-self: flex-start;
-    animation: slideInFromRight 0.9s ease-out; /* Animation plus douce */
+    animation: slideInFromRight 0.9s ease-out;
 }
 
 @keyframes slideInFromRight {
     from {
-        transform: translateX(80px); /* Décalage initial plus grand */
+        transform: translateX(80px);
         opacity: 0;
     }
     to {
@@ -286,7 +289,7 @@ button:hover {
     color: var(--text-light);
     margin-top: 0;
     border-bottom: 1px solid var(--border-color);
-    padding-bottom: 20px; /* Padding accru */
+    padding-bottom: 20px;
     font-weight: 600;
     letter-spacing: 1.5px;
 }
@@ -294,7 +297,7 @@ button:hover {
 #cart-items {
     list-style: none;
     padding: 0;
-    margin-top: 30px; /* Marge accrue */
+    margin-top: 30px;
 }
 
 #cart-items li {
@@ -302,14 +305,14 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px; /* Marge accrue */
+    margin-bottom: 20px;
     color: var(--text-medium);
     font-size: 1.1em;
 }
 
 .total {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em; /* Taille du total plus grande */
+    font-size: 1.5em;
     font-weight: 700;
     text-align: right;
     border-top: 1px solid var(--border-color);
@@ -321,7 +324,7 @@ button:hover {
 /* Pied de page */
 footer {
     text-align: center;
-    padding: 40px; /* Padding accru */
+    padding: 40px;
     color: var(--text-medium);
     border-top: 1px solid var(--border-color);
     font-family: 'Crimson Text', serif;
@@ -333,26 +336,26 @@ footer {
 
 /* Pages À propos et Contact */
 .page-content {
-    max-width: 1000px; /* Largeur max accrue */
-    margin: 80px auto; /* Marge accrue */
-    padding: 60px; /* Padding accru */
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 60px;
     background-color: var(--secondary-bg);
-    border-radius: 8px; /* Coins plus arrondis */
+    border-radius: 8px;
     box-shadow: 0 12px 40px var(--shadow-color-dark);
     animation: fadeInScale 0.9s ease-in-out;
 }
 
 @keyframes fadeInScale {
-    from { opacity: 0; transform: scale(0.97); } /* Effet de zoom plus subtil */
+    from { opacity: 0; transform: scale(0.97); }
     to { opacity: 1; transform: scale(1); }
 }
 
 .page-content h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.5em; /* Titre plus grand */
+    font-size: 3.5em;
     color: var(--accent-gold);
     text-align: center;
-    margin-bottom: 50px; /* Marge accrue */
+    margin-bottom: 50px;
     letter-spacing: 4px;
     font-weight: 600;
 }
@@ -363,13 +366,13 @@ footer {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: center;
-    gap: 120px; /* Espacement accru */
+    gap: 120px;
     padding: 100px 80px;
     animation: fadeInScale 0.9s ease-in-out;
 }
 
 .product-image img {
-    max-width: 600px; /* Image produit plus large */
+    max-width: 600px;
     height: auto;
     border-radius: 6px;
     box-shadow: 0 15px 50px var(--shadow-color-dark);
@@ -377,7 +380,7 @@ footer {
 
 .product-info h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4em; /* Titre produit très grand */
+    font-size: 4em;
     margin-top: 0;
     font-weight: 700;
     letter-spacing: 3px;
@@ -386,15 +389,15 @@ footer {
 
 .product-info .price {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em; /* Prix plus grand */
+    font-size: 2.5em;
     color: var(--text-light);
     font-weight: 500;
-    margin-bottom: 40px; /* Marge accrue */
+    margin-bottom: 40px;
 }
 
 .product-info .description {
     font-family: 'Crimson Text', serif;
-    font-size: 1.3em; /* Description plus grande */
+    font-size: 1.3em;
     line-height: 1.9;
     margin-bottom: 50px;
     color: var(--text-medium);
@@ -404,7 +407,7 @@ footer {
 .back-link {
     font-family: 'Montserrat', sans-serif;
     display: inline-block;
-    margin-top: 40px; /* Marge accrue */
+    margin-top: 40px;
     color: var(--text-medium);
     text-decoration: none;
     font-weight: 500;
@@ -413,19 +416,19 @@ footer {
 
 .back-link:hover {
     color: var(--accent-gold-hover);
-    transform: translateX(-8px); /* Effet de survol plus prononcé */
+    transform: translateX(-8px);
 }
 
 /* Galerie d'images et ajustements */
 .thumbnail-gallery {
     display: flex;
-    gap: 15px; /* Espacement accru */
+    gap: 15px;
     margin-top: 25px;
     justify-content: center;
 }
 
 .thumbnail-gallery .thumbnail {
-    width: 90px; /* Vignettes plus grandes */
+    width: 90px;
     height: 90px;
     object-fit: cover;
     border: 1px solid var(--border-color);
@@ -435,7 +438,7 @@ footer {
 }
 
 .thumbnail-gallery .thumbnail:hover {
-    transform: translateY(-5px); /* Effet de survol plus marqué */
+    transform: translateY(-5px);
     border-color: var(--accent-gold-hover);
 }
 
@@ -457,23 +460,23 @@ footer {
     position: relative;
     z-index: 1;
     color: var(--hero-text-color);
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9); /* Ombre très profonde */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
     padding: 0 80px;
     box-sizing: border-box;
 }
 
 .hero-content h1 {
-    font-size: 5.5em; /* Titre gigantesque */
+    font-size: 5.5em;
     margin-bottom: 25px;
     line-height: 1.1;
     color: var(--hero-text-color);
     font-weight: 700;
-    letter-spacing: 6px; /* Espacement des lettres très large */
+    letter-spacing: 6px;
     text-transform: uppercase;
 }
 
 .hero-content p {
-    font-size: 1.8em; /* Paragraphe plus grand */
+    font-size: 1.8em;
     margin-bottom: 50px;
     color: var(--hero-text-color);
     font-weight: 400;
@@ -483,14 +486,14 @@ footer {
 .cta-button {
     background-color: var(--accent-gold);
     color: var(--primary-bg);
-    padding: 20px 40px; /* Bouton encore plus grand */
+    padding: 20px 40px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 2px;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.5); /* Ombre plus intense */
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.5);
 }
 
 .cta-button:hover {
@@ -504,12 +507,12 @@ footer {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    gap: 8px; /* Espacement des barres accru */
+    gap: 8px;
 }
 
 .menu-toggle .bar {
-    width: 30px; /* Barres plus larges */
-    height: 4px; /* Barres plus épaisses */
+    width: 30px;
+    height: 4px;
     background-color: white;
     transition: all 0.3s ease-in-out;
 }
@@ -532,7 +535,7 @@ footer {
         top: 100%;
         left: 0;
         flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.9); /* Fond du menu mobile plus opaque */
+        background-color: rgba(0, 0, 0, 0.9);
         width: 100%;
         padding: 30px 0;
         box-sizing: border-box;
@@ -587,95 +590,4 @@ footer {
     .product-info .price {
         font-size: 2em;
     }
-}
-/* ==================================== */
-/* Styles de la page de détails produit */
-/* ==================================== */
-
-.product-details-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 120px; /* Espacement accru */
-    padding: 100px 80px;
-    animation: fadeInScale 0.9s ease-in-out;
-}
-
-.product-image img {
-    max-width: 600px; /* Image produit plus large */
-    height: auto;
-    border-radius: 6px;
-    box-shadow: 0 15px 50px var(--shadow-color-dark);
-}
-
-.product-info h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 4em; /* Titre produit très grand */
-    margin-top: 0;
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: var(--accent-gold);
-}
-
-.product-info .price {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5em; /* Prix plus grand */
-    color: var(--text-light);
-    font-weight: 500;
-    margin-bottom: 40px; /* Marge accrue */
-}
-
-.product-info .description {
-    font-family: 'Crimson Text', serif;
-    font-size: 1.3em; /* Description plus grande */
-    line-height: 1.9;
-    margin-bottom: 50px;
-    color: var(--text-medium);
-    font-weight: 400;
-}
-
-.back-link {
-    font-family: 'Montserrat', sans-serif;
-    display: inline-block;
-    margin-top: 40px; /* Marge accrue */
-    color: var(--text-medium);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.back-link:hover {
-    color: var(--accent-gold-hover);
-    transform: translateX(-8px); /* Effet de survol plus prononcé */
-}
-
-/* Galerie d'images et ajustements */
-.thumbnail-gallery {
-    display: flex;
-    gap: 15px; /* Espacement accru */
-    margin-top: 25px;
-    justify-content: center;
-}
-
-.thumbnail-gallery .thumbnail {
-    width: 90px; /* Vignettes plus grandes */
-    height: 90px;
-    object-fit: cover;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.thumbnail-gallery .thumbnail:hover {
-    transform: translateY(-5px); /* Effet de survol plus marqué */
-    border-color: var(--accent-gold-hover);
-}
-
-.product-details-container .product-image img#main-product-image {
-    max-width: 600px;
-    height: auto;
-    display: block;
-    margin-bottom: 0;
 }

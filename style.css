@@ -1,14 +1,13 @@
 /* Définition des variables */
 :root {
-    --primary-bg: #0A0A0A;
-    --secondary-bg: #1A1A1A;
-    --text-light: #E0E0E0;
-    --text-medium: #B0B0B0;
-    --text-dark: #666666;
+    --primary-bg: #FFFFFF;
+    --secondary-bg: #F5F5F5;
+    --text-dark: #333333;
+    --text-medium: #666666;
     --accent-gold: #B8860B;
     --accent-gold-hover: #D4AF37;
-    --border-color: #282828;
-    --shadow-color: rgba(0, 0, 0, 0.4);
+    --border-color: #DDDDDD;
+    --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 /* Styles généraux */
@@ -17,7 +16,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--primary-bg);
-    color: var(--text-light);
+    color: var(--text-dark);
     line-height: 1.7;
     font-weight: 300;
     animation: fadeIn 1s ease-in-out;
@@ -49,7 +48,6 @@ nav {
     text-decoration: none;
     letter-spacing: 4px;
     text-transform: uppercase;
-    text-shadow: 0 0 5px rgba(184, 134, 11, 0.4);
 }
 
 .nav-links {
@@ -60,7 +58,7 @@ nav {
 
 .nav-links a {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-light);
+    color: var(--text-dark);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.2s ease;
@@ -154,7 +152,7 @@ main {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     font-size: 1.3em;
-    color: var(--text-light);
+    color: var(--text-dark);
     font-weight: 600;
     letter-spacing: 1px;
 }
@@ -217,7 +215,7 @@ button:hover {
 .cart-container h2 {
     font-family: 'Montserrat', sans-serif;
     text-align: left;
-    color: var(--text-light);
+    color: var(--text-dark);
     margin-top: 0;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 15px;
@@ -256,7 +254,7 @@ button:hover {
 footer {
     text-align: center;
     padding: 30px;
-    color: var(--text-dark);
+    color: var(--text-medium);
     border-top: 1px solid var(--border-color);
     font-family: 'Crimson Text', serif;
     font-size: 0.9em;
@@ -318,7 +316,7 @@ footer {
 .product-info .price {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.2em;
-    color: var(--text-light);
+    color: var(--text-dark);
     font-weight: 500;
     margin-bottom: 30px;
 }
@@ -329,4 +327,86 @@ footer {
     line-height: 1.8;
     margin-bottom: 40px;
     color: var(--text-medium);
-    font
+    font-weight: 400;
+}
+
+.back-link {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    margin-top: 30px;
+    color: var(--text-medium);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--accent-gold-hover);
+    transform: translateX(-5px);
+}
+
+/* Galerie d'images et ajustements */
+.thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.thumbnail-gallery .thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.thumbnail-gallery .thumbnail:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-gold-hover);
+}
+
+.product-details-container .product-image img#main-product-image {
+    max-width: 550px;
+    height: auto;
+    display: block;
+    margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header, main, footer {
+        padding: 20px;
+    }
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+    .logo {
+        font-size: 1.5em;
+    }
+    main {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 20px;
+    }
+    .product-container {
+        grid-template-columns: 1fr;
+    }
+    .product-details-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 20px;
+    }
+    .product-image img {
+        max-width: 100%;
+    }
+    .product-info h2 {
+        font-size: 2.5em;
+    }
+}

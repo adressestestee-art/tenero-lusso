@@ -422,4 +422,7 @@ footer {
     align-self: flex-start;
     animation: slideInFromRight 0.8s ease-out; /* <-- On garde cette belle animation */
 }
+    .hidden {
+    display: none;
+}
 }

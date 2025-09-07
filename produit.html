@@ -7,11 +7,17 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="product-detail-page">
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
+            <div class="menu-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
             <div class="nav-links">
+                <a href="boutique.html">Boutique</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
                 <a href="panier.html">Panier (<span id="cart-count">0</span>)</a>
@@ -20,32 +26,22 @@
     </header>
 
     <main>
-   // Fonction pour charger les détails d'un produit
-function loadProductDetails() {
-    const productDetailsContainer = document.querySelector('.product-details-container');
-    if (!productDetailsContainer) return;
-
-    const products = [
-        // Ajout des descriptions et des images pour les deux produits
-        { id: '3', name: 'Sweat à Capuche Luxueux', price: '19,99 €', description: 'Le parfait équilibre entre confort et élégance. Fabriqué en coton ultra-doux, ce sweat est rehaussé de détails discrets qui le rendent unique.', image: 'images/vetement_3.jpg' },
-        { id: '4', name: 'T-shirt Basique Sophistiqué', price: '19,99 €', description: 'Un classique revisité pour une qualité irréprochable. Ce T-shirt est coupé dans un jersey de coton épais, offrant un tombé parfait et une durabilité exceptionnelle.', image: 'images/vetement_4.jpg' }
-    ];
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
-
-    const product = products.find(p => p.id === productId);
-
-    if (product) {
-        document.querySelector('.product-info h2').textContent = product.name;
-        document.querySelector('.product-info .price').textContent = product.price;
-        document.querySelector('.product-info .description').textContent = product.description;
-        document.getElementById('main-product-image').src = product.image;
-    } else {
-        productDetailsContainer.innerHTML = '<h2>Produit non trouvé</h2>';
-    }
-}
-</main>
+        <section class="product-details-container">
+            <div class="product-image">
+                <img id="main-product-image" src="" alt="">
+                <div class="thumbnail-gallery">
+                    <img class="thumbnail" src="" alt="">
+                    <img class="thumbnail" src="" alt="">
+                </div>
+            </div>
+            <div class="product-info">
+                <h2></h2>
+                <p class="price"></p>
+                <p class="description"></p>
+                <button class="add-to-cart-btn">Ajouter au panier</button>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2025 Tenero Lusso</p>

@@ -10,7 +10,7 @@ function setupDropdownMenu() {
     }
 }
 
-// Données des produits
+// Données des produits (pour la page produit.html)
 const products = [
     {
         id: '1',
@@ -30,7 +30,7 @@ const products = [
     }
 ];
 
-// Fonction pour charger les détails d'un produit
+// Fonction pour charger les détails d'un produit (sur la page produit.html)
 function loadProductDetails() {
     const productDetailsContainer = document.querySelector('.product-details-container');
     if (!productDetailsContainer) return;
@@ -51,12 +51,15 @@ function loadProductDetails() {
         mainImage.src = product.image;
         mainImage.alt = product.name;
 
-        thumbnails[0].src = product.image;
-        thumbnails[0].alt = `${product.name} - Vue de face`;
-        thumbnails[1].src = product.imageAlt;
-        thumbnails[1].alt = `${product.name} - Vue de dos`;
+        if (thumbnails[0]) {
+            thumbnails[0].src = product.image;
+            thumbnails[0].alt = `${product.name} - Vue de face`;
+        }
+        if (thumbnails[1]) {
+            thumbnails[1].src = product.imageAlt;
+            thumbnails[1].alt = `${product.name} - Vue de dos`;
+        }
 
-        // Gérer le clic sur les vignettes pour changer l'image principale
         thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener('click', () => {
                 mainImage.src = thumbnail.src;

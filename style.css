@@ -1,27 +1,27 @@
 /* Définition des variables pour un thème LUXUEUX */
 :root {
-    --primary-bg: #0F0F0F; /* Noir ultra profond pour le fond principal */
-    --secondary-bg: #1C1C1C; /* Gris charbon pour les cartes et sections */
-    --text-light: #F0F0F0; /* Blanc cassé pour le texte principal */
-    --text-medium: #B0B0B0; /* Gris clair élégant pour les descriptions */
-    --accent-gold: #C0C0C0; /* Couleur argent / champagne */
-    --accent-gold-hover: #E0E0E0; /* Argent plus lumineux au survol */
-    --border-color: #383838; /* Bordures sombres et discrètes */
-    --shadow-color-dark: rgba(0, 0, 0, 0.7); /* Ombre profonde pour la 3D */
-    --shadow-color-light: rgba(0, 0, 0, 0.3); /* Ombre plus légère */
-    --hero-text-color: #FFFFFF; /* Texte du carrousel en blanc pur */
+    --primary-bg: #0F0F0F;
+    --secondary-bg: #1C1C1C;
+    --text-light: #F0F0F0;
+    --text-medium: #B0B0B0;
+    --accent-gold: #C0C0C0;
+    --accent-gold-hover: #E0E0E0;
+    --border-color: #383838;
+    --shadow-color-dark: rgba(0, 0, 0, 0.7);
+    --shadow-color-light: rgba(0, 0, 0, 0.3);
+    --hero-text-color: #FFFFFF;
 }
 
 /* Styles généraux */
 body {
-    font-family: 'Crimson Text', serif; /* Police élégante pour le corps */
+    font-family: 'Crimson Text', serif;
     margin: 0;
     padding: 0;
     background-color: var(--primary-bg);
-    color: var(--text-light); /* Texte clair par défaut */
-    line-height: 1.8; /* Espacement de ligne généreux */
+    color: var(--text-light);
+    line-height: 1.8;
     font-weight: 300;
-    animation: fadeIn 1.2s ease-in-out; /* Animation plus douce */
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 @keyframes fadeIn {
@@ -38,7 +38,7 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.4); /* Voile plus prononcé pour le luxe */
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .carousel-bg img {
@@ -49,7 +49,7 @@ body {
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 2s ease-in-out; /* Transition plus longue et douce */
+    transition: opacity 2s ease-in-out;
 }
 
 .carousel-bg img.active {
@@ -59,7 +59,7 @@ body {
 /* En-tête et menu déroulant */
 header {
     background-color: transparent;
-    padding: 40px 80px; /* Padding généreux */
+    padding: 40px 80px;
     border-bottom: none;
     position: absolute;
     width: 100%;
@@ -70,7 +70,7 @@ header {
 }
 
 body:not(.homepage) header {
-    background-color: var(--primary-bg); /* Fond sombre pour les autres pages */
+    background-color: var(--primary-bg);
     border-bottom: 1px solid var(--border-color);
     position: relative;
 }
@@ -83,14 +83,14 @@ nav {
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif; /* Police Montserrat pour le logo */
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2.5em; /* Logo plus grand */
+    font-size: 2.5em;
     color: var(--hero-text-color);
     text-decoration: none;
-    letter-spacing: 5px; /* Espacement plus large */
+    letter-spacing: 5px;
     text-transform: uppercase;
-    text-shadow: 1px 1px 4px var(--shadow-color-dark); /* Ombre profonde */
+    text-shadow: 1px 1px 4px var(--shadow-color-dark);
 }
 
 body:not(.homepage) .logo {
@@ -101,7 +101,7 @@ body:not(.homepage) .logo {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 50px; /* Espacement plus large */
+    gap: 50px;
     transition: all 0.4s ease-in-out;
 }
 
@@ -111,10 +111,10 @@ body:not(.homepage) .logo {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.2s ease;
-    padding: 8px 0; /* Padding accru */
+    padding: 8px 0;
     position: relative;
-    font-size: 1.2em; /* Taille de police plus grande */
-    text-shadow: 1px 1px 3px var(--shadow-color-light); /* Ombre légère */
+    font-size: 1.2em;
+    text-shadow: 1px 1px 3px var(--shadow-color-light);
 }
 
 body:not(.homepage) .nav-links a {
@@ -126,7 +126,7 @@ body:not(.homepage) .nav-links a {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px; /* Ligne plus épaisse */
+    height: 2px;
     bottom: 0;
     left: 0;
     background-color: var(--accent-gold);
@@ -135,7 +135,7 @@ body:not(.homepage) .nav-links a {
 
 .nav-links a:hover {
     color: var(--accent-gold-hover);
-    transform: translateY(-3px); /* Effet plus prononcé */
+    transform: translateY(-3px);
 }
 .nav-links a:hover::after {
     width: 100%;
@@ -169,17 +169,17 @@ main {
 }
 
 body:not(.homepage) main {
-    padding: 100px 80px; /* Padding encore plus généreux */
+    padding: 100px 80px;
     display: flex;
     flex-wrap: wrap;
-    gap: 120px; /* Espacement accru */
+    gap: 120px;
 }
 
 .product-container {
     flex: 3;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Taille des cartes ajustée */
-    gap: 60px; /* Espacement accru */
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 60px;
 }
 
 /* Style des cartes produits */

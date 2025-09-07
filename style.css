@@ -8,7 +8,7 @@
     --accent-gold-hover: #D4AF37;
     --border-color: #DDDDDD;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --hero-text-color: #FFFFFF; /* Couleur du texte sur le carrousel */
+    --hero-text-color: #FFFFFF;
 }
 
 /* Styles généraux */
@@ -37,7 +37,7 @@ body {
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.2); /* Ajoute un léger voile pour la lisibilité */
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .carousel-bg img {
@@ -57,22 +57,21 @@ body {
 
 /* En-tête et menu déroulant */
 header {
-    background-color: transparent; /* L'en-tête est transparent sur l'accueil */
+    background-color: transparent;
     padding: 30px 60px;
     border-bottom: none;
-    position: absolute; /* Position absolue pour flotter au-dessus du carrousel */
+    position: absolute;
     width: 100%;
     top: 0;
     left: 0;
     box-sizing: border-box;
-    z-index: 100; /* Assure que l'en-tête est toujours au-dessus */
+    z-index: 100;
 }
 
-/* Styles de l'en-tête pour les pages autres que l'accueil */
 body:not(.homepage) header {
     background-color: var(--primary-bg);
     border-bottom: 1px solid var(--border-color);
-    position: relative; /* Sur les autres pages, l'en-tête est statique */
+    position: relative;
 }
 
 nav {
@@ -86,14 +85,13 @@ nav {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2em;
-    color: var(--hero-text-color); /* Couleur du logo blanc sur l'accueil */
+    color: var(--hero-text-color);
     text-decoration: none;
     letter-spacing: 4px;
     text-transform: uppercase;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Ombre pour la lisibilité */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
-/* Couleur du logo sur les pages intérieures */
 body:not(.homepage) .logo {
     color: var(--accent-gold);
     text-shadow: none;
@@ -108,17 +106,16 @@ body:not(.homepage) .logo {
 
 .nav-links a {
     font-family: 'Montserrat', sans-serif;
-    color: var(--hero-text-color); /* Liens blancs sur l'accueil */
+    color: var(--hero-text-color);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.2s ease;
     padding: 5px 0;
     position: relative;
-    font-size: 1.1em; /* Augmente la taille des liens */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Ombre pour la lisibilité */
+    font-size: 1.1em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* Couleur des liens sur les pages intérieures */
 body:not(.homepage) .nav-links a {
     color: var(--text-dark);
     text-shadow: none;
@@ -145,8 +142,8 @@ body:not(.homepage) .nav-links a {
 
 .cart-icon {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1em; /* Augmente la taille de l'icône du panier */
-    color: var(--hero-text-color); /* Blanc sur l'accueil */
+    font-size: 1.1em;
+    color: var(--hero-text-color);
     cursor: pointer;
     font-weight: 500;
     letter-spacing: 1px;
@@ -157,7 +154,6 @@ body:not(.homepage) .nav-links a {
     color: var(--accent-gold);
 }
 
-/* Couleur du panier sur les pages intérieures */
 body:not(.homepage) .cart-icon {
     color: var(--text-medium);
     text-shadow: none;
@@ -165,24 +161,17 @@ body:not(.homepage) .cart-icon {
 
 /* Sections principales */
 main {
-    padding: 0; /* Supprime le padding par défaut pour la section d'accueil */
-    display: block; /* S'assure que main ne force pas de flexbox ici */
+    padding: 0;
+    display: block;
     position: relative;
-    z-index: 1; /* Assure que le contenu est au-dessus du carrousel */
+    z-index: 1;
 }
 
 body:not(.homepage) main {
-    padding: 80px 60px; /* Padding normal pour les autres pages */
+    padding: 80px 60px;
     display: flex;
     flex-wrap: wrap;
     gap: 100px;
-}
-
-.product-container {
-    flex: 3;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 50px;
 }
 
 /* Style des cartes produits */
@@ -272,7 +261,6 @@ button:hover {
     animation: slideInFromRight 0.8s ease-out;
 }
 
-/* Définition de l'animation */
 @keyframes slideInFromRight {
     from {
         transform: translateX(50px);
@@ -330,9 +318,9 @@ footer {
     border-top: 1px solid var(--border-color);
     font-family: 'Crimson Text', serif;
     font-size: 0.9em;
-    position: relative; /* Ajuste la position pour qu'il soit sous le contenu */
+    position: relative;
     z-index: 1;
-    background-color: var(--primary-bg); /* S'assure qu'il a un fond blanc */
+    background-color: var(--primary-bg);
 }
 
 /* Pages À propos et Contact */
@@ -452,41 +440,41 @@ footer {
 
 /* Style de la section d'accueil (Hero Section) */
 .hero-content {
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     position: relative;
-    z-index: 1; /* Assure que le contenu est au-dessus du carrousel */
-    color: var(--hero-text-color); /* Texte blanc pour la lisibilité */
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Ombre plus prononcée */
-    padding: 0 60px; /* Ajoute un padding horizontal */
+    z-index: 1;
+    color: var(--hero-text-color);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    padding: 0 60px;
     box-sizing: border-box;
 }
 
 .hero-content h1 {
-    font-size: 4.5em; /* Agrandit le titre */
+    font-size: 4.5em;
     margin-bottom: 20px;
     line-height: 1.2;
-    color: var(--hero-text-color); /* Assure que le titre est blanc */
+    color: var(--hero-text-color);
 }
 
 .hero-content p {
-    font-size: 1.6em; /* Agrandit le paragraphe */
+    font-size: 1.6em;
     margin-bottom: 40px;
-    color: var(--hero-text-color); /* Assure que le paragraphe est blanc */
+    color: var(--hero-text-color);
 }
 
 .cta-button {
     background-color: var(--accent-gold);
     color: var(--primary-bg);
-    padding: 18px 35px; /* Bouton plus grand */
+    padding: 18px 35px;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 1.5px; /* Espacement des lettres */
+    letter-spacing: 1.5px;
     border-radius: 3px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
@@ -527,12 +515,12 @@ footer {
     .nav-links {
         display: none;
         position: absolute;
-        top: 100%; /* Positionne le menu sous le header */
+        top: 100%;
         left: 0;
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.8);
         width: 100%;
-        padding: 20px 0; /* Ajuste le padding */
+        padding: 20px 0;
         box-sizing: border-box;
     }
 
@@ -543,7 +531,7 @@ footer {
     .nav-links a {
         text-align: center;
         margin: 10px 0;
-        font-size: 1.2em; /* Augmente la taille des liens du menu mobile */
+        font-size: 1.2em;
     }
 
     .hero-content {

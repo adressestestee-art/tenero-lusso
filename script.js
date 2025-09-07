@@ -104,11 +104,9 @@ function loadProductDetails() {
 
 // Lancement de toutes les fonctions une fois que la page est chargée
 document.addEventListener('DOMContentLoaded', () => {
-    // Si la page est la page boutique, afficher les produits
     if (document.body.classList.contains('boutique-page')) {
         displayProducts();
     }
-    // Si la page est la page de détails produit, charger les détails
     if (document.body.classList.contains('product-detail-page')) {
         loadProductDetails();
     }

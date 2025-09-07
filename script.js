@@ -167,16 +167,48 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // Fonction pour le carrousel d'images
 function startCarousel() {
-    const images = document.querySelectorAll('.carousel-bg img');
-    let currentIndex = 0;
-
-    function showNextImage() {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
+    const carouselContainer = document.querySelector('.carousel-bg');
+    if (!carouselContainer) {
+        // Le conteneur du carrousel n'existe pas sur cette page, on arrête la fonction.
+        return;
     }
 
-    setInterval(showNextImage, 5000); // Change d'image toutes les 5 secondes
+    const images = carouselContainer.querySelectorAll('img');
+    let imagesLoadedCount = 0;
+
+    // Attendre que toutes les images soient chargées
+    images.forEach(img => {
+        if (img.complete) {
+            imagesLoadedCount++;
+        } else {
+            img.addEventListener('load', () => {
+                imagesLoadedCount++;
+                if (imagesLoadedCount === images.length) {
+                    // Toutes les images sont chargées, on peut démarrer le carrousel
+                    runCarousel();
+                }
+            });
+        }
+    });
+
+    // Si toutes les images sont déjà dans le cache, on lance le carrousel
+    if (imagesLoadedCount === images.length) {
+        runCarousel();
+    }
+
+    function runCarousel() {
+        let currentIndex = 0;
+
+        // Montrer la première image immédiatement
+        images[currentIndex].classList.add('active');
+
+        // Changer d'image toutes les 5 secondes
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 5000);
+    }
 }
 
 // Fonction pour le menu déroulant sur mobile
@@ -191,7 +223,7 @@ function setupDropdownMenu() {
     }
 }
 
-// Ajoute ces fonctions à l'écouteur d'événement DOMContentLoaded
+// Exécution des fonctions au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
     // ... tes fonctions existantes (updateCartCount, displayProducts, etc.)
     startCarousel();

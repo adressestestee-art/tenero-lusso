@@ -8,6 +8,7 @@
     --accent-gold-hover: #D4AF37;
     --border-color: #DDDDDD;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --hero-text-color: #FFFFFF; /* Couleur du texte sur le carrousel */
 }
 
 /* Styles généraux */
@@ -27,43 +28,100 @@ body {
     to { opacity: 1; }
 }
 
-/* En-tête et navigation */
+/* Carrousel d'images en arrière-plan */
+.carousel-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.2); /* Ajoute un léger voile pour la lisibilité */
+}
+
+.carousel-bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-bg img.active {
+    opacity: 1;
+}
+
+/* En-tête et menu déroulant */
 header {
-    background-color: var(--primary-bg);
+    background-color: transparent; /* L'en-tête est transparent sur l'accueil */
     padding: 30px 60px;
+    border-bottom: none;
+    position: absolute; /* Position absolue pour flotter au-dessus du carrousel */
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 100; /* Assure que l'en-tête est toujours au-dessus */
+}
+
+/* Styles de l'en-tête pour les pages autres que l'accueil */
+body:not(.homepage) header {
+    background-color: var(--primary-bg);
     border-bottom: 1px solid var(--border-color);
+    position: relative; /* Sur les autres pages, l'en-tête est statique */
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2em;
-    color: var(--accent-gold);
+    color: var(--hero-text-color); /* Couleur du logo blanc sur l'accueil */
     text-decoration: none;
     letter-spacing: 4px;
     text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Ombre pour la lisibilité */
+}
+
+/* Couleur du logo sur les pages intérieures */
+body:not(.homepage) .logo {
+    color: var(--accent-gold);
+    text-shadow: none;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
     gap: 40px;
+    transition: all 0.3s ease-in-out;
 }
 
 .nav-links a {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-dark);
+    color: var(--hero-text-color); /* Liens blancs sur l'accueil */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.2s ease;
     padding: 5px 0;
     position: relative;
+    font-size: 1.1em; /* Augmente la taille des liens */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Ombre pour la lisibilité */
+}
+
+/* Couleur des liens sur les pages intérieures */
+body:not(.homepage) .nav-links a {
+    color: var(--text-dark);
+    text-shadow: none;
 }
 
 .nav-links a::after {
@@ -87,22 +145,36 @@ nav {
 
 .cart-icon {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1em;
-    color: var(--text-medium);
+    font-size: 1.1em; /* Augmente la taille de l'icône du panier */
+    color: var(--hero-text-color); /* Blanc sur l'accueil */
     cursor: pointer;
     font-weight: 500;
     letter-spacing: 1px;
     transition: color 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 .cart-icon:hover {
     color: var(--accent-gold);
 }
 
+/* Couleur du panier sur les pages intérieures */
+body:not(.homepage) .cart-icon {
+    color: var(--text-medium);
+    text-shadow: none;
+}
+
 /* Sections principales */
 main {
+    padding: 0; /* Supprime le padding par défaut pour la section d'accueil */
+    display: block; /* S'assure que main ne force pas de flexbox ici */
+    position: relative;
+    z-index: 1; /* Assure que le contenu est au-dessus du carrousel */
+}
+
+body:not(.homepage) main {
+    padding: 80px 60px; /* Padding normal pour les autres pages */
     display: flex;
     flex-wrap: wrap;
-    padding: 80px 60px;
     gap: 100px;
 }
 
@@ -258,6 +330,9 @@ footer {
     border-top: 1px solid var(--border-color);
     font-family: 'Crimson Text', serif;
     font-size: 0.9em;
+    position: relative; /* Ajuste la position pour qu'il soit sous le contenu */
+    z-index: 1;
+    background-color: var(--primary-bg); /* S'assure qu'il a un fond blanc */
 }
 
 /* Pages À propos et Contact */
@@ -375,136 +450,52 @@ footer {
     margin-bottom: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    header, main, footer {
-        padding: 20px;
-    }
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .nav-links {
-        gap: 15px;
-    }
-    .logo {
-        font-size: 1.5em;
-    }
-    main {
-        flex-direction: column;
-        gap: 40px;
-        padding: 40px 20px;
-    }
-    .product-container {
-        grid-template-columns: 1fr;
-    }
-    .product-details-container {
-        flex-direction: column;
-        gap: 40px;
-        padding: 40px 20px;
-    }
-    .product-image img {
-        max-width: 100%;
-    }
-    .product-info h2 {
-        font-size: 2.5em;
-    }
-    /* Style de la section d'accueil (Hero Section) */
-.hero-section {
-    max-width: none;
-    padding: 150px 60px;
-    text-align: center;
-    background-color: var(--secondary-bg);
-}
-
+/* Style de la section d'accueil (Hero Section) */
 .hero-content {
-    max-width: 800px;
-    margin: auto;
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Assure que le contenu est au-dessus du carrousel */
+    color: var(--hero-text-color); /* Texte blanc pour la lisibilité */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Ombre plus prononcée */
+    padding: 0 60px; /* Ajoute un padding horizontal */
+    box-sizing: border-box;
 }
 
 .hero-content h1 {
-    font-size: 4em;
+    font-size: 4.5em; /* Agrandit le titre */
     margin-bottom: 20px;
     line-height: 1.2;
+    color: var(--hero-text-color); /* Assure que le titre est blanc */
 }
 
 .hero-content p {
-    font-size: 1.5em;
-    color: var(--text-medium);
+    font-size: 1.6em; /* Agrandit le paragraphe */
     margin-bottom: 40px;
+    color: var(--hero-text-color); /* Assure que le paragraphe est blanc */
 }
 
 .cta-button {
     background-color: var(--accent-gold);
     color: var(--primary-bg);
-    padding: 15px 30px;
+    padding: 18px 35px; /* Bouton plus grand */
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px; /* Espacement des lettres */
     border-radius: 3px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(184, 134, 11, 0.4);
 }
 
 .cta-button:hover {
     background-color: var(--accent-gold-hover);
-    transform: translateY(-2px);
-}
-/* Carrousel d'images en arrière-plan */
-.carousel-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.carousel-bg img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-}
-
-.carousel-bg img.active {
-    opacity: 1;
-}
-
-/* En-tête et menu déroulant */
-header {
-    background-color: transparent;
-    padding: 30px 60px;
-    border-bottom: none;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-}
-
-.nav-links {
-    display: flex;
-    gap: 40px;
-    transition: all 0.3s ease-in-out;
-}
-
-.nav-links a {
-    color: #FFF;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(184, 134, 11, 0.6);
 }
 
 /* Style du menu déroulant */
@@ -523,6 +514,12 @@ nav {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 20px;
+    }
+    .logo {
+        font-size: 1.5em;
+    }
     .menu-toggle {
         display: flex;
     }
@@ -530,12 +527,12 @@ nav {
     .nav-links {
         display: none;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Positionne le menu sous le header */
         left: 0;
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.8);
         width: 100%;
-        padding: 20px;
+        padding: 20px 0; /* Ajuste le padding */
         box-sizing: border-box;
     }
 
@@ -546,5 +543,20 @@ nav {
     .nav-links a {
         text-align: center;
         margin: 10px 0;
+        font-size: 1.2em; /* Augmente la taille des liens du menu mobile */
+    }
+
+    .hero-content {
+        padding: 0 20px;
+    }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    main {
+        padding: 40px 20px;
     }
 }

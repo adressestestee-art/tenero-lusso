@@ -1,5 +1,4 @@
-const BACKEND_URL = "https://tenero-lusso.onrender.com"; // <== Remplace par ton URL Render
-
+// La liste des produits
 const products = [
     {id: 1, name: "T-shirt NYF", price: 30, description: "Un T-shirt de qualité supérieure avec le logo NYF. Coupe décontractée, parfait pour le style urbain.", img: "./images/t-shirt.png"},
     {id: 2, name: "Hoodie NYF", price: 60, description: "Hoodie confortable en coton épais. Idéal pour les soirées fraîches, il allie confort et style.", img: "./images/hoodie.png"},
@@ -9,79 +8,116 @@ const products = [
 
 let cart = [];
 
+// Fonctions pour gérer les sections
+function showSection(sectionId) {
+    document.getElementById('shop-section').classList.add('hidden');
+    document.getElementById('product-details-section').classList.add('hidden');
+    document.getElementById('about-section').classList.add('hidden');
+    document.getElementById('contact-section').classList.add('hidden');
+    document.getElementById(sectionId).classList.remove('hidden');
+}
+
+// Fonction pour afficher la page d'accueil avec les produits
 function displayProducts() {
     const container = document.getElementById("products");
-    if (!container) return; 
-
     container.innerHTML = "";
     products.forEach(product => {
-        const prodDiv = document.createElement("a"); // C'est ici qu'on crée le lien
-        prodDiv.href = `product-details.html?id=${product.id}`; // Le lien avec l'ID du produit
+        const prodDiv = document.createElement("div"); // On revient à une div
         prodDiv.className = "product";
         prodDiv.innerHTML = `
-            <img src="${product.img}" alt="${product.name}">
-            <div class="product-info-text">
+            <img src="${product.img}" alt="${product.name}" onclick="showProductDetails(${product.id})">
+            <div class="product-info-text" onclick="showProductDetails(${product.id})">
                 <h3>${product.name}</h3>
                 <p>${product.price} €</p>
             </div>
-            <button onclick="event.preventDefault(); addToCart(${product.id})">Ajouter au panier</button>
+            <button onclick="addToCart(${product.id})">Ajouter au panier</button>
         `;
         container.appendChild(prodDiv);
     });
 }
 
+// Fonction pour afficher les détails d'un produit
+function showProductDetails(id) {
+    const product = products.find(p => p.id === id);
+    const container = document.getElementById("product-details");
+    container.innerHTML = `
+        <div class="product-image">
+            <img src="${product.img}" alt="${product.name}">
+        </div>
+        <div class="product-info">
+            <h2>${product.name}</h2>
+            <p class="price">${product.price} €</p>
+            <p class="description">${product.description}</p>
+            <button onclick="addToCart(${product.id})">Ajouter au panier</button>
+        </div>
+    `;
+    showSection('product-details-section');
+}
+
+// Fonctions du panier (à conserver de ton code précédent)
 function addToCart(id) {
     const product = products.find(p => p.id === id);
     cart.push(product);
     updateCart();
 }
 
-function removeFromCart(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
-
 function updateCart() {
-    const cartItems = document.getElementById("cart-items");
-    const cartCount = document.getElementById("cart-count");
-    const cartTotal = document.getElementById("cart-total");
-
-    cartItems.innerHTML = "";
+    const cartItemsList = document.getElementById('cart-items');
+    cartItemsList.innerHTML = '';
     let total = 0;
-    cart.forEach((item, index) => {
-        total += item.price;
-        const li = document.createElement("li");
-        li.innerHTML = `${item.name} - ${item.price} € <button onclick="removeFromCart(${index})">Supprimer</button>`;
-        cartItems.appendChild(li);
+    
+    // Pour éviter les doublons dans le panier
+    const productCounts = {};
+    cart.forEach(product => {
+        productCounts[product.id] = (productCounts[product.id] || 0) + 1;
     });
 
-    cartCount.innerText = cart.length;
-    cartTotal.innerText = total;
+    Object.keys(productCounts).forEach(id => {
+        const product = products.find(p => p.id === parseInt(id));
+        const count = productCounts[id];
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <span>${product.name} x${count}</span>
+            <span>${product.price * count} €</span>
+            <button onclick="removeFromCart(${id})">Supprimer</button>
+        `;
+        cartItemsList.appendChild(li);
+        total += product.price * count;
+    });
+
+    document.getElementById('cart-count').textContent = cart.length;
+    document.getElementById('cart-total').textContent = total;
 }
 
-document.getElementById("checkout-btn").addEventListener("click", async () => {
-    if(cart.length === 0) {
-        alert("Votre panier est vide !");
-        return;
+function removeFromCart(id) {
+    const index = cart.findIndex(p => p.id === id);
+    if (index > -1) {
+        cart.splice(index, 1);
+        updateCart();
     }
+}
 
-    try {
-        const response = await fetch(`${BACKEND_URL}/orders`, {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({items: cart})
-        });
-
-        if(response.ok) {
-            alert("Commande passée avec succès !");
-            cart = [];
-            updateCart();
-        } else {
-            alert("Erreur lors de la commande.");
-        }
-    } catch (error) {
-        alert("Impossible de contacter le serveur.");
-    }
+// Gestion de la navigation
+document.getElementById('home-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});
+document.getElementById('about-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('about-section');
+});
+document.getElementById('contact-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('contact-section');
+});
+document.getElementById('back-to-shop-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
 });
 
-displayProducts();
+// Initialisation de la page
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts();
+    updateCart();
+    showSection('shop-section'); // Affiche la boutique par défaut
+});

@@ -30,28 +30,6 @@ const products = [
     }
 ];
 
-// Fonction pour afficher les produits sur la page boutique
-function displayProducts() {
-    const productsContainer = document.querySelector('.product-container');
-    if (!productsContainer) return;
-
-    productsContainer.innerHTML = '';
-
-    products.forEach(product => {
-        const productElement = document.createElement('a');
-        productElement.href = `produit.html?id=${product.id}`;
-        productElement.classList.add('product');
-        productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <div class="product-info-text">
-                <h3>${product.name}</h3>
-                <p>${product.price}</p>
-            </div>
-        `;
-        productsContainer.appendChild(productElement);
-    });
-}
-
 // Fonction pour charger les détails d'un produit
 function loadProductDetails() {
     const productDetailsContainer = document.querySelector('.product-details-container');
@@ -78,6 +56,7 @@ function loadProductDetails() {
         thumbnails[1].src = product.imageAlt;
         thumbnails[1].alt = `${product.name} - Vue de dos`;
 
+        // Gérer le clic sur les vignettes pour changer l'image principale
         thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener('click', () => {
                 mainImage.src = thumbnail.src;
@@ -90,9 +69,7 @@ function loadProductDetails() {
 
 // Lancement de toutes les fonctions une fois que la page est chargée
 document.addEventListener('DOMContentLoaded', () => {
-    if (document.body.classList.contains('boutique-page')) {
-        displayProducts();
-    }
+    // Si la page est la page de détails produit, charger les détails
     if (document.body.classList.contains('product-detail-page')) {
         loadProductDetails();
     }

@@ -409,4 +409,45 @@ footer {
     .product-info h2 {
         font-size: 2.5em;
     }
+    /* Style de la section d'accueil (Hero Section) */
+.hero-section {
+    max-width: none;
+    padding: 150px 60px;
+    text-align: center;
+    background-color: var(--secondary-bg);
 }
+
+.hero-content {
+    max-width: 800px;
+    margin: auto;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    color: var(--text-medium);
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    padding: 15px 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-gold-hover);
+    transform: translateY(-2px);
+}
+

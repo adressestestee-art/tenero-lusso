@@ -96,36 +96,7 @@ function removeFromCart(id) {
     }
 }
 
-// Fonction pour afficher les produits sur la page boutique
-function displayProducts() {
-    const productsContainer = document.querySelector('.product-container');
-    if (!productsContainer) return;
-
-    const products = [
-        { id: '1', name: 'Veste en Cuir', price: '499,99 €', image: 'images/vetement_1.jpg' },
-        { id: '2', name: 'Pantalon Cargo', price: '129,99 €', image: 'images/vetement_2.jpg' },
-        { id: '3', name: 'Sweat à Capuche', price: '89,99 €', image: 'images/vetement_3.jpg' },
-        { id: '4', name: 'T-shirt Basique', price: '49,99 €', image: 'images/vetement_4.jpg' },
-        { id: '5', name: 'Baskets Urbaines', price: '159,99 €', image: 'images/vetement_5.jpg' },
-        { id: '6', name: 'Casquette Brodée', price: '39,99 €', image: 'images/vetement_6.jpg' },
-    ];
-
-    productsContainer.innerHTML = ''; // Vide le conteneur avant d'ajouter les produits
-
-    products.forEach(product => {
-        const productElement = document.createElement('a');
-        productElement.href = `produit.html?id=${product.id}`; // Le lien pointe maintenant vers l'ID du produit
-        productElement.classList.add('product');
-        productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <div class="product-info-text">
-                <h3>${product.name}</h3>
-                <p>${product.price}</p>
-            </div>
-        `;
-        productsContainer.appendChild(productElement);
-    });
-}
+//
             </a>
             <button onclick="addToCart(${product.id})">Ajouter au panier</button>
         `;
@@ -151,7 +122,33 @@ function displayProductDetails() {
         });
         imageGalleryHTML += `</div>`;
     }
+// Fonction pour afficher les produits sur la page boutique
+function displayProducts() {
+    const productsContainer = document.querySelector('.product-container');
+    if (!productsContainer) return;
 
+    // Liste des deux produits à afficher
+    const products = [
+        { id: '3', name: 'Sweat à Capuche', price: '19,99 €', image: 'images/vetement_3.jpg' },
+        { id: '4', name: 'T-shirt Basique', price: '19,99 €', image: 'images/vetement_4.jpg' }
+    ];
+
+    productsContainer.innerHTML = ''; // Vide le conteneur avant d'ajouter les produits
+
+    products.forEach(product => {
+        const productElement = document.createElement('a');
+        productElement.href = `produit.html?id=${product.id}`;
+        productElement.classList.add('product');
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-info-text">
+                <h3>${product.name}</h3>
+                <p>${product.price}</p>
+            </div>
+        `;
+        productsContainer.appendChild(productElement);
+    });
+}
     container.innerHTML = `
         <div class="product-image">
             ${imageGalleryHTML}

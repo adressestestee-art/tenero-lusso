@@ -146,10 +146,12 @@ function removeFromCart(id) {
 }
 
 // Gestion de la navigation
+// ...
 document.getElementById('home-link').addEventListener('click', (e) => {
     e.preventDefault();
     showSection('shop-section');
 });
+// ... et tous les autres liens
 document.getElementById('about-link').addEventListener('click', (e) => {
     e.preventDefault();
     showSection('about-section');

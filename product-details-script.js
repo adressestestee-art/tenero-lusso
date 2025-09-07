@@ -1,4 +1,4 @@
-// Liste des produits (copie-coller depuis script.js pour être indépendant)
+// La liste des produits (copie-colle cette liste depuis ton script.js)
 const products = [
     {id: 1, name: "T-shirt NYF", price: 30, description: "Un T-shirt de qualité supérieure avec le logo NYF. Coupe décontractée, parfait pour le style urbain.", img: "./images/t-shirt.png"},
     {id: 2, name: "Hoodie NYF", price: 60, description: "Hoodie confortable en coton épais. Idéal pour les soirées fraîches, il allie confort et style.", img: "./images/hoodie.png"},
@@ -11,7 +11,7 @@ function displayProductDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const productId = parseInt(urlParams.get('id'));
 
-    // Trouve le produit correspondant
+    // Trouve le produit correspondant dans la liste
     const product = products.find(p => p.id === productId);
 
     const container = document.getElementById("product-details");
@@ -20,6 +20,7 @@ function displayProductDetails() {
         return;
     }
 
+    // Injecte les détails du produit dans la page
     container.innerHTML = `
         <div class="product-image">
             <img src="${product.img}" alt="${product.name}">
@@ -34,5 +35,5 @@ function displayProductDetails() {
     `;
 }
 
-// Appelle la fonction pour afficher les détails du produit
+// Appelle la fonction pour afficher les détails au chargement de la page
 displayProductDetails();

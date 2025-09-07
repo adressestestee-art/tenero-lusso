@@ -175,3 +175,12 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
     showSection('shop-section');
 });
+// ...
+document.getElementById('back-to-shop-link-about').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});
+document.getElementById('back-to-shop-link-contact').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});

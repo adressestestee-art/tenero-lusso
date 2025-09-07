@@ -180,6 +180,36 @@ const products = [
         gallery: ["./images/cap.png"] // Une seule image pour le moment
     }
 ];
+// ... (le reste des fonctions et de la liste de produits)
+
+// Gestion de la navigation
+document.getElementById('home-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});
+document.getElementById('about-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('about-section');
+});
+document.getElementById('contact-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('contact-section');
+});
+document.getElementById('cart-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('cart-section');
+});
+document.getElementById('back-to-shop-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});
+
+// Initialisation de la page
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts();
+    updateCart();
+    showSection('shop-section'); // Affiche la boutique par défaut
+});
 
 let cart = [];
 

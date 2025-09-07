@@ -199,7 +199,7 @@ button:hover {
     border-radius: 3px;
     box-shadow: 0 8px 30px var(--shadow-color);
     align-self: flex-start;
-    animation: slideInFromRight 0.8s ease-out; /* <-- C'est la nouvelle ligne */
+    animation: slideInFromRight 0.8s ease-out;
 }
 
 /* Définition de l'animation */
@@ -329,100 +329,4 @@ footer {
     line-height: 1.8;
     margin-bottom: 40px;
     color: var(--text-medium);
-    font-weight: 400;
-}
-
-.back-link {
-    font-family: 'Montserrat', sans-serif;
-    display: inline-block;
-    margin-top: 30px;
-    color: var(--text-medium);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.back-link:hover {
-    color: var(--accent-gold-hover);
-    transform: translateX(-5px);
-}
-
-/* Galerie d'images et ajustements */
-.thumbnail-gallery {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center;
-}
-
-.thumbnail-gallery .thumbnail {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border: 1px solid var(--border-color);
-    border-radius: 3px;
-    cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.thumbnail-gallery .thumbnail:hover {
-    transform: translateY(-3px);
-    border-color: var(--accent-gold-hover);
-}
-
-.product-details-container .product-image img#main-product-image {
-    max-width: 550px;
-    height: auto;
-    display: block;
-    margin-bottom: 0;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    header, main, footer {
-        padding: 20px;
-    }
-    nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .nav-links {
-        gap: 15px;
-    }
-    .logo {
-        font-size: 1.5em;
-    }
-    main {
-        flex-direction: column;
-        gap: 40px;
-        padding: 40px 20px;
-    }
-    .product-container {
-        grid-template-columns: 1fr;
-    }
-    .product-details-container {
-        flex-direction: column;
-        gap: 40px;
-        padding: 40px 20px;
-    }
-    .product-image img {
-        max-width: 100%;
-    }
-    .product-info h2 {
-        font-size: 2.5em;
-    }
-    /* Panier */
-.cart-container {
-    /* Suppression des flex: 1 et autres styles de colonne pour l'intégrer dans le layout de page-content */
-    min-width: 100%; /* S'assure qu'il occupe toute la largeur de son parent */
-    background-color: var(--secondary-bg);
-    padding: 30px;
-    border-radius: 3px;
-    box-shadow: 0 8px 30px var(--shadow-color);
-    align-self: flex-start;
-    animation: slideInFromRight 0.8s ease-out; /* <-- On garde cette belle animation */
-}
-    .hidden {
-    display: none;
-}
-}
+    font

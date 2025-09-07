@@ -11,19 +11,21 @@ let cart = [];
 
 function displayProducts() {
     const container = document.getElementById("products");
+    if (!container) return; 
+
     container.innerHTML = "";
     products.forEach(product => {
-        const prodDiv = document.createElement("div");
+        const prodDiv = document.createElement("a"); // C'est ici qu'on crée le lien
+        prodDiv.href = `product-details.html?id=${product.id}`; // Le lien avec l'ID du produit
         prodDiv.className = "product";
         prodDiv.innerHTML = `
-            prodDiv.innerHTML = `
-    <img src="${product.img}" alt="${product.name}">
-    <div class="product-info-text">
-        <h3>${product.name}</h3>
-        <p>${product.price} €</p>
-    </div>
-    <button onclick="event.preventDefault(); addToCart(${product.id})">Ajouter au panier</button>
-`;
+            <img src="${product.img}" alt="${product.name}">
+            <div class="product-info-text">
+                <h3>${product.name}</h3>
+                <p>${product.price} €</p>
+            </div>
+            <button onclick="event.preventDefault(); addToCart(${product.id})">Ajouter au panier</button>
+        `;
         container.appendChild(prodDiv);
     });
 }

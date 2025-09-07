@@ -4,8 +4,8 @@
     --secondary-bg: #1C1C1C; /* Gris charbon pour les cartes et sections */
     --text-light: #F0F0F0; /* Blanc cassé pour le texte principal */
     --text-medium: #B0B0B0; /* Gris clair élégant pour les descriptions */
-    --accent-gold: #B8860B; /* Or riche */
-    --accent-gold-hover: #D4AF37; /* Or plus lumineux au survol */
+   --accent-gold: #C0C0C0; /* Couleur argent / champagne */
+    --accent-gold-hover: #E0E0E0; /* Argent plus lumineux au survol */
     --border-color: #383838; /* Bordures sombres et discrètes */
     --shadow-color-dark: rgba(0, 0, 0, 0.7); /* Ombre profonde pour la 3D */
     --shadow-color-light: rgba(0, 0, 0, 0.3); /* Ombre plus légère */

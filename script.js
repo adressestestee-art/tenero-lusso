@@ -1,16 +1,3 @@
-// Fonction pour le carrousel d'images d'arrière-plan
-function startCarousel() {
-    const images = document.querySelectorAll('.carousel-bg img');
-    if (images.length === 0) return;
-
-    let currentIndex = 0;
-    setInterval(() => {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
-    }, 5000); // Change l'image toutes les 5 secondes
-}
-
 // Fonction pour le menu déroulant sur mobile
 function setupDropdownMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
@@ -91,7 +78,6 @@ function loadProductDetails() {
         thumbnails[1].src = product.imageAlt;
         thumbnails[1].alt = `${product.name} - Vue de dos`;
 
-        // Gérer le clic sur les vignettes pour changer l'image principale
         thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener('click', () => {
                 mainImage.src = thumbnail.src;
@@ -110,7 +96,5 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.body.classList.contains('product-detail-page')) {
         loadProductDetails();
     }
-
-    startCarousel();
     setupDropdownMenu();
 });

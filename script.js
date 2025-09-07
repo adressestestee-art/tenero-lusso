@@ -36,41 +36,37 @@ const products = [
 
 let cart = [];
 
-// Fonction pour gérer les sections
-function showSection(sectionId) {
-    document.getElementById('shop-section').classList.add('hidden');
-    document.getElementById('product-details-section').classList.add('hidden');
-    document.getElementById('about-section').classList.add('hidden');
-    document.getElementById('contact-section').classList.add('hidden');
-    document.getElementById('cart-section').classList.add('hidden');
-    document.getElementById(sectionId).classList.remove('hidden');
-}
-
 // Fonction pour afficher la page d'accueil avec les produits
 function displayProducts() {
     const container = document.getElementById("products");
+    if (!container) return; // S'assure d'être sur la bonne page
+
     container.innerHTML = "";
     products.forEach(product => {
         const prodDiv = document.createElement("div");
         prodDiv.className = "product";
         prodDiv.innerHTML = `
-            <img src="${product.img}" alt="${product.name}" onclick="showProductDetails(${product.id})">
-            <div class="product-info-text" onclick="showProductDetails(${product.id})">
-                <h3>${product.name}</h3>
-                <p>${product.price} €</p>
-            </div>
+            <a href="produit.html?id=${product.id}">
+                <img src="${product.img}" alt="${product.name}">
+                <div class="product-info-text">
+                    <h3>${product.name}</h3>
+                    <p>${product.price} €</p>
+                </div>
+            </a>
             <button onclick="addToCart(${product.id})">Ajouter au panier</button>
         `;
         container.appendChild(prodDiv);
     });
 }
 
-// Fonction pour afficher les détails d'un produit
-function showProductDetails(id) {
-    const product = products.find(p => p.id === id);
-    const container = document.getElementById("product-details");
+// Fonction pour afficher les détails d'un produit (sur la page produit.html)
+function displayProductDetails() {
+    const params = new URLSearchParams(window.location.search);
+    const productId = parseInt(params.get('id'));
+    const product = products.find(p => p.id === productId);
 
-    if (!product || !container) {
+    const container = document.getElementById("product-details");
+    if (!container || !product) {
         container.innerHTML = "<p>Produit non trouvé.</p>";
         return;
     }
@@ -95,7 +91,6 @@ function showProductDetails(id) {
             <button onclick="addToCart(${product.id})">Ajouter au panier</button>
         </div>
     `;
-    showSection('product-details-section');
 }
 
 // Fonction pour changer l'image principale au clic sur une miniature
@@ -106,12 +101,22 @@ function changeMainImage(newSrc) {
 // Fonctions du panier
 function addToCart(id) {
     const product = products.find(p => p.id === id);
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.push(product);
-    updateCart();
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
 }
 
-function updateCart() {
+function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-count').textContent = cart.length;
+}
+
+function updateCartPage() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartItemsList = document.getElementById('cart-items');
+    if (!cartItemsList) return;
+    
     cartItemsList.innerHTML = '';
     let total = 0;
 
@@ -122,65 +127,43 @@ function updateCart() {
 
     Object.keys(productCounts).forEach(id => {
         const product = products.find(p => p.id === parseInt(id));
-        const count = productCounts[id];
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <span>${product.name} x${count}</span>
-            <span>${product.price * count} €</span>
-            <button onclick="removeFromCart(${id})">Supprimer</button>
-        `;
-        cartItemsList.appendChild(li);
-        total += product.price * count;
+        if (product) {
+            const count = productCounts[id];
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <span>${product.name} x${count}</span>
+                <span>${product.price * count} €</span>
+                <button onclick="removeFromCart(${id})">Supprimer</button>
+            `;
+            cartItemsList.appendChild(li);
+            total += product.price * count;
+        }
     });
-
-    document.getElementById('cart-count').textContent = cart.length;
+    
     document.getElementById('cart-total').textContent = total;
 }
 
 function removeFromCart(id) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const index = cart.findIndex(p => p.id === id);
     if (index > -1) {
         cart.splice(index, 1);
-        updateCart();
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        updateCartPage(); // Met à jour la page du panier si nous y sommes
     }
 }
 
-// Gestion de la navigation
-// ...
-document.getElementById('home-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('shop-section');
-});
-// ... et tous les autres liens
-document.getElementById('about-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('about-section');
-});
-document.getElementById('contact-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('contact-section');
-});
-document.getElementById('cart-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('cart-section');
-});
-document.getElementById('back-to-shop-link').addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('shop-section');
-});
-
-// Initialisation de la page
+// Gère le chargement du bon contenu en fonction de la page
 document.addEventListener('DOMContentLoaded', () => {
-    displayProducts();
-    updateCart();
-    showSection('shop-section');
-});
-// ...
-document.getElementById('back-to-shop-link-about').addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('shop-section');
-});
-document.getElementById('back-to-shop-link-contact').addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('shop-section');
+    updateCartCount();
+    if (document.getElementById('products')) {
+        displayProducts();
+    }
+    if (document.getElementById('product-details')) {
+        displayProductDetails();
+    }
+    if (document.getElementById('cart-content')) {
+        updateCartPage();
+    }
 });

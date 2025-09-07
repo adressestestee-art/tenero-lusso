@@ -1,10 +1,10 @@
 const BACKEND_URL = "https://tenero-lusso.onrender.com"; // <== Remplace par ton URL Render
 
 const products = [
-    {id: 1, name: "T-shirt Urban", price: 25, img: "https://via.placeholder.com/200x200?text=T-shirt+Urban"},
-    {id: 2, name: "Hoodie Street", price: 45, img: "https://via.placeholder.com/200x200?text=Hoodie+Street"},
-    {id: 3, name: "Casquette Cool", price: 20, img: "https://via.placeholder.com/200x200?text=Casquette+Cool"},
-    {id: 4, name: "Pantalon Jogger", price: 35, img: "https://via.placeholder.com/200x200?text=Pantalon+Jogger"}
+    {id: 1, name: "T-shirt NYF", price: 30, description: "Un T-shirt de qualité supérieure avec le logo NYF. Coupe décontractée, parfait pour le style urbain.", img: "./images/t-shirt.png"},
+    {id: 2, name: "Hoodie NYF", price: 60, description: "Hoodie confortable en coton épais. Idéal pour les soirées fraîches, il allie confort et style.", img: "./images/hoodie.png"},
+    {id: 3, name: "Jogger NYF", price: 50, description: "Pantalon de jogging avec logo discret, conçu pour le mouvement et le confort. Tissu respirant.", img: "./images/jogger.png"},
+    {id: 4, name: "Casquette NYF", price: 25, description: "Casquette noire classique avec logo NYF brodé. Taille ajustable.", img: "./images/cap.png"}
 ];
 
 let cart = [];

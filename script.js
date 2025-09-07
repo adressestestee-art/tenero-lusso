@@ -165,3 +165,35 @@ document.addEventListener('DOMContentLoaded', () => {
     displayProductDetails();
     updateCartPage();
 });
+// Fonction pour le carrousel d'images
+function startCarousel() {
+    const images = document.querySelectorAll('.carousel-bg img');
+    let currentIndex = 0;
+
+    function showNextImage() {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }
+
+    setInterval(showNextImage, 5000); // Change d'image toutes les 5 secondes
+}
+
+// Fonction pour le menu déroulant sur mobile
+function setupDropdownMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+}
+
+// Ajoute ces fonctions à l'écouteur d'événement DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+    // ... tes fonctions existantes (updateCartCount, displayProducts, etc.)
+    startCarousel();
+    setupDropdownMenu();
+});

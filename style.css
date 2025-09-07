@@ -423,3 +423,45 @@ footer {
 .hidden {
     display: none;
 }
+/* Styles pour la galerie d'images dans la page de détails */
+.thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center; /* Centre les miniatures */
+}
+
+.thumbnail-gallery .thumbnail {
+    width: 80px; /* Taille des miniatures */
+    height: 80px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.thumbnail-gallery .thumbnail:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-gold-hover);
+}
+
+/* Ajustement pour l'image principale dans les détails */
+.product-details-container .product-image img#main-product-image {
+    max-width: 550px; /* Assure que l'image principale est grande */
+    height: auto;
+    display: block; /* Supprime l'espace sous l'image */
+    margin-bottom: 0; /* Assure que les miniatures ne sont pas trop éloignées */
+}
+
+/* Responsive pour les miniatures */
+@media (max-width: 768px) {
+    .thumbnail-gallery {
+        justify-content: flex-start; /* Réaligne les miniatures à gauche sur mobile */
+        overflow-x: auto; /* Permet de scroller si trop de miniatures */
+    }
+    .thumbnail-gallery .thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+}

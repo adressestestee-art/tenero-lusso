@@ -20,46 +20,48 @@
             </div>
         </nav>
     </header>
-
-    <main>
-        <section id="shop-section">
-            <div id="products" class="product-container"></div>
-            <div id="cart-details" class="cart-container">
-                <h2>Votre panier</h2>
-                <ul id="cart-items"></ul>
-                <p class="total">Total : <span id="cart-total">0</span> €</p>
-                <button id="checkout-btn">Passer la commande</button>
-            </div>
+<main>
+    <section id="shop-section">
+        <div id="products" class="product-container"></div>
         </section>
 
-        <section id="product-details-section" class="hidden">
-            <div id="product-details" class="product-details-container"></div>
-            <a href="#" class="back-link" id="back-to-shop-link">Retour à la boutique</a>
-        </section>
+    <section id="product-details-section" class="hidden">
+        <div id="product-details" class="product-details-container"></div>
+        <a href="#" class="back-link" id="back-to-shop-link">Retour à la boutique</a>
+    </section>
 
-        <section id="about-section" class="hidden page-content">
-            <h1>À propos de nous</h1>
-            <p>Tenero Lusso est une marque de streetwear dédiée à l'expression de soi et à la qualité. Nous créons des pièces uniques et confortables qui reflètent un style urbain moderne. Chaque article est conçu avec soin pour vous offrir un vêtement durable et stylé.</p>
-        </section>
+    <section id="about-section" class="hidden page-content">
+        <h1>À propos de nous</h1>
+        <p>Tenero Lusso est une marque de streetwear dédiée à l'expression de soi et à la qualité. Nous créons des pièces uniques et confortables qui reflètent un style urbain moderne. Chaque article est conçu avec soin pour vous offrir un vêtement durable et stylé.</p>
+    </section>
 
-        <section id="contact-section" class="hidden page-content">
-            <h1>Nous contacter</h1>
-            <p>Pour toute question, veuillez nous envoyer un message via le formulaire ci-dessous.</p>
-            <form class="contact-form">
-                <label for="name">Nom :</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email :</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message :</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Envoyer</button>
-            </form>
-        </section>
-    </main>
+    <section id="contact-section" class="hidden page-content">
+        <h1>Nous contacter</h1>
+        <p>Pour toute question, veuillez nous envoyer un message via le formulaire ci-dessous.</p>
+        <form class="contact-form">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
 
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <section id="cart-section" class="hidden page-content">
+        <div id="cart-content" class="cart-container">
+            <h2>Votre panier</h2>
+            <ul id="cart-items"></ul>
+            <p class="total">Total : <span id="cart-total">0</span> €</p>
+            <button id="checkout-btn">Passer la commande</button>
+        </div>
+    </section>
+</main>
+  
     <footer>
         <p>&copy; 2025 Tenero Lusso</p>
     </footer>

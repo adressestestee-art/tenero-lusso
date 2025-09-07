@@ -20,26 +20,31 @@
     </header>
 
     <main>
-    <section class="product-details-container">
-        <div class="product-image">
-            <img id="main-product-image" src="images/vetement_1.jpg" alt="Veste en cuir de la marque Tenero Lusso">
-            <div class="thumbnail-gallery">
-                <img class="thumbnail active" src="images/vetement_1_thumb.jpg" alt="Vue rapprochée de la veste en cuir">
-                <img class="thumbnail" src="images/vetement_1_2_thumb.jpg" alt="Vue de dos de la veste en cuir">
-                <img class="thumbnail" src="images/vetement_1_3_thumb.jpg" alt="Détail de la couture de la veste en cuir">
-            </div>
-        </div>
+   // Fonction pour charger les détails d'un produit
+function loadProductDetails() {
+    const productDetailsContainer = document.querySelector('.product-details-container');
+    if (!productDetailsContainer) return;
 
-        <div class="product-info">
-            <h2>Veste en Cuir Élégante</h2>
-            <p class="price">499,99 €</p>
-            <p class="description">
-                Confectionnée à la main avec un cuir de première qualité, cette veste allie l'héritage du streetwear et un savoir-faire artisanal. Une pièce intemporelle pour un style affirmé.
-            </p>
-            <button class="add-to-cart-btn">Ajouter au panier</button>
-            <a href="boutique.html" class="back-link">Retour à la boutique</a>
-        </div>
-    </section>
+    const products = [
+        // Ajout des descriptions et des images pour les deux produits
+        { id: '3', name: 'Sweat à Capuche Luxueux', price: '89,99 €', description: 'Le parfait équilibre entre confort et élégance. Fabriqué en coton ultra-doux, ce sweat est rehaussé de détails discrets qui le rendent unique.', image: 'images/vetement_3.jpg' },
+        { id: '4', name: 'T-shirt Basique Sophistiqué', price: '49,99 €', description: 'Un classique revisité pour une qualité irréprochable. Ce T-shirt est coupé dans un jersey de coton épais, offrant un tombé parfait et une durabilité exceptionnelle.', image: 'images/vetement_4.jpg' }
+    ];
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    const product = products.find(p => p.id === productId);
+
+    if (product) {
+        document.querySelector('.product-info h2').textContent = product.name;
+        document.querySelector('.product-info .price').textContent = product.price;
+        document.querySelector('.product-info .description').textContent = product.description;
+        document.getElementById('main-product-image').src = product.image;
+    } else {
+        productDetailsContainer.innerHTML = '<h2>Produit non trouvé</h2>';
+    }
+}
 </main>
 
     <footer>

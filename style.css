@@ -1,131 +1,593 @@
-// Fonction pour le carrousel d'images d'arrière-plan
-function startCarousel() {
-    const images = document.querySelectorAll('.carousel-bg img');
-    if (images.length === 0) return;
-
-    let currentIndex = 0;
-    setInterval(() => {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
-    }, 5000); // Change l'image toutes les 5 secondes
+/* Définition des variables pour un thème LUXUEUX */
+:root {
+    --primary-bg: #0F0F0F;
+    --secondary-bg: #1C1C1C;
+    --text-light: #F0F0F0;
+    --text-medium: #B0B0B0;
+    --accent-gold: #C0C0C0;
+    --accent-gold-hover: #E0E0E0;
+    --border-color: #383838;
+    --shadow-color-dark: rgba(0, 0, 0, 0.7);
+    --shadow-color-light: rgba(0, 0, 0, 0.3);
+    --hero-text-color: #FFFFFF;
 }
 
-// Fonction pour le menu déroulant sur mobile
-function setupDropdownMenu() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+/* Styles généraux */
+body {
+    font-family: 'Crimson Text', serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-light);
+    line-height: 1.8;
+    font-weight: 300;
+    animation: fadeIn 1.2s ease-in-out;
+}
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Carrousel d'images en arrière-plan */
+.carousel-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.carousel-bg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.carousel-bg img.active {
+    opacity: 1;
+}
+
+/* En-tête et menu déroulant */
+header {
+    background-color: transparent;
+    padding: 40px 80px;
+    border-bottom: none;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+body:not(.homepage) header {
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.5em;
+    color: var(--hero-text-color);
+    text-decoration: none;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 4px var(--shadow-color-dark);
+}
+
+body:not(.homepage) .logo {
+    color: var(--accent-gold);
+    text-shadow: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    transition: all 0.4s ease-in-out;
+}
+
+.nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--hero-text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 8px 0;
+    position: relative;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 3px var(--shadow-color-light);
+}
+
+body:not(.homepage) .nav-links a {
+    color: var(--text-light);
+    text-shadow: none;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-gold);
+    transition: width 0.3s ease-out;
+}
+
+.nav-links a:hover {
+    color: var(--accent-gold-hover);
+    transform: translateY(-3px);
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.cart-icon {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    color: var(--hero-text-color);
+    cursor: pointer;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    text-shadow: 1px 1px 3px var(--shadow-color-light);
+}
+.cart-icon:hover {
+    color: var(--accent-gold);
+}
+
+body:not(.homepage) .cart-icon {
+    color: var(--text-medium);
+    text-shadow: none;
+}
+
+/* Sections principales */
+main {
+    padding: 0;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+body:not(.homepage) main {
+    padding: 100px 80px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+}
+
+.product-container {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 60px;
+}
+
+/* Style des cartes produits */
+.product {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 6px;
+    text-align: left;
+    box-shadow: 0 12px 40px var(--shadow-color-dark);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 50px var(--shadow-color-dark);
+}
+
+.product img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 0;
+    margin-bottom: 0;
+    transition: transform 0.6s ease;
+}
+.product:hover img {
+    transform: scale(1.08);
+}
+
+.product-info-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    transform: translateY(100%);
+    transition: transform 0.4s ease-out;
+}
+
+.product:hover .product-info-text {
+    transform: translateY(0);
+}
+
+.product h3 {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--text-light);
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+
+.product p {
+    font-family: 'Crimson Text', serif;
+    margin: 10px 0 0;
+    color: var(--text-medium);
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+.add-to-cart-btn {
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.product:hover .add-to-cart-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Panier */
+.cart-container {
+    flex: 1;
+    min-width: 350px;
+    background-color: var(--secondary-bg);
+    padding: 40px;
+    border-radius: 6px;
+    box-shadow: 0 12px 40px var(--shadow-color-dark);
+    align-self: flex-start;
+    animation: slideInFromRight 0.9s ease-out;
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
-// Fonction pour la galerie de vignettes produits
-function setupProductGallery() {
-    const mainImage = document.getElementById('main-product-image');
-    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
+.cart-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    color: var(--text-light);
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
 
-    if (mainImage && thumbnails.length > 0) {
-        thumbnails.forEach(thumbnail => {
-            thumbnail.addEventListener('click', () => {
-                const newImageSrc = thumbnail.src.replace('_thumb.jpg', '.jpg');
-                mainImage.src = newImageSrc;
-            });
-        });
+#cart-items {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+#cart-items li {
+    font-family: 'Crimson Text', serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    color: var(--text-medium);
+    font-size: 1.1em;
+}
+
+.total {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: right;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 30px;
+    color: var(--accent-gold);
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-medium);
+    border-top: 1px solid var(--border-color);
+    font-family: 'Crimson Text', serif;
+    font-size: 1em;
+    position: relative;
+    z-index: 1;
+    background-color: var(--primary-bg);
+}
+
+/* Pages À propos et Contact */
+.page-content {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 60px;
+    background-color: var(--secondary-bg);
+    border-radius: 8px;
+    box-shadow: 0 12px 40px var(--shadow-color-dark);
+    animation: fadeInScale 0.9s ease-in-out;
+}
+
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.page-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    color: var(--accent-gold);
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+/* Page de détails produit */
+.product-details-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 120px;
+    padding: 100px 80px;
+    animation: fadeInScale 0.9s ease-in-out;
+}
+
+.product-image img {
+    max-width: 600px;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 15px 50px var(--shadow-color-dark);
+}
+
+.product-info h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4em;
+    margin-top: 0;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent-gold);
+}
+
+.product-info .price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5em;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.product-info .description {
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3em;
+    line-height: 1.9;
+    margin-bottom: 50px;
+    color: var(--text-medium);
+    font-weight: 400;
+}
+
+.back-link {
+    font-family: 'Montserrat', sans-serif;
+    display: inline-block;
+    margin-top: 40px;
+    color: var(--text-medium);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--accent-gold-hover);
+    transform: translateX(-8px);
+}
+
+/* Galerie d'images et ajustements */
+.thumbnail-gallery {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.thumbnail-gallery .thumbnail {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.thumbnail-gallery .thumbnail:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-gold-hover);
+}
+
+.product-details-container .product-image img#main-product-image {
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin-bottom: 0;
+}
+
+/* Style de la section d'accueil (Hero Section) */
+.hero-content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: var(--hero-text-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    padding: 0 80px;
+    box-sizing: border-box;
+}
+
+.hero-content h1 {
+    font-size: 5.5em;
+    margin-bottom: 25px;
+    line-height: 1.1;
+    color: var(--hero-text-color);
+    font-weight: 700;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-size: 1.8em;
+    margin-bottom: 50px;
+    color: var(--hero-text-color);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.cta-button {
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    padding: 20px 40px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.5);
+}
+
+.cta-button:hover {
+    background-color: var(--accent-gold-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.8);
+}
+
+/* Style du menu déroulant */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 8px;
+}
+
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 20px 30px;
+    }
+    .logo {
+        font-size: 2em;
+        letter-spacing: 3px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        padding: 30px 0;
+        box-sizing: border-box;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        text-align: center;
+        margin: 15px 0;
+        font-size: 1.3em;
+    }
+
+    .hero-content {
+        padding: 0 30px;
+    }
+    .hero-content h1 {
+        font-size: 3.5em;
+        letter-spacing: 4px;
+    }
+    .hero-content p {
+        font-size: 1.3em;
+    }
+
+    main {
+        padding: 60px 30px;
+    }
+    .product-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .product img {
+        height: 300px;
+    }
+    .cart-container {
+        min-width: unset;
+        width: 100%;
+    }
+    .product-details-container {
+        flex-direction: column;
+        gap: 60px;
+        padding: 60px 30px;
+    }
+    .product-image img {
+        max-width: 100%;
+    }
+    .product-info h2 {
+        font-size: 3em;
+    }
+    .product-info .price {
+        font-size: 2em;
     }
 }
-
-// Fonction pour afficher les produits sur la page boutique
-function displayProducts() {
-    const productsContainer = document.querySelector('.product-container');
-    if (!productsContainer) return;
-
-    const products = [
-        { id: '1', name: 'Veste en Cuir', price: '499,99 €', image: 'images/vetement_1.jpg' },
-        { id: '2', name: 'Pantalon Cargo', price: '129,99 €', image: 'images/vetement_2.jpg' },
-        { id: '3', name: 'Sweat à Capuche', price: '89,99 €', image: 'images/vetement_3.jpg' },
-        { id: '4', name: 'T-shirt Basique', price: '49,99 €', image: 'images/vetement_4.jpg' },
-        { id: '5', name: 'Baskets Urbaines', price: '159,99 €', image: 'images/vetement_5.jpg' },
-        { id: '6', name: 'Casquette Brodée', price: '39,99 €', image: 'images/vetement_6.jpg' },
-    ];
-
-    productsContainer.innerHTML = '';
-
-    products.forEach(product => {
-        const productElement = document.createElement('a');
-        productElement.href = `produit.html?id=${product.id}`;
-        productElement.classList.add('product');
-        productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.name}">
-            <div class="product-info-text">
-                <h3>${product.name}</h3>
-                <p>${product.price}</p>
-            </div>
-        `;
-        productsContainer.appendChild(productElement);
-    });
-}
-
-// Fonction pour charger les détails d'un produit
-function loadProductDetails() {
-    const productDetailsContainer = document.querySelector('.product-details-container');
-    if (!productDetailsContainer) return;
-
-    const products = [
-        { id: '1', name: 'Veste en Cuir Élégante', price: '499,99 €', description: 'Confectionnée à la main avec un cuir de première qualité, cette veste allie l\'héritage du streetwear et un savoir-faire artisanal. Une pièce intemporelle pour un style affirmé.', image: 'images/vetement_1.jpg' },
-        { id: '2', name: 'Pantalon Cargo Moderne', price: '129,99 €', description: 'Un pantalon polyvalent, pensé pour le mouvement et le confort. Ses multiples poches et sa coupe contemporaine en font un indispensable de votre dressing.', image: 'images/vetement_2.jpg' },
-        { id: '3', name: 'Sweat à Capuche Luxueux', price: '89,99 €', description: 'Le parfait équilibre entre confort et élégance. Fabriqué en coton ultra-doux, ce sweat est rehaussé de détails discrets qui le rendent unique.', image: 'images/vetement_3.jpg' },
-        { id: '4', name: 'T-shirt Basique Sophistiqué', price: '49,99 €', description: 'Un classique revisité pour une qualité irréprochable. Ce T-shirt est coupé dans un jersey de coton épais, offrant un tombé parfait et une durabilité exceptionnelle.', image: 'images/vetement_4.jpg' },
-        { id: '5', name: 'Baskets Urbaines Premium', price: '159,99 €', description: 'Légères et robustes, ces baskets sont conçues pour la vie urbaine. Leur design minimaliste s\'associe à une semelle amortissante pour un confort absolu.', image: 'images/vetement_5.jpg' },
-        { id: '6', name: 'Casquette Brodée Signature', price: '39,99 €', description: 'Une casquette qui exprime votre style avec élégance. Confectionnée dans un twill de coton, elle arbore un logo brodé pour une finition soignée.', image: 'images/vetement_6.jpg' },
-    ];
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const productId = urlParams.get('id');
-
-    const product = products.find(p => p.id === productId);
-
-    if (product) {
-        document.querySelector('.product-info h2').textContent = product.name;
-        document.querySelector('.product-info .price').textContent = product.price;
-        document.querySelector('.product-info .description').textContent = product.description;
-        document.getElementById('main-product-image').src = product.image;
-    } else {
-        productDetailsContainer.innerHTML = '<h2>Produit non trouvé</h2>';
-    }
-}
-
-// Fonction pour les animations d'apparition progressives
-function setupFadeInOnScroll() {
-    const fadeElements = document.querySelectorAll('.product, .product-details-container, .page-content');
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    fadeElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(50px)';
-        element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(element);
-    });
-}
-
-// Lancement de toutes les fonctions une fois que la page est chargée
-document.addEventListener('DOMContentLoaded', () => {
-    startCarousel();
-    setupDropdownMenu();
-    setupProductGallery();
-    displayProducts();
-    loadProductDetails();
-    setupFadeInOnScroll();
-});

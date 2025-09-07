@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenero Lusso</title>
+    <title>Accueil - Tenero Lusso</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
@@ -12,104 +12,16 @@
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
             <div class="nav-links">
-                <a href="#" id="about-link">À propos</a>
-                <a href="#" id="contact-link">Contact</a>
-                <div id="cart" class="cart-icon">
-                    <a href="#" id="cart-link">Panier (<span id="cart-count">0</span>)</a>
-                </div>
+                <a href="a-propos.html">À propos</a>
+                <a href="contact.html">Contact</a>
+                <a href="panier.html">Panier (<span id="cart-count">0</span>)</a>
             </div>
         </nav>
     </header>
 
     <main>
-        <section id="shop-section">
-        <div id="products" class="product-container">
-    <div class="product">
-        <img src="./images/t-shirt.png" alt="T-shirt NYF" onclick="showProductDetails(1)">
-        <div class="product-info-text" onclick="showProductDetails(1)">
-            <h3>T-shirt NYF</h3>
-            <p>30 €</p>
-        </div>
-        <button onclick="addToCart(1)">Ajouter au panier</button>
-    </div>
-    
-    <div class="product">
-        <img src="./images/hoodie.png" alt="Hoodie NYF" onclick="showProductDetails(2)">
-        <div class="product-info-text" onclick="showProductDetails(2)">
-            <h3>Hoodie NYF</h3>
-            <p>60 €</p>
-        </div>
-        <button onclick="addToCart(2)">Ajouter au panier</button>
-    </div>
-    
-    <div class="product">
-        <img src="./images/jogger.png" alt="Jogger NYF" onclick="showProductDetails(3)">
-        <div class="product-info-text" onclick="showProductDetails(3)">
-            <h3>Jogger NYF</h3>
-            <p>50 €</p>
-        </div>
-        <button onclick="addToCart(3)">Ajouter au panier</button>
-    </div>
-
-    <div class="product">
-        <img src="./images/cap.png" alt="Casquette NYF" onclick="showProductDetails(4)">
-        <div class="product-info-text" onclick="showProductDetails(4)">
-            <h3>Casquette NYF</h3>
-            <p>25 €</p>
-        </div>
-        <button onclick="addToCart(4)">Ajouter au panier</button>
-    </div>
-</div>
-        </section>
-
-        <section id="product-details-section" class="hidden">
-            <div id="product-details" class="product-details-container"></div>
-            <a href="#" class="back-link" id="back-to-shop-link">Retour à la boutique</a>
-        </section>
-
-        <section id="about-section" class="hidden page-content">
-    <h1>À propos de nous</h1>
-    <p>Tenero Lusso est une marque de streetwear dédiée à l'expression de soi et à la qualité. Nous créons des pièces uniques et confortables qui reflètent un style urbain moderne. Chaque article est conçu avec soin pour vous offrir un vêtement durable et stylé.</p>
-    <a href="#" class="back-link" id="back-to-shop-link-about">Retour à la boutique</a>
-</section>
-
-<section id="contact-section" class="hidden page-content">
-    <h1>Nous contacter</h1>
-    <p>Pour toute question, veuillez nous envoyer un message via le formulaire ci-dessous.</p>
-    <form class="contact-form">
-        <label for="name">Nom :</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">Email :</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" required></textarea>
-        
-        <button type="submit">Envoyer</button>
-    </form>
-    <a href="#" class="back-link" id="back-to-shop-link-contact">Retour à la boutique</a>
-</section>
-        </section>
-
-        <section id="cart-section" class="hidden page-content">
-            <div id="cart-content" class="cart-container">
-                <h2>Votre panier</h2>
-                <ul id="cart-items"></ul>
-                <p class="total">Total : <span id="cart-total">0</span> €</p>
-                <button id="checkout-btn">Passer la commande</button>
-            </div>
-        </section>
+        <div id="products" class="product-container"></div>
     </main>
-    <main>
-    <div id="products" class="product-container"></div>
-    <div id="cart-content" class="cart-container">
-        <h2>Votre panier</h2>
-        <ul id="cart-items"></ul>
-        <p class="total">Total : <span id="cart-total">0</span> €</p>
-        <button id="checkout-btn">Passer la commande</button>
-    </div>
-</main>
 
     <footer>
         <p>&copy; 2025 Tenero Lusso</p>

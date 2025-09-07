@@ -411,4 +411,15 @@ footer {
     .product-info h2 {
         font-size: 2.5em;
     }
+    /* Panier */
+.cart-container {
+    /* Suppression des flex: 1 et autres styles de colonne pour l'intégrer dans le layout de page-content */
+    min-width: 100%; /* S'assure qu'il occupe toute la largeur de son parent */
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 3px;
+    box-shadow: 0 8px 30px var(--shadow-color);
+    align-self: flex-start;
+    animation: slideInFromRight 0.8s ease-out; /* <-- On garde cette belle animation */
+}
 }

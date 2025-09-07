@@ -420,3 +420,6 @@ footer {
         font-size: 2.5em;
     }
 }
+.hidden {
+    display: none;
+}

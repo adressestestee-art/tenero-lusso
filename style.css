@@ -548,3 +548,40 @@ footer {
         padding: 40px 20px;
     }
 }
+/* ==================================== */
+/* Styles pour la page Boutique */
+/* ==================================== */
+
+.boutique-page body {
+    background-color: var(--secondary-bg); /* Un fond gris très clair */
+    color: var(--text-dark); /* Texte en noir */
+}
+
+.boutique-page .page-content {
+    background-color: var(--primary-bg); /* Un fond blanc pour le contenu */
+    padding: 60px 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Une ombre légère pour la profondeur */
+    border-radius: 8px;
+}
+
+.boutique-page header {
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.boutique-page .logo {
+    color: var(--accent-gold); /* Le logo reste en or */
+    text-shadow: none;
+}
+
+.boutique-page .nav-links a,
+.boutique-page .cart-icon {
+    color: var(--text-dark); /* Les liens de navigation deviennent sombres */
+    text-shadow: none;
+}
+
+.boutique-page footer {
+    background-color: var(--primary-bg);
+    border-top: 1px solid var(--border-color);
+}

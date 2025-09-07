@@ -34,70 +34,6 @@ const products = [
     }
 ];
 
-let cart = [];
-
-// Fonction pour afficher la page d'accueil avec les produits
-function displayProducts() {
-    const container = document.getElementById("products");
-    if (!container) return; // S'assure d'être sur la bonne page
-
-    container.innerHTML = "";
-    products.forEach(product => {
-        const prodDiv = document.createElement("div");
-        prodDiv.className = "product";
-        prodDiv.innerHTML = `
-            <a href="produit.html?id=${product.id}">
-                <img src="${product.img}" alt="${product.name}">
-                <div class="product-info-text">
-                    <h3>${product.name}</h3>
-                    <p>${product.price} €</p>
-                </div>
-            </a>
-            <button onclick="addToCart(${product.id})">Ajouter au panier</button>
-        `;
-        container.appendChild(prodDiv);
-    });
-}
-
-// Fonction pour afficher les détails d'un produit (sur la page produit.html)
-function displayProductDetails() {
-    const params = new URLSearchParams(window.location.search);
-    const productId = parseInt(params.get('id'));
-    const product = products.find(p => p.id === productId);
-
-    const container = document.getElementById("product-details");
-    if (!container || !product) {
-        container.innerHTML = "<p>Produit non trouvé.</p>";
-        return;
-    }
-
-    let imageGalleryHTML = `<img id="main-product-image" src="${product.img}" alt="${product.name}">`;
-    if (product.gallery && product.gallery.length > 1) {
-        imageGalleryHTML += `<div class="thumbnail-gallery">`;
-        product.gallery.forEach((imgSrc, index) => {
-            imageGalleryHTML += `<img src="${imgSrc}" alt="${product.name} vue ${index + 1}" class="thumbnail" onclick="changeMainImage('${imgSrc}')">`;
-        });
-        imageGalleryHTML += `</div>`;
-    }
-
-    container.innerHTML = `
-        <div class="product-image">
-            ${imageGalleryHTML}
-        </div>
-        <div class="product-info">
-            <h2>${product.name}</h2>
-            <p class="price">${product.price} €</p>
-            <p class="description">${product.description}</p>
-            <button onclick="addToCart(${product.id})">Ajouter au panier</button>
-        </div>
-    `;
-}
-
-// Fonction pour changer l'image principale au clic sur une miniature
-function changeMainImage(newSrc) {
-    document.getElementById('main-product-image').src = newSrc;
-}
-
 // Fonctions du panier
 function addToCart(id) {
     const product = products.find(p => p.id === id);
@@ -109,7 +45,10 @@ function addToCart(id) {
 
 function updateCartCount() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    document.getElementById('cart-count').textContent = cart.length;
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+        cartCountElement.textContent = cart.length;
+    }
 }
 
 function updateCartPage() {
@@ -140,7 +79,10 @@ function updateCartPage() {
         }
     });
     
-    document.getElementById('cart-total').textContent = total;
+    const cartTotalElement = document.getElementById('cart-total');
+    if (cartTotalElement) {
+        cartTotalElement.textContent = total;
+    }
 }
 
 function removeFromCart(id) {
@@ -150,20 +92,76 @@ function removeFromCart(id) {
         cart.splice(index, 1);
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartCount();
-        updateCartPage(); // Met à jour la page du panier si nous y sommes
+        updateCartPage();
     }
 }
 
-// Gère le chargement du bon contenu en fonction de la page
+// Fonctions d'affichage des produits
+function displayProducts() {
+    const container = document.getElementById("products");
+    if (!container) return; 
+
+    container.innerHTML = "";
+    products.forEach(product => {
+        const prodDiv = document.createElement("div");
+        prodDiv.className = "product";
+        prodDiv.innerHTML = `
+            <a href="produit.html?id=${product.id}">
+                <img src="${product.img}" alt="${product.name}">
+                <div class="product-info-text">
+                    <h3>${product.name}</h3>
+                    <p>${product.price} €</p>
+                </div>
+            </a>
+            <button onclick="addToCart(${product.id})">Ajouter au panier</button>
+        `;
+        container.appendChild(prodDiv);
+    });
+}
+
+function displayProductDetails() {
+    const params = new URLSearchParams(window.location.search);
+    const productId = parseInt(params.get('id'));
+    const product = products.find(p => p.id === productId);
+
+    const container = document.getElementById("product-details");
+    if (!container || !product) {
+        return;
+    }
+
+    let imageGalleryHTML = `<img id="main-product-image" src="${product.img}" alt="${product.name}">`;
+    if (product.gallery && product.gallery.length > 1) {
+        imageGalleryHTML += `<div class="thumbnail-gallery">`;
+        product.gallery.forEach((imgSrc, index) => {
+            imageGalleryHTML += `<img src="${imgSrc}" alt="${product.name} vue ${index + 1}" class="thumbnail" onclick="changeMainImage('${imgSrc}')">`;
+        });
+        imageGalleryHTML += `</div>`;
+    }
+
+    container.innerHTML = `
+        <div class="product-image">
+            ${imageGalleryHTML}
+        </div>
+        <div class="product-info">
+            <h2>${product.name}</h2>
+            <p class="price">${product.price} €</p>
+            <p class="description">${product.description}</p>
+            <button onclick="addToCart(${product.id})">Ajouter au panier</button>
+        </div>
+    `;
+}
+
+function changeMainImage(newSrc) {
+    const mainImage = document.getElementById('main-product-image');
+    if (mainImage) {
+        mainImage.src = newSrc;
+    }
+}
+
+// Exécution des fonctions au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
     updateCartCount();
-    if (document.getElementById('products')) {
-        displayProducts();
-    }
-    if (document.getElementById('product-details')) {
-        displayProductDetails();
-    }
-    if (document.getElementById('cart-content')) {
-        updateCartPage();
-    }
+    displayProducts();
+    displayProductDetails();
+    updateCartPage();
 });

@@ -23,69 +23,96 @@ function setupDropdownMenu() {
     }
 }
 
-// Fonction pour la galerie de vignettes produits
-function setupProductGallery() {
-    const mainImage = document.getElementById('main-product-image');
-    const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
+// Données des produits
+const products = [
+    {
+        id: '1',
+        name: 'T-shirt Basique',
+        price: '49,99 €',
+        description: 'Un classique revisité pour une qualité irréprochable. Ce T-shirt est coupé dans un jersey de coton épais, offrant un tombé parfait et une durabilité exceptionnelle.',
+        image: 'images/t-shirt.png',
+        imageAlt: 'images/t-shirt-alt.png'
+    },
+    {
+        id: '2',
+        name: 'Jogging Confort',
+        price: '89,99 €',
+        description: 'Le parfait équilibre entre confort et élégance. Ce jogging est conçu pour un style décontracté, idéal pour vos moments de détente ou pour un look urbain.',
+        image: 'images/jogger.png',
+        imageAlt: 'images/jogger-alt.png'
+    }
+];
 
-    if (mainImage && thumbnails.length > 0) {
+// Fonction pour afficher les produits sur la page boutique
+function displayProducts() {
+    const productsContainer = document.querySelector('.product-container');
+    if (!productsContainer) return;
+
+    productsContainer.innerHTML = '';
+
+    products.forEach(product => {
+        const productElement = document.createElement('a');
+        productElement.href = `produit.html?id=${product.id}`;
+        productElement.classList.add('product');
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <div class="product-info-text">
+                <h3>${product.name}</h3>
+                <p>${product.price}</p>
+            </div>
+        `;
+        productsContainer.appendChild(productElement);
+    });
+}
+
+// Fonction pour charger les détails d'un produit
+function loadProductDetails() {
+    const productDetailsContainer = document.querySelector('.product-details-container');
+    if (!productDetailsContainer) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    const product = products.find(p => p.id === productId);
+
+    if (product) {
+        document.querySelector('.product-info h2').textContent = product.name;
+        document.querySelector('.product-info .price').textContent = product.price;
+        document.querySelector('.product-info .description').textContent = product.description;
+
+        const mainImage = document.getElementById('main-product-image');
+        const thumbnails = document.querySelectorAll('.thumbnail-gallery .thumbnail');
+
+        mainImage.src = product.image;
+        mainImage.alt = product.name;
+
+        thumbnails[0].src = product.image;
+        thumbnails[0].alt = `${product.name} - Vue de face`;
+        thumbnails[1].src = product.imageAlt;
+        thumbnails[1].alt = `${product.name} - Vue de dos`;
+
+        // Gérer le clic sur les vignettes pour changer l'image principale
         thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener('click', () => {
-                const newImageSrc = thumbnail.src.replace('_thumb.jpg', '.jpg');
-                mainImage.src = newImageSrc;
+                mainImage.src = thumbnail.src;
             });
         });
+    } else {
+        productDetailsContainer.innerHTML = '<h2>Produit non trouvé</h2><a href="boutique.html">Retour à la boutique</a>';
     }
-}
-
-// Fonction pour les animations d'apparition progressives
-function setupFadeInOnScroll() {
-    const fadeElements = document.querySelectorAll('.product, .product-details-container, .page-content, .product-section');
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    fadeElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(50px)';
-        element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(element);
-    });
-}
-
-// Fonction pour gérer l'affichage recto/verso des produits
-function setupProductFlip() {
-    const productSections = document.querySelectorAll('.product-section');
-
-    productSections.forEach(section => {
-        const images = section.querySelectorAll('.product-image');
-        let isFront = true;
-
-        section.addEventListener('click', () => {
-            if (isFront) {
-                images[0].classList.add('hidden');
-                images[1].classList.remove('hidden');
-            } else {
-                images[1].classList.add('hidden');
-                images[0].classList.remove('hidden');
-            }
-            isFront = !isFront;
-        });
-    });
 }
 
 // Lancement de toutes les fonctions une fois que la page est chargée
 document.addEventListener('DOMContentLoaded', () => {
+    // Si la page est la page boutique, afficher les produits
+    if (document.body.classList.contains('boutique-page')) {
+        displayProducts();
+    }
+    // Si la page est la page de détails produit, charger les détails
+    if (document.body.classList.contains('product-detail-page')) {
+        loadProductDetails();
+    }
+
     startCarousel();
     setupDropdownMenu();
-    setupProductGallery();
-    setupFadeInOnScroll();
-    setupProductFlip();
 });

@@ -121,3 +121,40 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
     showSection('shop-section'); // Affiche la boutique par défaut
 });
+const products = [
+    {
+        id: 1, 
+        name: "T-shirt NYF", 
+        price: 30, 
+        description: "Un T-shirt de qualité supérieure avec le logo NYF. Coupe décontractée, parfait pour le style urbain.", 
+        img: "./images/t-shirt.png",
+        gallery: ["./images/t-shirt.png", "./images/t-shirt-alt.png"] // Nouvelle galerie d'images
+    },
+    {
+        id: 2, 
+        name: "Hoodie NYF", 
+        price: 60, 
+        description: "Hoodie confortable en coton épais. Idéal pour les soirées fraîches, il allie confort et style.", 
+        img: "./images/hoodie.png",
+        gallery: ["./images/hoodie.png"] // Une seule image pour le moment
+    },
+    {
+        id: 3, 
+        name: "Jogger NYF", 
+        price: 50, 
+        description: "Pantalon de jogging avec logo discret, conçu pour le mouvement et le confort. Tissu respirant.", 
+        img: "./images/jogger.png",
+        gallery: ["./images/jogger.png", "./images/jogger-alt.png"] // Nouvelle galerie d'images
+    },
+    {
+        id: 4, 
+        name: "Casquette NYF", 
+        price: 25, 
+        description: "Casquette noire classique avec logo NYF brodé. Taille ajustable.", 
+        img: "./images/cap.png",
+        gallery: ["./images/cap.png"] // Une seule image pour le moment
+    }
+];
+
+let cart = [];
+

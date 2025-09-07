@@ -182,6 +182,8 @@ const products = [
 ];
 // ... (le reste des fonctions et de la liste de produits)
 
+// ... (le reste des fonctions et de la liste de produits)
+
 // Gestion de la navigation
 document.getElementById('home-link').addEventListener('click', (e) => {
     e.preventDefault();
@@ -199,7 +201,12 @@ document.getElementById('cart-link').addEventListener('click', (e) => {
     e.preventDefault();
     showSection('cart-section');
 });
+// Assure-toi d'avoir ces deux lignes pour le retour à la boutique
 document.getElementById('back-to-shop-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    showSection('shop-section');
+});
+document.getElementById('back-to-shop-link-2').addEventListener('click', (e) => {
     e.preventDefault();
     showSection('shop-section');
 });
@@ -210,6 +217,3 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
     showSection('shop-section'); // Affiche la boutique par défaut
 });
-
-let cart = [];
-

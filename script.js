@@ -80,3 +80,33 @@ document.getElementById("checkout-btn").addEventListener("click", async () => {
 });
 
 displayProducts();
+// La liste des produits
+const products = [
+    {id: 1, name: "T-shirt NYF", price: 30, description: "Un T-shirt de qualité supérieure avec le logo NYF. Coupe décontractée, parfait pour le style urbain.", img: "./images/t-shirt.png"},
+    {id: 2, name: "Hoodie NYF", price: 60, description: "Hoodie confortable en coton épais. Idéal pour les soirées fraîches, il allie confort et style.", img: "./images/hoodie.png"},
+    {id: 3, name: "Jogger NYF", price: 50, description: "Pantalon de jogging avec logo discret, conçu pour le mouvement et le confort. Tissu respirant.", img: "./images/jogger.png"},
+    {id: 4, name: "Casquette NYF", price: 25, description: "Casquette noire classique avec logo NYF brodé. Taille ajustable.", img: "./images/cap.png"}
+];
+
+let cart = [];
+
+function displayProducts() {
+    const container = document.getElementById("products");
+    if (!container) return; // S'assure d'être sur la bonne page
+
+    container.innerHTML = "";
+    products.forEach(product => {
+        const prodDiv = document.createElement("a"); // On utilise une balise <a> pour la navigation
+        prodDiv.href = `product-details.html?id=${product.id}`; // Lien vers la page de détails
+        prodDiv.className = "product";
+        prodDiv.innerHTML = `
+            <img src="${product.img}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>Prix: ${product.price} €</p>
+            <button onclick="event.preventDefault(); addToCart(${product.id})">Ajouter au panier</button>
+        `;
+        container.appendChild(prodDiv);
+    });
+}
+// Le reste de ton script.js (addToCart, updateCart, etc.) reste le même.
+// On retire l'appel à displayProducts() de ce fichier.

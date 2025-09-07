@@ -23,7 +23,43 @@
 
     <main>
         <section id="shop-section">
-            <div id="products" class="product-container"></div>
+        <div id="products" class="product-container">
+    <div class="product">
+        <img src="./images/t-shirt.png" alt="T-shirt NYF" onclick="showProductDetails(1)">
+        <div class="product-info-text" onclick="showProductDetails(1)">
+            <h3>T-shirt NYF</h3>
+            <p>30 €</p>
+        </div>
+        <button onclick="addToCart(1)">Ajouter au panier</button>
+    </div>
+    
+    <div class="product">
+        <img src="./images/hoodie.png" alt="Hoodie NYF" onclick="showProductDetails(2)">
+        <div class="product-info-text" onclick="showProductDetails(2)">
+            <h3>Hoodie NYF</h3>
+            <p>60 €</p>
+        </div>
+        <button onclick="addToCart(2)">Ajouter au panier</button>
+    </div>
+    
+    <div class="product">
+        <img src="./images/jogger.png" alt="Jogger NYF" onclick="showProductDetails(3)">
+        <div class="product-info-text" onclick="showProductDetails(3)">
+            <h3>Jogger NYF</h3>
+            <p>50 €</p>
+        </div>
+        <button onclick="addToCart(3)">Ajouter au panier</button>
+    </div>
+
+    <div class="product">
+        <img src="./images/cap.png" alt="Casquette NYF" onclick="showProductDetails(4)">
+        <div class="product-info-text" onclick="showProductDetails(4)">
+            <h3>Casquette NYF</h3>
+            <p>25 €</p>
+        </div>
+        <button onclick="addToCart(4)">Ajouter au panier</button>
+    </div>
+</div>
         </section>
 
         <section id="product-details-section" class="hidden">

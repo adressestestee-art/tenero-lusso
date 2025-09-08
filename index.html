@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenero Lusso - L'élégance du streetwear</title>
+    <title>TENERO LUSSO - L'élégance du minimalisme</title>
+    <meta name="description" content="Découvrez notre collection de vêtements haut de gamme, du T-shirt au jogging, pour un style luxe et minimaliste.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="homepage">
+<body class="home-page">
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
-            <div class="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
             <div class="nav-links">
                 <a href="boutique.html">Boutique</a>
                 <a href="a-propos.html">À propos</a>
@@ -24,21 +20,26 @@
         </nav>
     </header>
 
-    <main class="hero-section">
-        <div class="carousel-bg">
-            <img class="active" src="images/image_b64912.jpg" alt="Collection de vêtements de luxe 1">
-            <img src="images/image_b62e6c.png" alt="Collection de vêtements de luxe 2">
-        </div>
-        <div class="hero-content">
-            <h1>L'élégance du streetwear</h1>
-            <p>Découvrez notre nouvelle collection, conçue pour un style unique et intemporel.</p>
-            <a href="boutique.html" class="cta-button">Découvrir la collection</a>
-        </div>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>TENERO LUSSO</h1>
+                <p>L'élégance du minimalisme</p>
+                <a href="boutique.html" class="cta-button">Découvrir la collection</a>
+            </div>
+            <div class="carousel-bg">
+                <img src="images/home-image-1.jpg" alt="Photo de mode minimaliste" class="active">
+                <img src="images/home-image-2.jpg" alt="Photo de rue urbaine">
+                <img src="images/home-image-3.jpg" alt="Détail de vêtement de luxe">
+            </div>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2025 Tenero Lusso</p>
     </footer>
 
-<script src="js/main.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+    <script src="js/carousel.js" type="module"></script>
+</body>
 </html>

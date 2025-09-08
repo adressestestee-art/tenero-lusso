@@ -466,6 +466,14 @@ footer {
         margin: 15px 0;
         font-size: 1.3em;
     }
+    @media (max-width: 768px) {
+    /* ... ton code CSS actuel ... */
+
+    .product-container a.product {
+        position: relative;
+        z-index: 10; /* Place les liens en avant-plan */
+    }
+}
 }
 @media (max-width: 768px) {
     /* ... Styles du menu ... */

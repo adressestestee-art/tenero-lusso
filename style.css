@@ -322,10 +322,9 @@ nav {
     border-color: var(--accent-silver-hover);
 }
 
-/* Pied de page */
 footer {
     text-align: center;
-    padding: 40px;
+    padding: 60px 40px; /* J'ai augmenté le padding du haut et du bas à 60px */
     color: var(--text-medium);
     border-top: 1px solid var(--border-color);
     font-family: 'Crimson Text', serif;
@@ -334,7 +333,6 @@ footer {
     z-index: 1;
     background-color: var(--primary-bg);
 }
-
 /*
  ********************************************
  * RÈGLES DE STYLE POUR TÉLÉPHONE (INFÉRIEUR À 768px)

@@ -361,14 +361,16 @@ footer {
     .nav-links {
         display: none;
         position: absolute;
-        top: 100%;
+        top: 100%; /* Le menu commence juste en dessous de la nav */
         left: 0;
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.9);
         width: 100%;
         padding: 30px 0;
         box-sizing: border-box;
+        z-index: 100; /* Assure que le menu déroulant est au-dessus du contenu */
     }
+
     .nav-links.active {
         display: flex;
     }

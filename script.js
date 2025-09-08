@@ -1,3 +1,16 @@
+// Fonction pour le carrousel d'images d'arrière-plan
+function startCarousel() {
+    const images = document.querySelectorAll('.carousel-bg img');
+    if (images.length === 0) return;
+
+    let currentIndex = 0;
+    setInterval(() => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }, 5000); // Change l'image toutes les 5 secondes
+}
+
 // Fonction pour le menu déroulant sur mobile
 function setupDropdownMenu() {
     const menuToggle = document.querySelector('.menu-toggle');
@@ -72,6 +85,10 @@ function loadProductDetails() {
 
 // Lancement de toutes les fonctions une fois que la page est chargée
 document.addEventListener('DOMContentLoaded', () => {
+    // Si la page est la page d'accueil, lancer le carrousel
+    if (document.body.classList.contains('homepage')) {
+        startCarousel();
+    }
     // Si la page est la page de détails produit, charger les détails
     if (document.body.classList.contains('product-detail-page')) {
         loadProductDetails();

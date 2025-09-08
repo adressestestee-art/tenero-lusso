@@ -170,6 +170,10 @@ nav {
     letter-spacing: 2px;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    
+    /* On ajoute les deux lignes suivantes */
+    display: inline-block; /* Permet le centrage et la bonne gestion du texte */
+    text-align: center; /* Assure que le texte reste au milieu du bouton */
 }
 
 .cta-button:hover {

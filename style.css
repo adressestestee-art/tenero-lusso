@@ -479,6 +479,25 @@ footer {
     /* ... Styles du menu ... */
     .hero-section {
         padding: 0 30px;
+          /* Réduction de la taille de toutes les polices de 25% */
+    body {
+        font-size: 75%; /* 100% - 25% = 75% */
+    }
+
+    /* Tu peux aussi ajuster des éléments spécifiques pour plus de précision */
+    .hero-content h1 {
+        font-size: 2.5em; /* Ajustement de la taille du titre */
+    }
+    .hero-content p {
+        font-size: 1em; /* Ajustement du paragraphe */
+    }
+    .product-info h2 {
+        font-size: 2em; /* Ajustement du titre de produit */
+    }
+    .product-info .price {
+        font-size: 1.5em; /* Ajustement du prix */
+    }
+}
     }
     .hero-content h1 {
         font-size: 3.5em;

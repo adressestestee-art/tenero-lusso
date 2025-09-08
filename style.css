@@ -4,14 +4,13 @@
     --secondary-bg: #1C1C1C;
     --text-light: #F0F0F0;
     --text-medium: #B0B0B0;
-    --accent-gold: #C0C0C0;
-    --accent-gold-hover: #E0E0E0;
+    --accent-silver: #A0A0A0; /* Couleur de base argentée */
+    --accent-silver-hover: #D0D0D0; /* Couleur au survol plus claire */
     --border-color: #383838;
     --shadow-color-dark: rgba(0, 0, 0, 0.7);
     --shadow-color-light: rgba(0, 0, 0, 0.3);
     --hero-text-color: #FFFFFF;
 }
-
 /* Styles généraux */
 body {
     font-family: 'Crimson Text', serif;

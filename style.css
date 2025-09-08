@@ -25,11 +25,15 @@ body {
 
 /* En-tête et menu de bureau */
 header {
-    background-color: var(--primary-bg);
+    background-color: transparent; /* Rend l'arrière-plan transparent */
     padding: 40px 80px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: none; /* Supprime la bordure du bas */
     box-sizing: border-box;
-    z-index: 100;
+    z-index: 200; /* Assure qu'il est au-dessus du carrousel */
+    position: absolute; /* Positionne l'en-tête par rapport à la page */
+    top: 0;
+    left: 0;
+    width: 100%; /* S'étend sur toute la largeur */
 }
 
 nav {
@@ -44,10 +48,11 @@ nav {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2.5em;
-    color: var(--accent-silver);
+    color: var(--text-light); /* Met la couleur du logo en blanc */
     text-decoration: none;
     letter-spacing: 5px;
     text-transform: uppercase;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Ajoute une ombre pour la lisibilité */
 }
 
 .nav-links {
@@ -58,13 +63,14 @@ nav {
 
 .nav-links a {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-light);
+    color: var(--text-light); /* Met la couleur des liens en blanc */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.2s ease;
     padding: 8px 0;
     position: relative;
     font-size: 1.2em;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Ajoute une ombre pour la lisibilité */
 }
 
 .nav-links a::after {
@@ -87,10 +93,9 @@ nav {
     width: 100%;
 }
 
-/* Page d'accueil avec carrousel */
 .hero-section {
     position: relative;
-    height: calc(100vh - 120px);
+    height: 100vh; /* Prend toute la hauteur de la fenêtre */
     overflow: hidden;
     display: flex;
     justify-content: center;

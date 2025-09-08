@@ -402,10 +402,11 @@ footer {
 
     /* Mise à jour de la grille de produits */
     .product-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        padding: 40px 20px;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 60px;
+    padding: 150px 80px 100px 80px; /* J'ai augmenté le padding du haut à 150px */
+}
 
     .product img {
         height: 250px;

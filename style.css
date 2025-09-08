@@ -355,32 +355,41 @@ footer {
     }
     
     /* Menu mobile */
-    .menu-toggle {
-        display: flex;
-    }
-    .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%; /* Le menu commence juste en dessous de la nav */
-        left: 0;
-        flex-direction: column;
-        background-color: rgba(0, 0, 0, 0.9);
-        width: 100%;
-        padding: 30px 0;
-        box-sizing: border-box;
-        z-index: 100; /* Assure que le menu déroulant est au-dessus du contenu */
+     .menu-toggle {
+        display: none; /* Cache le bouton hamburger sur mobile */
     }
 
-    .nav-links.active {
-        display: flex;
+    /* Et assure-toi que les nav-links sont toujours visibles sur mobile */
+    .nav-links {
+        display: flex; /* Le menu est toujours ouvert sur mobile */
+        flex-direction: column;
+        position: static; /* Retire le positionnement absolu */
+        background-color: transparent; /* Retire l'arrière-plan du menu */
+        width: auto;
+        padding: 0;
+        box-sizing: border-box;
+        z-index: auto;
+        gap: 20px; /* Ajuste l'espacement des liens */
     }
     .nav-links a {
-        text-align: center;
-        margin: 15px 0;
-        font-size: 1.3em;
+        text-align: left; /* Alignement du texte à gauche pour les liens */
+        margin: 0;
     }
-    
-    /* Adaptation du contenu */
+
+    header {
+        display: flex;
+        flex-direction: column; /* Laisse le header prendre toute la hauteur */
+        align-items: flex-start; /* Aligne les éléments à gauche */
+        padding: 20px 30px; /* Ajuste le padding */
+    }
+
+    nav {
+        flex-direction: column; /* Le logo et les liens s'empilent */
+        align-items: flex-start;
+        width: 100%;
+        gap: 20px; /* Espacement entre le logo et les liens */
+    }
+     /* Adaptation du contenu */
     .hero-section {
         padding: 0 30px;
     }

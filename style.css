@@ -174,12 +174,11 @@ nav {
     box-shadow: 0 10px 30px rgba(160, 160, 160, 0.8);
 }
 
-/* Page de boutique */
 .product-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 60px;
-    padding: 100px 80px;
+    padding: 150px 80px 100px 80px;
 }
 
 .product {
@@ -324,7 +323,7 @@ nav {
 
 footer {
     text-align: center;
-    padding: 60px 40px; /* J'ai augmenté le padding du haut et du bas à 60px */
+    padding: 60px 40px;
     color: var(--text-medium);
     border-top: 1px solid var(--border-color);
     font-family: 'Crimson Text', serif;

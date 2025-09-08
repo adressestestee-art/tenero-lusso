@@ -177,7 +177,6 @@ nav {
     box-shadow: 0 10px 30px rgba(160, 160, 160, 0.8); /* Utilise la nouvelle couleur pour l'ombre */
 }
 
-/* Page de boutique */
 .product-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

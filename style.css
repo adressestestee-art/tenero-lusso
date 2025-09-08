@@ -4,8 +4,8 @@
     --secondary-bg: #1C1C1C;
     --text-light: #F0F0F0;
     --text-medium: #B0B0B0;
-    --accent-silver: #A0A0A0;
-    --accent-silver-hover: #D0D0D0;
+    --accent-silver: #A0A0A0; /* Couleur de base argentée */
+    --accent-silver-hover: #D0D0D0; /* Couleur au survol plus claire */
     --border-color: #383838;
     --shadow-color-dark: rgba(0, 0, 0, 0.7);
     --shadow-color-light: rgba(0, 0, 0, 0.3);
@@ -25,15 +25,15 @@ body {
 
 /* En-tête et menu de bureau */
 header {
-    background-color: transparent; /* Rend l'arrière-plan transparent */
+    background-color: transparent; /* Rendu transparent pour la page d'accueil */
     padding: 40px 80px;
-    border-bottom: none; /* Supprime la bordure du bas */
+    border-bottom: none; /* Suppression de la bordure */
     box-sizing: border-box;
-    z-index: 200; /* Assure qu'il est au-dessus du carrousel */
-    position: absolute; /* Positionne l'en-tête par rapport à la page */
+    z-index: 200;
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* S'étend sur toute la largeur */
+    width: 100%;
 }
 
 nav {
@@ -48,11 +48,11 @@ nav {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 2.5em;
-    color: var(--text-light); /* Met la couleur du logo en blanc */
+    color: var(--text-light);
     text-decoration: none;
     letter-spacing: 5px;
     text-transform: uppercase;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Ajoute une ombre pour la lisibilité */
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
 .nav-links {
@@ -63,14 +63,14 @@ nav {
 
 .nav-links a {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-light); /* Met la couleur des liens en blanc */
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.2s ease;
     padding: 8px 0;
     position: relative;
     font-size: 1.2em;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Ajoute une ombre pour la lisibilité */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .nav-links a::after {
@@ -88,14 +88,14 @@ nav {
     color: var(--accent-silver-hover);
     transform: translateY(-3px);
 }
-
 .nav-links a:hover::after {
     width: 100%;
 }
 
+/* Page d'accueil avec carrousel */
 .hero-section {
     position: relative;
-    height: 100vh; /* Prend toute la hauteur de la fenêtre */
+    height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -133,7 +133,7 @@ nav {
     color: var(--hero-text-color);
     padding: 0 80px;
     box-sizing: border-box;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
 }
 
 .hero-content h1 {
@@ -174,6 +174,7 @@ nav {
     box-shadow: 0 10px 30px rgba(160, 160, 160, 0.8);
 }
 
+/* Page de boutique */
 .product-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -208,7 +209,6 @@ nav {
     margin-bottom: 0;
     transition: transform 0.6s ease;
 }
-
 .product:hover img {
     transform: scale(1.08);
 }
@@ -321,17 +321,24 @@ nav {
     border-color: var(--accent-silver-hover);
 }
 
+/* Page de contenu générale */
+.content-container {
+    padding: 100px 80px;
+}
+
+/* Pied de page */
 footer {
     text-align: center;
     padding: 60px 40px;
     color: var(--text-medium);
-    /* border-top: 1px solid var(--border-color); */ /* Cette ligne est supprimée ou commentée */
+    border-top: none; /* Suppression de la bordure */
     font-family: 'Crimson Text', serif;
     font-size: 1em;
     position: relative;
     z-index: 1;
     background-color: var(--primary-bg);
 }
+
 /*
  ********************************************
  * RÈGLES DE STYLE POUR TÉLÉPHONE (INFÉRIEUR À 768px)
@@ -343,6 +350,8 @@ footer {
         flex-direction: column;
         align-items: center;
         padding: 20px;
+        position: static;
+        background-color: var(--primary-bg);
     }
 
     nav {
@@ -366,7 +375,7 @@ footer {
     }
 
     .menu-toggle {
-        display: none; /* Cache les trois barres */
+        display: none;
     }
 
     /* Réduction de la taille des polices pour la lisibilité sur mobile */
@@ -375,8 +384,8 @@ footer {
     }
 
     .hero-section {
-        padding: 0; /* Supprime le padding pour que l'image remplisse l'écran */
-        height: 100vh; /* Utilise toute la hauteur de la vue */
+        padding: 0;
+        height: 100vh;
     }
 
     .hero-content {
@@ -399,11 +408,10 @@ footer {
 
     /* Mise à jour de la grille de produits */
     .product-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 60px;
-    padding: 150px 80px 100px 80px; /* J'ai augmenté le padding du haut à 150px */
-}
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 20px;
+    }
 
     .product img {
         height: 250px;
@@ -436,7 +444,4 @@ footer {
         width: 70px;
         height: 70px;
     }
-}
-.content-container {
-    padding: 100px 80px; /* Ajoute un espace de 100px en haut et en bas, et 80px sur les côtés */
 }

@@ -448,3 +448,49 @@ footer {
 .content-space {
     padding-top: 100px; /* Ajuste cette valeur pour modifier l'espace */
 }
+/* Styles pour un menu luxueux et épuré */
+
+nav .logo {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white; /* ou une autre couleur qui contraste bien */
+    transition: width 0.3s ease;
+}
+
+nav .nav-links a:hover:after {
+    width: calc(100% - 30px); /* Ajuste la largeur de la ligne en dessous du lien */
+}
+
+/* Effet pour la page active */
+nav .nav-links a.active {
+    font-weight: 500;
+}
+
+nav .nav-links a.active:after {
+    width: calc(100% - 30px);
+}

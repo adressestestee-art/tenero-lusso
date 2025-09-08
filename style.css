@@ -445,3 +445,6 @@ footer {
         height: 70px;
     }
 }
+.content-space {
+    padding-top: 100px; /* Ajuste cette valeur pour modifier l'espace */
+}

@@ -345,9 +345,9 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* Réduction de la taille des polices */
+    /* Réduction de la taille des polices de base pour la lisibilité sur mobile */
     body {
-        font-size: 75%;
+        font-size: 75%; /* Réduit la taille de toutes les polices de base */
     }
     .logo {
         font-size: 2em;

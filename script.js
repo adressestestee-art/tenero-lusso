@@ -11,6 +11,20 @@ function startCarousel() {
     }, 5000); // Change l'image toutes les 5 secondes
 }
 
+// ... le reste de ton code JavaScript ...
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Si la page est la page d'accueil, lancer le carrousel
+    if (document.body.classList.contains('homepage')) {
+        startCarousel();
+    }
+    // Si la page est la page de détails produit, charger les détails
+    if (document.body.classList.contains('product-detail-page')) {
+        loadProductDetails();
+    }
+    setupDropdownMenu();
+});
+
 // Fonction pour le menu déroulant sur mobile
 function setupDropdownMenu() {
     const menuToggle = document.querySelector('.menu-toggle');

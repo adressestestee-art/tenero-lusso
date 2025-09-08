@@ -37,6 +37,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    z-index: 200; /* Assure que la nav est toujours visible et cliquable */
 }
 
 .logo {

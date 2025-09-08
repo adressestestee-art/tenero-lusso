@@ -532,4 +532,8 @@ footer {
     .product-info .price {
         font-size: 2em;
     }
+ .cta-button {
+        padding: 15px 30px; /* Réduit le padding pour que le bouton soit plus petit */
+        font-size: 0.9em; /* Réduit la taille de la police */
+    }
 }

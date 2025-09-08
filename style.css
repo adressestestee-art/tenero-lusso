@@ -176,9 +176,9 @@ nav {
 }
 
 .cta-button:hover {
-    background-color: var(--accent-gold-hover);
+    background-color: var(--accent-silver-hover);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(184, 134, 11, 0.8);
+    box-shadow: 0 10px 30px rgba(160, 160, 160, 0.8); /* Utilise la nouvelle couleur pour l'ombre */
 }
 
 /* Page de boutique */

@@ -446,8 +446,12 @@ footer {
         letter-spacing: 3px;
     }
     .menu-toggle {
-        display: flex; /* Affiche le bouton sur mobile */
-    }
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 8px;
+    z-index: 200; /* Ajoute cette ligne pour le placer en avant-plan */
+}
 
     .nav-links {
         display: none;

@@ -325,7 +325,6 @@ footer {
     text-align: center;
     padding: 60px 40px;
     color: var(--text-medium);
-    border-top: 1px solid var(--border-color);
     font-family: 'Crimson Text', serif;
     font-size: 1em;
     position: relative;

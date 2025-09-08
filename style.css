@@ -64,25 +64,21 @@ nav {
     position: relative;
     font-size: 1.2em;
 }
+.logo {
+    /* ... autres propriétés ... */
+    color: var(--accent-silver);
+}
 
 .nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-gold);
-    transition: width 0.3s ease-out;
+    /* ... autres propriétés ... */
+    background-color: var(--accent-silver);
 }
 
 .nav-links a:hover {
-    color: var(--accent-gold-hover);
-    transform: translateY(-3px);
+    /* ... autres propriétés ... */
+    color: var(--accent-silver-hover);
 }
-.nav-links a:hover::after {
-    width: 100%;
-}
+
 
 .cart-icon {
     font-family: 'Montserrat', sans-serif;

@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gestion du bandeau de cookies
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptButton = document.getElementById('accept-cookies');
-
+     console.log('État des cookies :', localStorage.getItem('cookiesAccepted')); 
     // Vérifie si l'utilisateur a déjà accepté les cookies
     // Si la propriété "cookiesAccepted" est dans le stockage local, on n'affiche pas le bandeau.
     if (localStorage.getItem('cookiesAccepted')) {

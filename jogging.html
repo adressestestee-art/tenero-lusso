@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogging Confort - Tenero Lusso</title>
-    <meta name="description" content="Notre jogging noir de Tenero Lusso est parfait pour se détendre avec style. Conçu en molleton doux pour un confort optimal.">
-    <meta name="keywords" content="jogging, pantalon de sport, vêtement minimaliste, confort, streetwear, jogging homme, jogging femme">
+    <title>Jogging Urbain - Tenero Lusso | Boutique</title>
+    <meta name="description" content="Découvrez notre Jogging Urbain. Conçu pour le confort et l'élégance, idéal pour un style décontracté et sophistiqué.">
+    <meta name="keywords" content="jogging luxe, jogging homme, jogging femme, vêtement sportswear, mode urbaine, confort, élégance">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body class="product-detail-page">
+<body>
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
@@ -19,7 +20,7 @@
                 <div class="bar"></div>
             </div>
             <div class="nav-links">
-                <a href="boutique.html">Boutique</a>
+                <a href="boutique.html" class="active">Boutique</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
                 <a href="blog.html">Blog</a>
@@ -29,34 +30,67 @@
 
     <main>
         <section class="product-details-container">
-            <div class="product-image">
-                <img src="images/jogger-1.png" alt="Jogging noir confortable" id="main-product-image">
+            <div class="product-image-gallery">
+                <img id="main-product-image" src="images/jogging.png" alt="Jogging Urbain - Vue principale">
                 <div class="thumbnail-gallery">
-                    <img src="images/jogger-1.png" alt="Jogging vue de face" class="thumbnail active">
-                    <img src="images/jogger-2.png" alt="Jogging vue de dos" class="thumbnail">
+                    <img src="images/jogging-thumb-1.png" alt="Jogging Urbain vue de face" class="thumbnail active" onclick="changeImage('images/jogging-thumb-1.png')">
+                    <img src="images/jogging-thumb-2.png" alt="Jogging Urbain vue de dos" class="thumbnail" onclick="changeImage('images/jogging-thumb-2.png')">
+                    <img src="images/jogging-thumb-3.png" alt="Détail du tissu du Jogging Urbain" class="thumbnail" onclick="changeImage('images/jogging-thumb-3.png')">
                 </div>
             </div>
             <div class="product-info">
-                <h2>Jogging Confort</h2>
-                <p class="price">19,99 €</p>
-                <p class="description">Notre jogging parfait pour se détendre avec style. Conçu avec un molleton doux et durable, il offre une liberté de mouvement et un confort optimal.</p>
-                <a href="https://www.vinted.fr/member/289230206" target="_blank" class="cta-button">ACHETER</a>
+                <h1>Jogging Urbain</h1>
+                <p class="price">120 €</p>
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p>
+                        Notre Jogging Urbain allie le confort d'un vêtement de sport et l'élégance d'une pièce de luxe. Fabriqué avec un coton premium, il est conçu pour une silhouette épurée et moderne. Idéal pour un look décontracté sans compromettre le style.
+                    </p>
+                    <h3>Détails</h3>
+                    <ul>
+                        <li>Composition : 85% coton, 15% polyester</li>
+                        <li>Couleur : Gris chiné</li>
+                        <li>Coupe : Fuselée, confortable</li>
+                        <li>Entretien : Lavage en machine à 30°C</li>
+                    </ul>
+                </div>
+                <a href="https://www.vinted.fr/jogging-urbain" class="buy-button">Acheter sur Vinted</a>
             </div>
         </section>
     </main>
 
     <footer>
+        <div class="newsletter-container">
+            <h3>Abonnez-vous à notre newsletter</h3>
+            <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
+            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
+                <button type="submit">S'abonner</button>
+            </form>
+            <div id="newsletter-message" class="message"></div>
+        </div>
         <div class="footer-links">
             <a href="politique.html">Politique de Confidentialité</a>
             <a href="cgv.html">Conditions Générales de Vente</a>
         </div>
         <p>&copy; 2025 Tenero Lusso</p>
     </footer>
-    <script src="js/main.js"></script>
-    <script src="js/product-carousel.js"></script>
+
     <div id="cookie-banner">
-    <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
-    <button id="accept-cookies">Accepter</button>
-</div>
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
+        <button id="accept-cookies">Accepter</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function changeImage(src) {
+            document.getElementById('main-product-image').src = src;
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>

@@ -9,31 +9,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ... (code précédent pour le menu mobile)
+
     // Gestion du bandeau de cookies
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptButton = document.getElementById('accept-cookies');
-     console.log('État des cookies :', localStorage.getItem('cookiesAccepted')); 
+
     // Vérifie si l'utilisateur a déjà accepté les cookies
-    // Si la propriété "cookiesAccepted" est dans le stockage local, on n'affiche pas le bandeau.
-    if (localStorage.getItem('cookiesAccepted')) {
+    if (localStorage.getItem('cookiesAccepted') === 'true') {
         if (cookieBanner) {
-            cookieBanner.style.display = 'none';
+            cookieBanner.classList.add('hidden');
         }
     } else {
         if (cookieBanner) {
-            cookieBanner.style.display = 'flex';
+            cookieBanner.classList.remove('hidden');
         }
     }
 
-    // Cache le bandeau quand le bouton est cliqué
+    // Gère le clic sur le bouton "Accepter"
     if (acceptButton) {
         acceptButton.addEventListener('click', () => {
             if (cookieBanner) {
-                // On ajoute la classe "hidden" pour l'animation
+                // Ajoute la classe 'hidden' pour déclencher l'animation de disparition
                 cookieBanner.classList.add('hidden');
                 
                 // Enregistre le choix de l'utilisateur dans le stockage local
                 localStorage.setItem('cookiesAccepted', 'true');
+            }
+        });
+    }
+});
                 
                 // Masque le bandeau complètement après l'animation (500ms)
                 setTimeout(() => {

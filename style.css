@@ -94,8 +94,8 @@ nav {
     color: var(--accent-silver);
     text-transform: uppercase;
     letter-spacing: 2px;
+    margin-right: auto; /* Ajoute cette ligne */
 }
-
 .nav-links {
     display: flex;
     gap: 40px;

@@ -552,3 +552,26 @@ footer {
     font-size: 1.2rem;
     color: var(--text-medium);
 }
+/* Styles pour la galerie de miniatures */
+.thumbnail-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.thumbnail-gallery .thumbnail {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.thumbnail-gallery .thumbnail:hover,
+.thumbnail-gallery .thumbnail.active {
+    border-color: var(--accent-silver-hover);
+    transform: translateY(-5px);
+}

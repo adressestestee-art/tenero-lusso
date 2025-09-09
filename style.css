@@ -682,15 +682,15 @@ footer p {
 }
 
 .value-card h3 {
-    font-size: 2rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem; /* Augmenté de 2rem à 2.5rem */
+    margin-bottom: 20px; /* Augmenté de 15px à 20px */
     color: var(--accent-silver);
 }
 
 .value-card p {
     color: var(--text-secondary);
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 1.15rem; /* Augmenté de 1.05rem à 1.15rem */
+    line-height: 1.8; /* Légèrement augmenté pour une meilleure lisibilité */
 }
 
 /* --- CONTACT --- */

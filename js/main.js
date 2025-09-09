@@ -1,37 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- GESTION DU MENU MOBILE ---
+    // --- Navigation mobile ---
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+
+        // Fermer le menu si un lien est cliqué (pour les ancres)
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
         });
     }
 
-    // --- GESTION DU BANDEAU DE COOKIES ---
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptButton = document.getElementById('accept-cookies');
-
-    if (cookieBanner && acceptButton) {
-        // Vérifie si l'utilisateur a déjà accepté les cookies
-        if (localStorage.getItem('cookiesAccepted')) {
-            cookieBanner.style.display = 'none';
-        }
-
-        // Cache le bandeau quand le bouton est cliqué
-        acceptButton.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            cookieBanner.style.display = 'none';
-        });
-    }
-
-    // --- GESTION DU CARROUSEL ---
+    // --- Carrousel automatique ---
     const carouselItems = document.querySelectorAll('.carousel-item');
     const prevBtn = document.getElementById('prev-btn');
     const nextBtn = document.getElementById('next-btn');
     let currentIndex = 0;
+    let autoSlideInterval;
 
     function showSlide(index) {
         carouselItems.forEach((item, i) => {
@@ -42,73 +34,110 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : carouselItems.length - 1;
-            showSlide(currentIndex);
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % carouselItems.length;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+        showSlide(currentIndex);
+    }
+
+    // Démarrer le défilement automatique
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000); // Change l'image toutes les 5 secondes
+    }
+
+    // Arrêter le défilement automatique (utile pour la navigation manuelle)
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Gestion des boutons de navigation (arrête le défilement auto temporairement)
+    if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            nextSlide();
+            startAutoSlide(); // Redémarre après une action manuelle
         });
 
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex < carouselItems.length - 1) ? currentIndex + 1 : 0;
-            showSlide(currentIndex);
+        prevBtn.addEventListener('click', () => {
+            stopAutoSlide();
+            prevSlide();
+            startAutoSlide(); // Redémarre après une action manuelle
         });
     }
 
-    // --- GESTION DES FORMULAIRES ---
+    // Initialisation du carrousel
+    if (carouselItems.length > 0) {
+        showSlide(currentIndex);
+        startAutoSlide();
+    }
+
+    // --- Formulaire de newsletter ---
     const newsletterForm = document.getElementById('newsletter-form');
-    const contactForm = document.getElementById('contact-form');
     const newsletterMessage = document.getElementById('newsletter-message');
 
-    // Soumission du formulaire de newsletter
     if (newsletterForm && newsletterMessage) {
         newsletterForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const emailInput = document.getElementById('email-input');
             const email = emailInput.value;
 
-            try {
-                const response = await fetch(newsletterForm.action, {
-                    method: newsletterForm.method,
-                    body: new FormData(newsletterForm),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    newsletterMessage.textContent = "Merci pour votre inscription !";
-                    newsletterMessage.classList.remove('error');
-                    newsletterMessage.classList.add('success');
-                    emailInput.value = '';
-                } else {
-                    newsletterMessage.textContent = "Erreur, veuillez réessayer plus tard.";
-                    newsletterMessage.classList.remove('success');
-                    newsletterMessage.classList.add('error');
-                }
-            } catch (error) {
-                newsletterMessage.textContent = "Erreur, veuillez réessayer plus tard.";
+            if (email) {
+                // Ici, vous enverriez normalement les données à votre backend ou Formspree
+                // Pour cet exemple, nous simulons une réponse
+                newsletterMessage.textContent = 'Inscription réussie ! Merci.';
+                newsletterMessage.classList.remove('error');
+                newsletterMessage.classList.add('success');
+                emailInput.value = ''; // Réinitialise le champ
+            } else {
+                newsletterMessage.textContent = 'Veuillez entrer une adresse email valide.';
                 newsletterMessage.classList.remove('success');
                 newsletterMessage.classList.add('error');
             }
-
+            newsletterMessage.style.opacity = 1;
             setTimeout(() => {
-                newsletterMessage.textContent = '';
-                newsletterMessage.classList.remove('success', 'error');
-            }, 5000);
+                newsletterMessage.style.opacity = 0;
+            }, 3000); // Le message disparaît après 3 secondes
         });
     }
 
-    // Soumission du formulaire de contact
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+    // --- Bandeau de cookies ---
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptCookiesBtn = document.getElementById('accept-cookies');
 
-            if (email && message) {
-                alert("Votre message a bien été envoyé. Nous vous répondrons dans les plus brefs délais.");
-                contactForm.reset();
-            }
+    if (cookieBanner && acceptCookiesBtn) {
+        // Vérifie si l'utilisateur a déjà accepté les cookies
+        const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+
+        if (!cookiesAccepted) {
+            cookieBanner.classList.remove('hidden');
+        }
+
+        acceptCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.add('hidden');
         });
+    }
+
+    // --- Page de détail produit (si applicable) ---
+    // Vous pouvez laisser ce code si vous l'avez déjà ou le retirer si vous ne l'utilisez pas encore
+    const mainProductImage = document.getElementById('main-product-image');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+
+    if (mainProductImage && thumbnails.length > 0) {
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
+                mainProductImage.src = thumbnail.src;
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumbnail.classList.add('active');
+            });
+        });
+        // Active la première miniature par défaut
+        if (thumbnails[0]) {
+            thumbnails[0].classList.add('active');
+        }
     }
 });

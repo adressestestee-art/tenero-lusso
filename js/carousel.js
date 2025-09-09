@@ -17,6 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showImage(currentIndex);
     }
 
-    setInterval(nextImage, 10000); // Change l'image toutes les 5 secondes
+    setInterval(nextImage, 200000); // Change l'image toutes les 5 secondes
     showImage(currentIndex); // Affiche la première image au chargement
 });

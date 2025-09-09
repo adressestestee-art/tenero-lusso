@@ -580,3 +580,52 @@ footer {
     border-color: var(--accent-silver-hover);
     transform: translateY(-5px);
 }
+/* Section des témoignages */
+.testimonials-section {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: var(--secondary-bg);
+}
+
+.testimonials-section h2 {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.testimonial-item {
+    max-width: 500px;
+    padding: 30px;
+    background-color: var(--primary-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.quote {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.author {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--accent-silver);
+}
+
+@media (max-width: 768px) {
+    .testimonial-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

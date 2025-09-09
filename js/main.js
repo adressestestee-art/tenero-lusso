@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Menu mobile toggle
+
+    // --- GESTION DU MENU MOBILE ---
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
@@ -9,46 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ... (code précédent pour le menu mobile)
-
-    // Gestion du bandeau de cookies
+    // --- GESTION DU BANDEAU DE COOKIES ---
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptButton = document.getElementById('accept-cookies');
 
-    // Vérifie si l'utilisateur a déjà accepté les cookies
-    if (localStorage.getItem('cookiesAccepted') === 'true') {
-        if (cookieBanner) {
-            cookieBanner.classList.add('hidden');
+    if (cookieBanner && acceptButton) {
+        // Vérifie si l'utilisateur a déjà accepté les cookies
+        if (localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.style.display = 'none';
         }
-    } else {
-        if (cookieBanner) {
-            cookieBanner.classList.remove('hidden');
-        }
-    }
 
-    // Gère le clic sur le bouton "Accepter"
-    if (acceptButton) {
+        // Cache le bandeau quand le bouton est cliqué
         acceptButton.addEventListener('click', () => {
-            if (cookieBanner) {
-                // Ajoute la classe 'hidden' pour déclencher l'animation de disparition
-                cookieBanner.classList.add('hidden');
-                
-                // Enregistre le choix de l'utilisateur dans le stockage local
-                localStorage.setItem('cookiesAccepted', 'true');
-            }
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.style.display = 'none';
         });
     }
-});
-                
-                // Masque le bandeau complètement après l'animation (500ms)
-                setTimeout(() => {
-                    cookieBanner.style.display = 'none';
-                }, 500); 
-            }
-            // ... (code précédent pour le menu et les cookies)
 
-    // Gestion du formulaire de newsletter
+
+    // --- GESTION DU FORMULAIRE DE NEWSLETTER ---
     const newsletterForm = document.getElementById('newsletter-form');
+
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', (e) => {
             e.preventDefault(); // Empêche le rechargement de la page
@@ -60,5 +42,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
 });
-     

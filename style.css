@@ -1105,3 +1105,26 @@ footer {
 .legal-container.centered-text h2 {
     text-align: center;
 }
+/* --- PROTECTION DES DONNÉES / FORMULAIRE DE CONTACT --- */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: var(--accent-silver);
+}
+
+.checkbox-container label {
+    font-size: 0.9em;
+    color: var(--text-light-subtle);
+}
+
+.checkbox-container a {
+    color: var(--accent-silver-hover);
+    text-decoration: underline;
+}

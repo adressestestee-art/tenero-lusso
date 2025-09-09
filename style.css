@@ -661,7 +661,7 @@ footer p {
 
 .value-card {
     background-color: var(--secondary-bg);
-    padding: 40px;
+    padding: 60px 40px; /* Augmenté de 40px à 60px pour plus d'espace */
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -675,9 +675,9 @@ footer p {
 }
 
 .value-card img {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 30px;
+    width: 90px; /* Augmenté de 70px à 90px */
+    height: 90px; /* Augmenté de 70px à 90px */
+    margin-bottom: 35px; /* Augmenté de 30px à 35px */
     filter: grayscale(100%) brightness(150%) contrast(80%);
 }
 

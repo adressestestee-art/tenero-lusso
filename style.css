@@ -1020,14 +1020,31 @@ footer {
 #newsletter-form button:hover {
     background-color: var(--accent-silver-hover);
 }
-
-/* --- OPTIMISATION MOBILE (suite) --- */
 @media (max-width: 768px) {
+    /* Optimisation du pied de page et de la newsletter */
+    footer {
+        padding: 40px 20px;
+    }
+
+    .newsletter-container {
+        padding: 20px 0;
+    }
+
     #newsletter-form {
         flex-direction: column;
     }
 
     #newsletter-form button {
         width: 100%;
+        margin-top: 10px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a {
+        font-size: 0.8em;
     }
 }

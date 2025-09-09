@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const acceptButton = document.getElementById('accept-cookies');
 
     // Vérifie si l'utilisateur a déjà accepté les cookies
-    if (localStorage.getItem('cookiesAccepted') === 'true') {
+    // Si la propriété "cookiesAccepted" est dans le stockage local, on n'affiche pas le bandeau.
+    if (localStorage.getItem('cookiesAccepted')) {
         if (cookieBanner) {
             cookieBanner.style.display = 'none';
         }
@@ -28,13 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (acceptButton) {
         acceptButton.addEventListener('click', () => {
             if (cookieBanner) {
+                // On ajoute la classe "hidden" pour l'animation
                 cookieBanner.classList.add('hidden');
-                // Enregistre le choix de l'utilisateur
+                
+                // Enregistre le choix de l'utilisateur dans le stockage local
                 localStorage.setItem('cookiesAccepted', 'true');
-                // Masque le bandeau après l'animation
+                
+                // Masque le bandeau complètement après l'animation (500ms)
                 setTimeout(() => {
                     cookieBanner.style.display = 'none';
-                }, 500);
+                }, 500); 
             }
         });
     }

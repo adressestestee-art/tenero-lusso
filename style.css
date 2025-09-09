@@ -187,11 +187,12 @@ nav .logo {
 /* Page de boutique */
 .product-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Changement de 'auto-fill' à 'auto-fit' */
+    justify-content: center; /* Ajoute cette ligne pour centrer les éléments dans la grille */
     gap: 60px;
     padding: 150px 80px 100px 80px;
-    max-width: 1400px; /* Limite la largeur du conteneur pour le centrer */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .product {

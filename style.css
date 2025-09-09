@@ -915,13 +915,15 @@ footer {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
     line-height: 1.6;
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    /* La transition est essentielle pour l'animation */
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 #cookie-banner.hidden {
     opacity: 0;
-    transform: translateX(-50%) translateY(100px);
-    pointer-events: none;
+    visibility: hidden; /* Rend l'élément invisible et inactif au clic */
+    transform: translateX(-50%) translateY(20px); /* Un léger décalage pour l'animation */
+}
 }
 
 #cookie-banner p {

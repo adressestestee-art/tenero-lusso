@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À propos de nous | Notre philosophie - Tenero Lusso</title>
-    <meta name="description" content="Découvrez les valeurs de Tenero Lusso. Nous nous engageons à offrir une mode épurée, confortable et respectueuse de l'environnement.">
-    <meta name="keywords" content="philosophie marque, histoire de marque, valeurs, mode éthique, durable, qualité">
+    <title>À propos - Tenero Lusso | Notre Histoire et Nos Valeurs</title>
+    <meta name="description" content="Découvrez l'histoire de Tenero Lusso, notre engagement envers la qualité, le minimalisme et la durabilité.">
+    <meta name="keywords" content="histoire de la marque, valeurs, philosophie, Tenero Lusso, luxe, minimalisme, durable, éthique">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body class="about-page">
+<body>
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
@@ -29,53 +30,52 @@
 
     <main>
         <section class="about-section">
-            <h1>Notre histoire</h1>
-            <p>
-                Née d'une passion pour la simplicité et l'excellence, Tenero Lusso (douceur et luxe en italien) est bien plus qu'une marque de vêtements. C'est un engagement. Nous croyons que le véritable luxe réside dans des pièces épurées, conçues pour durer, et qui s'adaptent à toutes les facettes de votre vie. Chaque vêtement est le résultat d'un travail minutieux, où la qualité prime sur les tendances éphémères.
-            </p>
-        </section>
-
-        <section class="values-section">
-            <h2>Nos Valeurs</h2>
+            <div class="about-header">
+                <h1>Notre Philosophie</h1>
+                <p>Tenero Lusso est née de la conviction que l'élégance ne se mesure pas à l'excès, mais à la pureté des lignes et à la qualité des matières. Nous créons des pièces intemporelles pour un luxe discret et responsable.</p>
+            </div>
             <div class="values-container">
-                <div class="value-item">
-                    <img src="images/icon-quality.png" alt="Icône de qualité" class="value-icon">
+                <div class="value-card">
+                    <img src="images/value-quality.jpg" alt="Icône de qualité">
                     <h3>Qualité</h3>
-                    <p>Nous utilisons des matières premières soigneusement sélectionnées pour garantir des vêtements durables, doux au toucher et qui résistent à l'épreuve du temps.</p>
+                    <p>Chaque vêtement est conçu avec le plus grand soin, à partir de matériaux nobles, pour assurer une durabilité et un confort incomparables.</p>
                 </div>
-                <div class="value-item">
-                    <img src="images/icon-minimalism.png" alt="Icône de minimalisme" class="value-icon">
+                <div class="value-card">
+                    <img src="images/value-minimalism.jpg" alt="Icône de minimalisme">
                     <h3>Minimalisme</h3>
-                    <p>Moins c'est plus. Nos créations sont pensées pour leur pureté esthétique et leur polyvalence, vous offrant une garde-robe essentielle et intemporelle.</p>
+                    <p>Nous privilégions une esthétique épurée et des coupes impeccables, afin que chaque pièce puisse être portée en toute occasion, saison après saison.</p>
                 </div>
-                <div class="value-item">
-                    <img src="images/icon-durability.png" alt="Icône de durabilité" class="value-icon">
+                <div class="value-card">
+                    <img src="images/value-sustainability.jpg" alt="Icône de durabilité">
                     <h3>Durabilité</h3>
-                    <p>Produire moins, mais mieux. Nous nous engageons dans une démarche de production responsable pour minimiser notre impact environnemental.</p>
+                    <p>Nous nous engageons à réduire notre empreinte en créant des vêtements qui durent et en favorisant des pratiques de production responsables.</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-    <div class="newsletter-container">
-        <h3>Abonnez-vous à notre newsletter</h3>
-        <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
-        <form id="newsletter-form">
-            <input type="email" id="email-input" placeholder="Votre adresse email" required>
-            <button type="submit">S'abonner</button>
-        </form>
-    </div>
-    <div class="footer-links">
-        <a href="politique.html">Politique de Confidentialité</a>
-        <a href="cgv.html">Conditions Générales de Vente</a>
-    </div>
-    <p>&copy; 2025 Tenero Lusso</p>
-</footer>
-    <script src="js/main.js"></script>
+        <div class="newsletter-container">
+            <h3>Abonnez-vous à notre newsletter</h3>
+            <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
+            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
+                <button type="submit">S'abonner</button>
+            </form>
+            <div id="newsletter-message" class="message"></div>
+        </div>
+        <div class="footer-links">
+            <a href="politique.html">Politique de Confidentialité</a>
+            <a href="cgv.html">Conditions Générales de Vente</a>
+        </div>
+        <p>&copy; 2025 Tenero Lusso</p>
+    </footer>
+
     <div id="cookie-banner">
-    <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
-    <button id="accept-cookies">Accepter</button>
-</div>
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
+        <button id="accept-cookies">Accepter</button>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

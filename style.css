@@ -80,13 +80,12 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Cela pousse les éléments aux extrémités */
     align-items: center;
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
 }
-
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -104,7 +103,7 @@ nav {
 .nav-links a {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.15rem; /* Augmenté de 1.05rem à 1.15rem */
+    font-size: 1.15rem; /* Taille de la police plus grande pour les liens */
     letter-spacing: 0.8px;
     position: relative;
     padding-bottom: 5px;

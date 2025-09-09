@@ -1,11 +1,11 @@
 /* --- VARIABLES --- */
 :root {
     --primary-bg: #0A0A0A; /* Noir profond */
-    --secondary-bg: #151515; /* Gris très foncé pour les sections secondaires */
+    --secondary-bg: #1A1A1A; /* Gris très foncé pour les sections secondaires */
     --text-primary: #EAEAEA; /* Blanc cassé pour le texte principal */
     --text-secondary: #B0B0B0; /* Gris clair pour les textes secondaires/légers */
-    --accent-gold: #B8860B; /* Or discret pour les accents */
-    --accent-gold-hover: #D4AF37; /* Or plus lumineux au survol */
+    --accent-silver: #A0A0A0; /* Argent discret pour les accents */
+    --accent-silver-hover: #C0C0C0; /* Argent plus lumineux au survol */
     --border-color: #333333; /* Bordures subtiles */
     --header-height: 80px;
 }
@@ -42,7 +42,7 @@ a {
 }
 
 a:hover {
-    color: var(--accent-gold-hover);
+    color: var(--accent-silver-hover);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -91,7 +91,7 @@ nav {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 1.6rem;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Logo argenté */
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -118,7 +118,7 @@ nav {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver); /* Soulignement argenté */
     transition: width 0.3s ease;
 }
 
@@ -164,7 +164,7 @@ nav {
     width: 100%;
     height: calc(100vh - var(--header-height));
     overflow: hidden;
-    display: flex; /* Utilisation de flex pour centrer */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -190,16 +190,16 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.7); /* Assombrit légèrement l'image */
+    filter: brightness(0.7);
 }
 
 .hero-content {
-    position: relative; /* Par rapport au carousel-item */
+    position: relative;
     text-align: center;
     color: var(--text-primary);
     z-index: 10;
     padding: 40px 60px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     max-width: 900px;
     animation: fadeIn 1.5s ease-out forwards;
@@ -214,7 +214,7 @@ nav {
     font-size: 4.8rem;
     margin-bottom: 15px;
     letter-spacing: 2px;
-    color: var(--accent-gold-hover);
+    color: var(--accent-silver-hover); /* Titre argenté */
 }
 
 .hero-content p {
@@ -227,7 +227,7 @@ nav {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(212, 175, 55, 0.2); /* Accent gold transparent */
+    background: rgba(160, 160, 160, 0.2); /* Accent silver transparent */
     border: none;
     color: var(--text-primary);
     font-size: 2.5rem;
@@ -239,7 +239,7 @@ nav {
 }
 
 .carousel-nav button:hover {
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver);
     color: var(--primary-bg);
 }
 
@@ -251,7 +251,7 @@ nav {
     right: 40px;
 }
 
-/* --- INTRODUCTION --- */
+/* --- INTRODUCTION (RESTE IDENTIQUE, SANS LE BLOC "L'ÉLÉGANCE DU MINIMALISME") --- */
 .introduction-section {
     padding: 100px 40px;
     max-width: 1000px;
@@ -262,7 +262,7 @@ nav {
 .introduction-section h2 {
     font-size: 3.5rem;
     margin-bottom: 30px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre argenté */
 }
 
 .introduction-section p {
@@ -277,8 +277,8 @@ nav {
 .cta-button {
     display: inline-block;
     background-color: transparent;
-    border: 2px solid var(--accent-gold);
-    color: var(--accent-gold);
+    border: 2px solid var(--accent-silver); /* Bordure argentée */
+    color: var(--accent-silver); /* Texte argenté */
     padding: 18px 40px;
     font-weight: 700;
     text-transform: uppercase;
@@ -288,9 +288,9 @@ nav {
 }
 
 .cta-button:hover {
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver);
     color: var(--primary-bg);
-    border-color: var(--accent-gold-hover);
+    border-color: var(--accent-silver-hover);
 }
 
 /* --- TÉMOIGNAGES --- */
@@ -303,7 +303,7 @@ nav {
 .testimonial-section h2 {
     font-size: 3.5rem;
     margin-bottom: 60px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre argenté */
 }
 
 .testimonial-container {
@@ -338,7 +338,7 @@ nav {
 
 .testimonial p {
     font-weight: 600;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Nom du client argenté */
     font-size: 1.1rem;
     letter-spacing: 0.5px;
 }
@@ -362,7 +362,7 @@ footer {
     font-family: 'Crimson Text', serif;
     font-size: 2.2rem;
     margin-bottom: 15px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre newsletter argenté */
 }
 
 .newsletter-container p {
@@ -390,8 +390,8 @@ footer {
 }
 
 #email-input:focus {
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.2);
+    border-color: var(--accent-silver);
+    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.2);
     outline: none;
 }
 
@@ -401,7 +401,7 @@ footer {
 
 #newsletter-form button {
     padding: 15px 30px;
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver);
     color: var(--primary-bg);
     border: none;
     border-radius: 5px;
@@ -413,7 +413,7 @@ footer {
 }
 
 #newsletter-form button:hover {
-    background-color: var(--accent-gold-hover);
+    background-color: var(--accent-silver-hover);
 }
 
 .footer-links {
@@ -422,7 +422,7 @@ footer {
     gap: 30px;
     margin-top: 30px;
     margin-bottom: 30px;
-    padding: 0 20px; /* Ajout pour espacement sur mobile */
+    padding: 0 20px;
 }
 
 .footer-links a {
@@ -439,7 +439,7 @@ footer {
     transform: translateX(-50%);
     width: 0;
     height: 1px;
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver); /* Soulignement argenté */
     transition: width 0.3s ease;
 }
 
@@ -463,7 +463,7 @@ footer p {
 .boutique-header h1 {
     font-size: 4rem;
     margin-bottom: 15px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre argenté */
 }
 
 .boutique-header p {
@@ -494,15 +494,15 @@ footer p {
 .product-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    border-color: var(--accent-gold);
+    border-color: var(--accent-silver); /* Bordure argentée au survol */
 }
 
 .product-card img {
     width: 100%;
-    height: 350px; /* Hauteur fixe pour toutes les images */
-    object-fit: contain; /* Garde les proportions */
+    height: 350px;
+    object-fit: contain;
     margin-bottom: 25px;
-    background-color: #222; /* Fond pour les images transparentes */
+    background-color: #222;
     border-radius: 5px;
 }
 
@@ -515,7 +515,7 @@ footer p {
 
 .product-card p {
     font-size: 1.3rem;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Prix argenté */
     font-weight: 600;
 }
 
@@ -523,7 +523,7 @@ footer p {
 .product-details-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Aligne le haut des éléments */
+    align-items: flex-start;
     gap: 80px;
     max-width: 1300px;
     margin: 80px auto;
@@ -539,7 +539,7 @@ footer p {
 
 #main-product-image {
     width: 100%;
-    height: 500px; /* Grande taille pour l'image principale */
+    height: 500px;
     object-fit: contain;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -567,7 +567,7 @@ footer p {
 
 .thumbnail:hover,
 .thumbnail.active {
-    border-color: var(--accent-gold);
+    border-color: var(--accent-silver); /* Bordure argentée des miniatures */
     transform: scale(1.05);
 }
 
@@ -575,18 +575,18 @@ footer p {
     flex: 1;
     min-width: 300px;
     max-width: 550px;
-    padding-top: 20px; /* Aligner le texte avec l'image */
+    padding-top: 20px;
 }
 
 .product-info h1 {
     font-size: 3.5rem;
     margin-bottom: 15px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre produit argenté */
 }
 
 .product-info .price {
     font-size: 2.2rem;
-    color: var(--accent-gold-hover);
+    color: var(--accent-silver-hover); /* Prix produit argenté */
     font-weight: 700;
     margin-bottom: 40px;
     letter-spacing: 1px;
@@ -622,7 +622,7 @@ footer p {
 
 .product-description ul li::before {
     content: '•';
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Puces argentées */
     position: absolute;
     left: 0;
     font-size: 1.2em;
@@ -631,7 +631,7 @@ footer p {
 
 .buy-button {
     display: inline-block;
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver);
     color: var(--primary-bg);
     padding: 18px 50px;
     font-weight: 700;
@@ -640,13 +640,13 @@ footer p {
     margin-top: 50px;
     letter-spacing: 1px;
     transition: background-color 0.4s ease, transform 0.2s ease;
-    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3);
 }
 
 .buy-button:hover {
-    background-color: var(--accent-gold-hover);
+    background-color: var(--accent-silver-hover);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(184, 134, 11, 0.4);
+    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
 
 /* --- À PROPOS --- */
@@ -664,7 +664,7 @@ footer p {
 .about-header h1 {
     font-size: 4rem;
     margin-bottom: 25px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre argenté */
 }
 
 .about-header p {
@@ -693,20 +693,21 @@ footer p {
 .value-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-    border-color: var(--accent-gold);
+    border-color: var(--accent-silver); /* Bordure argentée au survol */
 }
 
 .value-card img {
     width: 70px;
     height: 70px;
     margin-bottom: 30px;
-    filter: invert(80%) sepia(30%) saturate(600%) hue-rotate(0deg) brightness(90%) contrast(80%); /* Pour teinter les images en or */
+    /* FILTRE RETIRÉ pour garder les images d'origine, ou les teinter en gris si elles étaient colorées */
+    filter: grayscale(100%) brightness(150%) contrast(80%); /* Garde l'image grise claire si elle était colorée */
 }
 
 .value-card h3 {
     font-size: 2rem;
     margin-bottom: 15px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre de la valeur argenté */
 }
 
 .value-card p {
@@ -719,7 +720,7 @@ footer p {
 .contact-page-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 80px;
     padding: 80px 40px;
     max-width: 1400px;
@@ -731,13 +732,13 @@ footer p {
     flex: 1;
     min-width: 300px;
     max-width: 500px;
-    text-align: left; /* Alignement à gauche pour un look pro */
+    text-align: left;
 }
 
 .contact-info h1 {
     font-size: 4rem;
     margin-bottom: 25px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre contact argenté */
 }
 
 .contact-info p {
@@ -757,12 +758,12 @@ footer p {
 }
 
 .contact-details a {
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Lien contact argenté */
     transition: color 0.3s ease;
 }
 
 .contact-details a:hover {
-    color: var(--accent-gold-hover);
+    color: var(--accent-silver-hover);
 }
 
 .contact-form-container {
@@ -797,8 +798,8 @@ footer p {
 
 #contact-form input:focus,
 #contact-form textarea:focus {
-    border-color: var(--accent-gold);
-    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.2);
+    border-color: var(--accent-silver);
+    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.2);
     outline: none;
 }
 
@@ -814,7 +815,7 @@ footer p {
 
 .checkbox-container {
     display: flex;
-    align-items: flex-start; /* Aligne le début du texte avec la checkbox */
+    align-items: flex-start;
     gap: 12px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -823,10 +824,10 @@ footer p {
 .checkbox-container input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    min-width: 20px; /* Assure que la checkbox ne rétrécit pas */
+    min-width: 20px;
     min-height: 20px;
-    margin-top: 2px; /* Ajustement visuel */
-    accent-color: var(--accent-gold); /* Couleur de la coche */
+    margin-top: 2px;
+    accent-color: var(--accent-silver); /* Couleur de la coche argentée */
     border: 1px solid var(--border-color);
     cursor: pointer;
 }
@@ -839,15 +840,15 @@ footer p {
 }
 
 .checkbox-container a {
-    color: var(--accent-gold);
+    color: var(--accent-silver);
     text-decoration: underline;
 }
 .checkbox-container a:hover {
-    color: var(--accent-gold-hover);
+    color: var(--accent-silver-hover);
 }
 
 #contact-form button {
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver);
     color: var(--primary-bg);
     border: none;
     padding: 18px 30px;
@@ -857,13 +858,13 @@ footer p {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: background-color 0.4s ease, transform 0.2s ease;
-    box-shadow: 0 5px 15px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3);
 }
 
 #contact-form button:hover {
-    background-color: var(--accent-gold-hover);
+    background-color: var(--accent-silver-hover);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(184, 134, 11, 0.4);
+    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
 
 /* --- PAGES LÉGALES --- */
@@ -884,7 +885,7 @@ footer p {
 .legal-container h1 {
     font-size: 4rem;
     margin-bottom: 20px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre argenté */
 }
 
 .legal-container .last-update {
@@ -899,10 +900,10 @@ footer p {
     line-height: 1.8;
     margin-bottom: 25px;
     font-size: 1.1rem;
-    text-align: justify; /* Justifier les paragraphes pour un look plus formel */
+    text-align: justify;
 }
 
-.legal-container p:first-of-type { /* Premier paragraphe centré */
+.legal-container p:first-of-type {
     text-align: center;
     max-width: 800px;
     margin-left: auto;
@@ -931,13 +932,13 @@ footer p {
 .legal-container li:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    border-color: var(--accent-gold);
+    border-color: var(--accent-silver); /* Bordure argentée au survol */
 }
 
 .legal-container li h3 {
     font-family: 'Crimson Text', serif;
     font-size: 1.8em;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre légal argenté */
     margin-top: 0;
     margin-bottom: 15px;
     text-align: left;
@@ -991,17 +992,17 @@ footer p {
 }
 
 #cookie-banner a {
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Lien cookie argenté */
     text-decoration: underline;
     transition: color 0.3s ease;
 }
 
 #cookie-banner a:hover {
-    color: var(--accent-gold-hover);
+    color: var(--accent-silver-hover);
 }
 
 #cookie-banner button {
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver);
     color: var(--primary-bg);
     border: none;
     padding: 12px 25px;
@@ -1014,7 +1015,7 @@ footer p {
 }
 
 #cookie-banner button:hover {
-    background-color: var(--accent-gold-hover);
+    background-color: var(--accent-silver-hover);
     transform: translateY(-2px);
 }
 
@@ -1024,18 +1025,18 @@ footer p {
     font-size: 1rem;
     font-weight: 500;
     text-align: center;
-    min-height: 25px; /* Prévoit de l'espace pour le message */
+    min-height: 25px;
     transition: color 0.3s ease, opacity 0.3s ease;
-    opacity: 0; /* Caché par défaut */
+    opacity: 0;
 }
 
 #newsletter-message.success {
-    color: #4CAF50; /* Vert succès */
+    color: #4CAF50;
     opacity: 1;
 }
 
 #newsletter-message.error {
-    color: #f44336; /* Rouge erreur */
+    color: #f44336;
     opacity: 1;
 }
 
@@ -1052,7 +1053,7 @@ footer p {
 .blog-header h1 {
     font-size: 4rem;
     margin-bottom: 15px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre argenté */
 }
 
 .blog-header p {
@@ -1085,12 +1086,12 @@ footer p {
 .blog-article:hover {
     transform: translateY(-12px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    border-color: var(--accent-gold);
+    border-color: var(--accent-silver); /* Bordure argentée au survol */
 }
 
 .blog-article img {
     width: 100%;
-    height: 280px; /* Hauteur fixe pour les images d'article */
+    height: 280px;
     object-fit: cover;
     border-radius: 5px;
     margin-bottom: 20px;
@@ -1109,7 +1110,7 @@ footer p {
 
 .article-date {
     font-size: 0.95rem;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Date article argentée */
     margin-bottom: 15px;
     font-weight: 500;
 }
@@ -1135,7 +1136,7 @@ footer p {
 .article-title {
     font-size: 4rem;
     margin-bottom: 20px;
-    color: var(--accent-gold);
+    color: var(--accent-silver); /* Titre article argenté */
 }
 
 .article-meta {
@@ -1167,7 +1168,7 @@ footer p {
     margin-top: 50px;
     margin-bottom: 20px;
     color: var(--text-primary);
-    text-align: left; /* Les sous-titres des articles sont à gauche */
+    text-align: left;
 }
 
 .blog-article-content ul {
@@ -1179,14 +1180,14 @@ footer p {
 .blog-article-content ul li {
     background-color: var(--secondary-bg);
     padding: 20px 30px;
-    border-left: 4px solid var(--accent-gold);
+    border-left: 4px solid var(--accent-silver); /* Bordure liste article argentée */
     border-radius: 8px;
     margin-bottom: 15px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .blog-article-content ul li::before {
-    content: none; /* Supprime le puce par défaut si déjà définie */
+    content: none;
 }
 
 
@@ -1235,11 +1236,11 @@ footer p {
         flex-wrap: wrap;
     }
     .logo {
-        flex-grow: 1; /* Permet au logo de prendre plus de place */
+        flex-grow: 1;
     }
     .menu-toggle {
         display: flex;
-        order: 2; /* Pour s'assurer qu'il est à droite */
+        order: 2;
     }
     .nav-links {
         display: none;
@@ -1264,7 +1265,7 @@ footer p {
         border-bottom: none;
     }
     .nav-links a::after {
-        display: none; /* Cache l'effet de soulignement sur mobile */
+        display: none;
     }
 
     .section-padding {

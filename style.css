@@ -195,23 +195,24 @@ nav .logo {
     margin: 0 auto;
 }
 
+./* Amélioration des cartes produits */
 .product {
     background-color: transparent;
     padding: 0;
     border-radius: 6px;
     text-align: left;
-    box-shadow: 0 12px 40px var(--shadow-color-dark);
     transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
     overflow: hidden;
     display: block;
     text-decoration: none;
     color: inherit;
     position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre subtile */
 }
 
 .product:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 18px 50px var(--shadow-color-dark);
+    transform: translateY(-8px); /* Fait remonter la carte au survol */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Assombrit l'ombre pour plus de profondeur */
 }
 
 .product img {
@@ -224,7 +225,7 @@ nav .logo {
 }
 
 .product:hover img {
-    transform: scale(1.08);
+    transform: scale(1.05); /* Zoom subtil sur l'image */
 }
 
 .product-info-text {

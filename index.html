@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenero Lusso | Mode Minimaliste & Durable</title>
-    <meta name="description" content="Tenero Lusso propose des vêtements minimalistes et de haute qualité. Découvrez notre collection conçue pour le confort et la durabilité.">
-    <meta name="keywords" content="vêtements minimalistes, mode durable, streetwear, vêtements de qualité, mode épurée, luxe simple">
+    <title>Tenero Lusso | Luxe Minimaliste et Intemporel</title>
+    <meta name="description" content="Tenero Lusso, la marque de mode minimaliste qui redéfinit le luxe. Découvrez nos vêtements épurés, élégants et durables.">
+    <meta name="keywords" content="mode minimaliste, luxe discret, vêtements durables, mode épurée, chic, élégant, Tenero Lusso">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -28,54 +29,83 @@
     </header>
 
     <main>
-        <section class="hero-section">
-            <div class="carousel-bg">
-                <img src="images/hero-1.png" alt="Modèle portant un T-shirt Tenero Lusso" class="active">
-                <img src="images/hero-2.png" alt="Modèle portant un Jogging Tenero Lusso">
+        <section class="hero-carousel">
+            <div class="carousel-item active">
+                <img src="images/hero-image.jpg" alt="Vêtements minimalistes et élégants">
+                <div class="hero-content">
+                    <h1>L'élégance du minimalisme</h1>
+                    <p>Découvrez une mode où moins est toujours plus.</p>
                 </div>
-            <div class="hero-content">
-                <h1>L'ÉLÉGANCE<br>ÉPURÉE.</h1>
-                <p>Le luxe réside dans la simplicité et la qualité.</p>
-                <a href="boutique.html" class="cta-button">Découvrir la collection</a>
+            </div>
+            <div class="carousel-item">
+                <img src="images/hero-image-2.jpg" alt="Accessoires de mode minimalistes">
+                <div class="hero-content">
+                    <h1>Des pièces intemporelles</h1>
+                    <p>Conçues pour durer, au-delà des tendances éphémères.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/hero-image-3.jpg" alt="Femme portant une robe élégante">
+                <div class="hero-content">
+                    <h1>Un luxe discret et assumé</h1>
+                    <p>La qualité parle d'elle-même, sans artifice.</p>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button id="prev-btn">‹</button>
+                <button id="next-btn">›</button>
             </div>
         </section>
 
-        <section class="testimonials-section">
-            <h2>Ils nous font confiance</h2>
+        <section class="introduction-section">
+            <h2>Redéfinissez votre style.</h2>
+            <p>
+                Chez **Tenero Lusso**, nous croyons que le vrai luxe réside dans la simplicité et la qualité. Nos collections sont pensées pour celles et ceux qui cherchent à s'émanciper des tendances éphémères et à investir dans des pièces durables, élégantes et intemporelles. Chaque article est une promesse de confort et de style, conçu pour devenir la base de votre garde-robe.
+            </p>
+            <a href="a-propos.html" class="cta-button">En savoir plus</a>
+        </section>
+
+        <section class="testimonial-section">
+            <h2>Ce qu'ils pensent de nous</h2>
             <div class="testimonial-container">
-                <div class="testimonial-item">
-                    <p class="quote">"Qualité incroyable ! Le t-shirt est doux et durable. Je recommande vivement Tenero Lusso."</p>
-                    <p class="author">- Alex D.</p>
+                <div class="testimonial">
+                    <blockquote>"Des vêtements de qualité exceptionnelle ! Simples et incroyablement bien coupés. Mon nouveau t-shirt blanc est un incontournable."</blockquote>
+                    <p>— Alex P.</p>
                 </div>
-                <div class="testimonial-item">
-                    <p class="quote">"J'adore la simplicité et le confort de ce jogging. La livraison a été rapide et soignée."</p>
-                    <p class="author">- Marie L.</p>
+                <div class="testimonial">
+                    <blockquote>"L'approche minimaliste de Tenero Lusso est une bouffée d'air frais. J'adore l'idée d'une garde-robe plus consciente."</blockquote>
+                    <p>— Marie L.</p>
+                </div>
+                <div class="testimonial">
+                    <blockquote>"Leurs designs sont élégants sans être ostentatoires. Je reçois toujours des compliments sur mon blazer. Un vrai coup de cœur !"</blockquote>
+                    <p>— Julien G.</p>
                 </div>
             </div>
         </section>
     </main>
 
-   <footer>
-    <div class="newsletter-container">
-        <h3>Abonnez-vous à notre newsletter</h3>
-        <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
-        <form id="newsletter-form">
-            <input type="email" id="email-input" placeholder="Votre adresse email" required>
-            <button type="submit">S'abonner</button>
-        </form>
+    <footer>
+        <div class="newsletter-container">
+            <h3>Abonnez-vous à notre newsletter</h3>
+            <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
+            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
+                <button type="submit">S'abonner</button>
+            </form>
+            <div id="newsletter-message" class="message"></div>
+        </div>
+        <div class="footer-links">
+            <a href="politique.html">Politique de Confidentialité</a>
+            <a href="cgv.html">Conditions Générales de Vente</a>
+        </div>
+        <p>&copy; 2025 Tenero Lusso</p>
+    </footer>
+
+    <div id="cookie-banner">
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
+        <button id="accept-cookies">Accepter</button>
     </div>
-    <div class="footer-links">
-        <a href="politique.html">Politique de Confidentialité</a>
-        <a href="cgv.html">Conditions Générales de Vente</a>
-    </div>
-    <p>&copy; 2025 Tenero Lusso</p>
-</footer>
 
     <script src="js/main.js"></script>
-    <script src="js/carousel.js"></script>
-    <div id="cookie-banner">
-    <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
-    <button id="accept-cookies">Accepter</button>
-</div>
 </body>
 </html>

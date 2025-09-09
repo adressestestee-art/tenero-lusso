@@ -193,33 +193,6 @@ nav {
     filter: brightness(0.7);
 }
 
-.carousel-nav button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(160, 160, 160, 0.2); /* Accent silver transparent */
-    border: none;
-    color: var(--text-primary);
-    font-size: 2.5rem;
-    padding: 10px 20px;
-    cursor: pointer;
-    z-index: 20;
-    transition: background-color 0.3s, color 0.3s;
-    border-radius: 5px;
-}
-
-.carousel-nav button:hover {
-    background-color: var(--accent-silver);
-    color: var(--primary-bg);
-}
-
-#prev-btn {
-    left: 40px;
-}
-
-#next-btn {
-    right: 40px;
-}
 
 /* --- INTRODUCTION (RESTE IDENTIQUE, SANS LE BLOC "L'ÉLÉGANCE DU MINIMALISME") --- */
 .introduction-section {

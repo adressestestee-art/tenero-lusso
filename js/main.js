@@ -40,6 +40,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     cookieBanner.style.display = 'none';
                 }, 500); 
             }
+            // ... (code précédent pour le menu et les cookies)
+
+    // Gestion du formulaire de newsletter
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Empêche le rechargement de la page
+            const emailInput = document.getElementById('email-input');
+            const email = emailInput.value;
+            if (email) {
+                alert(`Merci pour votre inscription à notre newsletter !`);
+                emailInput.value = ''; // Réinitialise le champ après envoi
+            }
         });
     }
 });
+     

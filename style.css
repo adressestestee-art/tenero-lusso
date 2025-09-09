@@ -4,8 +4,8 @@
     --secondary-bg: #1C1C1C;
     --text-light: #F0F0F0;
     --text-medium: #B0B0B0;
-    --accent-silver: #A0A0A0; /* Couleur de base argentée */
-    --accent-silver-hover: #D0D0D0; /* Couleur au survol plus claire */
+    --accent-silver: #A0A0A0;
+    --accent-silver-hover: #D0D0D0;
     --border-color: #383838;
     --shadow-color-dark: rgba(0, 0, 0, 0.7);
     --shadow-color-light: rgba(0, 0, 0, 0.3);
@@ -25,9 +25,9 @@ body {
 
 /* En-tête et menu de bureau */
 header {
-    background-color: transparent; /* Rendu transparent pour la page d'accueil */
+    background-color: transparent;
     padding: 40px 80px;
-    border-bottom: none; /* Suppression de la bordure */
+    border-bottom: none;
     box-sizing: border-box;
     z-index: 200;
     position: absolute;
@@ -44,15 +44,15 @@ nav {
     z-index: 200;
 }
 
-.logo {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 2.5em;
-    color: var(--text-light);
-    text-decoration: none;
-    letter-spacing: 5px;
+nav .logo {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    transition: color 0.3s ease;
+    text-decoration: none;
+    color: var(--text-light);
 }
 
 .nav-links {
@@ -63,44 +63,82 @@ nav {
 
 .nav-links a {
     font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    position: relative;
+    transition: color 0.3s ease;
     color: var(--text-light);
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease, transform 0.2s ease;
-    padding: 8px 0;
-    position: relative;
-    font-size: 1.2em;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
-.nav-links a::after {
+.nav-links a:after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-silver);
-    transition: width 0.3s ease-out;
+    height: 1px;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--accent-silver-hover);
-    transform: translateY(-3px);
 }
-.nav-links a:hover::after {
-    width: 100%;
+
+.nav-links a:hover:after {
+    width: calc(100% - 30px);
+}
+
+.nav-links a.active {
+    font-weight: 500;
+}
+
+.nav-links a.active:after {
+    width: calc(100% - 30px);
 }
 
 /* Page d'accueil avec carrousel */
 .hero-section {
     position: relative;
     height: 100vh;
-    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    color: white;
     text-align: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--hero-text-color);
+    padding: 0 80px;
+    box-sizing: border-box;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.hero-content h1 {
+    font-family: 'Crimson Text', serif;
+    font-size: 5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+    color: var(--hero-text-color);
+}
+
+.hero-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    color: var(--hero-text-color);
 }
 
 .carousel-bg {
@@ -109,7 +147,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
 }
 
 .carousel-bg img {
@@ -127,51 +165,24 @@ nav {
     opacity: 1;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    color: var(--hero-text-color);
-    padding: 0 80px;
-    box-sizing: border-box;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.hero-content h1 {
-    font-size: 5.5em;
-    margin-bottom: 25px;
-    line-height: 1.1;
-    color: var(--hero-text-color);
-    font-weight: 700;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-}
-
-.hero-content p {
-    font-size: 1.8em;
-    margin-bottom: 50px;
-    color: var(--hero-text-color);
-    font-weight: 400;
-    letter-spacing: 0.5px;
-}
-
 .cta-button {
-    background-color: var(--accent-silver);
-    color: var(--primary-bg);
-    padding: 20px 40px;
-    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
     text-transform: uppercase;
-    font-weight: 700;
     letter-spacing: 2px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    padding: 15px 30px;
+    border: 1px solid white;
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease;
     display: inline-block;
     text-align: center;
+    text-decoration: none;
 }
 
 .cta-button:hover {
-    background-color: var(--accent-silver-hover);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(160, 160, 160, 0.8);
+    background-color: white;
+    color: black;
 }
 
 /* Page de boutique */
@@ -209,6 +220,7 @@ nav {
     margin-bottom: 0;
     transition: transform 0.6s ease;
 }
+
 .product:hover img {
     transform: scale(1.08);
 }
@@ -331,12 +343,84 @@ footer {
     text-align: center;
     padding: 60px 40px;
     color: var(--text-medium);
-    border-top: none; /* Suppression de la bordure */
+    border-top: none;
     font-family: 'Crimson Text', serif;
     font-size: 1em;
     position: relative;
     z-index: 1;
     background-color: var(--primary-bg);
+}
+
+/* Pages 'À propos' et 'Contact' */
+.about-section {
+    padding-top: 150px;
+    padding-bottom: 50px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-section h1 {
+    font-family: 'Crimson Text', serif;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.about-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Styles pour la section des valeurs */
+.values-section {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.values-section h2 {
+    font-family: 'Crimson Text', serif;
+    font-size: 3.5rem;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.values-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.value-item {
+    max-width: 350px;
+    padding: 20px;
+}
+
+.value-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.value-icon {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
 }
 
 /*
@@ -372,10 +456,6 @@ footer {
         gap: 15px;
         align-items: center;
         width: 100%;
-    }
-
-    .menu-toggle {
-        display: none;
     }
 
     /* Réduction de la taille des polices pour la lisibilité sur mobile */
@@ -444,203 +524,14 @@ footer {
         width: 70px;
         height: 70px;
     }
-}
-.content-space {
-    padding-top: 100px; /* Ajuste cette valeur pour modifier l'espace */
-}
-/* Styles pour un menu luxueux et épuré */
 
-nav .logo {
-    font-family: 'Crimson Text', serif;
-    font-size: 2.5rem;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    transition: color 0.3s ease;
-}
+    /* Pages 'À propos' et 'Contact' pour mobile */
+    .about-section, .contact-section {
+        padding: 40px 20px;
+    }
 
-nav .nav-links a {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 15px;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-nav .nav-links a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white; /* ou une autre couleur qui contraste bien */
-    transition: width 0.3s ease;
-}
-
-nav .nav-links a:hover:after {
-    width: calc(100% - 30px); /* Ajuste la largeur de la ligne en dessous du lien */
-}
-
-/* Effet pour la page active */
-nav .nav-links a.active {
-    font-weight: 500;
-}
-
-nav .nav-links a.active:after {
-    width: calc(100% - 30px);
-}
-/* Styles pour la page d'accueil */
-.hero-section {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    color: white; /* Pour un texte lisible sur les images sombres */
-    text-align: center;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2; /* S'assure que le contenu est au-dessus du carrousel */
-}
-
-.hero-content h1 {
-    font-family: 'Crimson Text', serif;
-    font-size: 5rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    letter-spacing: 5px;
-}
-
-.hero-content p {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 1.5rem;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-}
-
-.carousel-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.carousel-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.carousel-bg img.active {
-    opacity: 1;
-}
-
-.cta-button {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 15px 30px;
-    border: 1px solid white;
-    color: white;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cta-button:hover {
-    background-color: white;
-    color: black;
-}
-/* Styles pour la section des valeurs */
-.values-section {
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.values-section h2 {
-    font-family: 'Crimson Text', serif;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-}
-
-.values-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.value-item {
-    max-width: 300px;
-}
-
-.value-icon {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 20px;
-}
-/* Styles pour la section des valeurs */
-/* Styles pour la section des valeurs */
-/* Styles pour la section des valeurs */
-.values-section {
-    text-align: center;
-    padding: 100px 20px; /* Augmente le padding pour plus d'espace */
-}
-
-.values-section h2 {
-    font-family: 'Crimson Text', serif;
-    font-size: 3.5rem; /* Agrandit le titre principal de la section */
-    margin-bottom: 60px; /* Plus d'espace sous le titre */
-    letter-spacing: 2px;
-}
-
-.values-container {
-    display: flex;
-    justify-content: center;
-    gap: 60px; /* Augmente l'espace entre les éléments */
-    flex-wrap: wrap;
-}
-
-.value-item {
-    max-width: 350px; /* Augmente la largeur max de chaque élément */
-    padding: 20px;
-}
-
-.value-item h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 1.8rem; /* Agrandit les titres de chaque valeur */
-    margin-top: 25px; /* Plus d'espace au-dessus du titre */
-    margin-bottom: 15px;
-}
-
-.value-item p {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 1.1rem; /* Agrandit le texte des descriptions */
-    line-height: 1.7;
-}
-
-.value-icon {
-    width: 100px; /* Agrandit la taille des icônes */
-    height: 100px;
-    margin-bottom: 20px;
-    /* Ajoute un léger contour si tu veux pour un effet subtil */
-    /* border: 1px solid rgba(255, 255,255, 0.2); */
-    /* border-radius: 50%; */
+    .values-container {
+        flex-direction: column;
+        gap: 30px;
+    }
 }

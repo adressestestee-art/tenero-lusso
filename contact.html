@@ -62,10 +62,16 @@
     <div class="newsletter-container">
         <h3>Abonnez-vous à notre newsletter</h3>
         <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
-        <form id="newsletter-form">
-            <input type="email" id="email-input" placeholder="Votre adresse email" required>
-            <button type="submit">S'abonner</button>
-        </form>
+        <form id="contact-form">
+    <input type="text" id="name" placeholder="Votre Nom" required>
+    <input type="email" id="email" placeholder="Votre Email" required>
+    <textarea id="message" placeholder="Votre Message" rows="5" required></textarea>
+    <div class="checkbox-container">
+        <input type="checkbox" id="privacy-policy" required>
+        <label for="privacy-policy">J'ai lu et j'accepte la <a href="politique.html" target="_blank">Politique de Confidentialité</a></label>
+    </div>
+    <button type="submit">Envoyer</button>
+</form>
     </div>
     <div class="footer-links">
         <a href="politique.html">Politique de Confidentialité</a>

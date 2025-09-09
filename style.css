@@ -565,3 +565,32 @@ nav .nav-links a.active:after {
     background-color: white;
     color: black;
 }
+/* Styles pour la section des valeurs */
+.values-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.values-section h2 {
+    font-family: 'Crimson Text', serif;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.values-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.value-item {
+    max-width: 300px;
+}
+
+.value-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}

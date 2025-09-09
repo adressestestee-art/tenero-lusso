@@ -1,14 +1,22 @@
-// js/carousel.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('.carousel-bg img');
     let currentIndex = 0;
 
-    function nextImage() {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
+    function showImage(index) {
+        images.forEach((img, i) => {
+            if (i === index) {
+                img.classList.add('active');
+            } else {
+                img.classList.remove('active');
+            }
+        });
     }
 
-    setInterval(nextImage, 9000); // Change l'image toutes les 3 secondes
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showImage(currentIndex);
+    }
+
+    setInterval(nextImage, 5000); // Change l'image toutes les 5 secondes
+    showImage(currentIndex); // Affiche la première image au chargement
 });

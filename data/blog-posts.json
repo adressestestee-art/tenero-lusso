@@ -1,1 +1,18 @@
-
+[
+  {
+    "id": 1,
+    "title": "Comment le minimalisme redéfinit le luxe",
+    "date": "5 septembre 2025",
+    "preview": "Découvrez comment des garde-robes plus petites et plus ciblées peuvent vous apporter plus de valeur et de satisfaction.",
+    "image": "images/blog-minimalisme.jpg",
+    "link": "article-1.html"
+  },
+  {
+    "id": 2,
+    "title": "Les secrets d'un dressing intemporel",
+    "date": "15 septembre 2025",
+    "preview": "Apprenez à construire un dressing capsule avec des pièces de qualité qui ne se démodent jamais.",
+    "image": "images/blog-intemporel.jpg",
+    "link": "article-2.html"
+  }
+]

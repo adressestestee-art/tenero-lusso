@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boutique | Vêtements Minimalistes - Tenero Lusso</title>
-    <meta name="description" content="Explorez notre collection de t-shirts et de joggings minimalistes. Des pièces intemporelles et durables pour un style épuré.">
-    <meta name="keywords" content="boutique de mode, vêtements minimalistes, t-shirt qualité, jogging luxe, streetwear, acheter en ligne">
+    <title>Boutique - Tenero Lusso | Mode Minimaliste et Élégante</title>
+    <meta name="description" content="Découvrez les collections de Tenero Lusso. Vêtements et accessoires épurés pour un style intemporel et un luxe discret.">
+    <meta name="keywords" content="boutique, collection, vêtements, minimaliste, luxe, élégant, durable, tenue">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body class="boutique-page">
+<body>
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
@@ -29,47 +30,46 @@
 
     <main>
         <section class="boutique-header">
-            <h1>NOTRE COLLECTION</h1>
-            <p>L'alliance parfaite entre le confort et l'élégance minimaliste.</p>
+            <h1>Notre Collection</h1>
+            <p>Chaque pièce est une promesse de simplicité et de qualité.</p>
         </section>
 
         <section class="product-container">
-            <a href="t-shirt.html" class="product">
-                <img src="images/t-shirt-1.png" alt="T-shirt Basique">
-                <div class="product-info-text">
-                    <h3>T-shirt Basique</h3>
-                    <p>19,99 €</p>
-                </div>
+            <a href="t-shirt.html" class="product-card">
+                <img src="images/t-shirt.png" alt="T-shirt minimaliste">
+                <h3>T-shirt Confort</h3>
+                <p>90 €</p>
             </a>
-            <a href="jogging.html" class="product">
-                <img src="images/jogger-1.png" alt="Jogging Confort">
-                <div class="product-info-text">
-                    <h3>Jogging Confort</h3>
-                    <p>19,99 €</p>
-                </div>
+            <a href="jogging.html" class="product-card">
+                <img src="images/jogging.png" alt="Jogging élégant">
+                <h3>Jogging Urbain</h3>
+                <p>120 €</p>
             </a>
         </section>
     </main>
 
     <footer>
-    <div class="newsletter-container">
-        <h3>Abonnez-vous à notre newsletter</h3>
-        <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
-        <form id="newsletter-form">
-            <input type="email" id="email-input" placeholder="Votre adresse email" required>
-            <button type="submit">S'abonner</button>
-        </form>
-    </div>
-    <div class="footer-links">
-        <a href="politique.html">Politique de Confidentialité</a>
-        <a href="cgv.html">Conditions Générales de Vente</a>
-    </div>
-    <p>&copy; 2025 Tenero Lusso</p>
-</footer>
-    <script src="js/main.js"></script>
+        <div class="newsletter-container">
+            <h3>Abonnez-vous à notre newsletter</h3>
+            <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
+            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
+                <button type="submit">S'abonner</button>
+            </form>
+            <div id="newsletter-message" class="message"></div>
+        </div>
+        <div class="footer-links">
+            <a href="politique.html">Politique de Confidentialité</a>
+            <a href="cgv.html">Conditions Générales de Vente</a>
+        </div>
+        <p>&copy; 2025 Tenero Lusso</p>
+    </footer>
+
     <div id="cookie-banner">
-    <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
-    <button id="accept-cookies">Accepter</button>
-</div>
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
+        <button id="accept-cookies">Accepter</button>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

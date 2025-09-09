@@ -656,3 +656,101 @@ footer {
 .footer-links a:hover {
     color: var(--text-light);
 }
+/* Styles pour la page de contact */
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 150px 20px 100px;
+}
+
+.contact-info {
+    max-width: 600px;
+    margin-bottom: 50px;
+}
+
+.contact-info h1 {
+    font-family: 'Crimson Text', serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    margin-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.contact-details p {
+    margin: 10px 0;
+}
+
+.contact-details a {
+    color: var(--accent-silver);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: var(--text-light);
+}
+
+.contact-form-container {
+    max-width: 600px;
+    width: 100%;
+    background-color: var(--secondary-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    color: var(--accent-silver);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-silver-hover);
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    font-size: 1.1em;
+}
+
+@media (min-width: 769px) {
+    .contact-section {
+        flex-direction: row;
+        gap: 80px;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .contact-form-container {
+        margin-top: 50px; /* Aligner le formulaire avec le contenu */
+    }
+}

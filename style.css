@@ -1096,3 +1096,12 @@ footer {
         padding: 20px;
     }
 }
+/* --- Centrage du contenu pour les pages légales --- */
+.legal-container.centered-text {
+    text-align: center;
+}
+
+.legal-container.centered-text h1,
+.legal-container.centered-text h2 {
+    text-align: center;
+}

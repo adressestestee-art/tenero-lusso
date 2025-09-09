@@ -596,3 +596,51 @@ nav .nav-links a.active:after {
 }
 /* Styles pour la section des valeurs */
 /* Styles pour la section des valeurs */
+/* Styles pour la section des valeurs */
+.values-section {
+    text-align: center;
+    padding: 100px 20px; /* Augmente le padding pour plus d'espace */
+}
+
+.values-section h2 {
+    font-family: 'Crimson Text', serif;
+    font-size: 3.5rem; /* Agrandit le titre principal de la section */
+    margin-bottom: 60px; /* Plus d'espace sous le titre */
+    letter-spacing: 2px;
+}
+
+.values-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px; /* Augmente l'espace entre les éléments */
+    flex-wrap: wrap;
+}
+
+.value-item {
+    max-width: 350px; /* Augmente la largeur max de chaque élément */
+    padding: 20px;
+}
+
+.value-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem; /* Agrandit les titres de chaque valeur */
+    margin-top: 25px; /* Plus d'espace au-dessus du titre */
+    margin-bottom: 15px;
+}
+
+.value-item p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem; /* Agrandit le texte des descriptions */
+    line-height: 1.7;
+}
+
+.value-icon {
+    width: 100px; /* Agrandit la taille des icônes */
+    height: 100px;
+    margin-bottom: 20px;
+    /* Ajoute un léger contour si tu veux pour un effet subtil */
+    /* border: 1px solid rgba(255, 255,255, 0.2); */
+    /* border-radius: 50%; */
+}

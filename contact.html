@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contactez-nous | Service Client - Tenero Lusso</title>
-    <meta name="description" content="Contactez l'équipe de Tenero Lusso pour toute question sur nos produits ou votre commande.">
-    <meta name="keywords" content="contact, service client, email, formulaire, questions, support">
+    <title>Contact - Tenero Lusso</title>
+    <meta name="description" content="Contactez Tenero Lusso. Pour toute question sur nos produits, notre histoire ou nos valeurs, n'hésitez pas à nous écrire.">
+    <meta name="keywords" content="contact, email, questions, service client, contact Tenero Lusso">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body class="contact-page">
+<body>
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
@@ -28,61 +29,53 @@
     </header>
 
     <main>
-        <section class="contact-section content-space">
+        <section class="contact-page-container">
             <div class="contact-info">
                 <h1>Contactez-nous</h1>
-                <p>Pour toute question sur nos produits, votre commande, ou une demande de collaboration, n'hésitez pas à nous écrire.</p>
+                <p>
+                    Pour toute question sur nos collections, un conseil de style, ou toute autre demande, nous sommes là pour vous. Écrivez-nous, et nous vous répondrons dans les plus brefs délais.
+                </p>
                 <div class="contact-details">
-                    <p><strong>Email :</strong> contact@tenerolusso.com</p>
-                    <p><strong>Instagram :</strong> <a href="https://www.instagram.com/ton_compte_insta" target="_blank">@tenerolusso</a></p>
-                    <p><strong>Adresse :</strong> 123 Rue de la Mode, 75001 Paris, France</p>
+                    <p>Email : <a href="mailto:contact@tenerolusso.com">contact@tenerolusso.com</a></p>
                 </div>
             </div>
             <div class="contact-form-container">
-                <form action="https://formspree.io/f/xdkdvqro" method="POST" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nom</label>
-                        <input type="text" id="name" name="name" required>
+                <form id="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                    <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+                    <input type="email" id="email" name="_replyto" placeholder="Votre Email" required>
+                    <textarea id="message" name="message" placeholder="Votre Message" rows="5" required></textarea>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="privacy-policy" required>
+                        <label for="privacy-policy">J'ai lu et j'accepte la <a href="politique.html" target="_blank">Politique de Confidentialité</a></label>
                     </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="cta-button">Envoyer</button>
+                    <button type="submit">Envoyer</button>
                 </form>
             </div>
         </section>
     </main>
 
     <footer>
-    <div class="newsletter-container">
-        <h3>Abonnez-vous à notre newsletter</h3>
-        <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
-        <form id="contact-form">
-    <input type="text" id="name" placeholder="Votre Nom" required>
-    <input type="email" id="email" placeholder="Votre Email" required>
-    <textarea id="message" placeholder="Votre Message" rows="5" required></textarea>
-    <div class="checkbox-container">
-        <input type="checkbox" id="privacy-policy" required>
-        <label for="privacy-policy">J'ai lu et j'accepte la <a href="politique.html" target="_blank">Politique de Confidentialité</a></label>
-    </div>
-    <button type="submit">Envoyer</button>
-</form>
-    </div>
-    <div class="footer-links">
-        <a href="politique.html">Politique de Confidentialité</a>
-        <a href="cgv.html">Conditions Générales de Vente</a>
-    </div>
-    <p>&copy; 2025 Tenero Lusso</p>
-</footer>
-    <script src="js/main.js"></script>
+        <div class="newsletter-container">
+            <h3>Abonnez-vous à notre newsletter</h3>
+            <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
+            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
+                <button type="submit">S'abonner</button>
+            </form>
+            <div id="newsletter-message" class="message"></div>
+        </div>
+        <div class="footer-links">
+            <a href="politique.html">Politique de Confidentialité</a>
+            <a href="cgv.html">Conditions Générales de Vente</a>
+        </div>
+        <p>&copy; 2025 Tenero Lusso</p>
+    </footer>
+
     <div id="cookie-banner">
-    <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
-    <button id="accept-cookies">Accepter</button>
-</div>
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
+        <button id="accept-cookies">Accepter</button>
+    </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

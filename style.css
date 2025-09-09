@@ -1128,3 +1128,24 @@ footer {
     color: var(--accent-silver-hover);
     text-decoration: underline;
 }
+/* --- Style pour les pages légales compactées --- */
+.legal-container ul {
+    list-style-type: none; /* Retire les puces de base */
+    padding: 0;
+    margin-top: 30px;
+    text-align: left; /* Alignement du texte à gauche pour la lisibilité */
+}
+
+.legal-container li {
+    background-color: var(--primary-bg-darker);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.legal-container li strong {
+    font-size: 1.1em;
+    font-weight: 700;
+}

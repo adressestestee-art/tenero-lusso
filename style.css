@@ -184,18 +184,35 @@ nav .logo {
     background-color: white;
     color: black;
 }
+
 /* Page de boutique */
+.boutique-header {
+    text-align: center;
+    padding: 150px 20px 50px;
+}
+
+.boutique-header h1 {
+    font-family: 'Crimson Text', serif;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.boutique-header p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-medium);
+}
+
 .product-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Changement de 'auto-fill' à 'auto-fit' */
-    justify-content: center; /* Ajoute cette ligne pour centrer les éléments dans la grille */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
     gap: 60px;
-    padding: 150px 80px 100px 80px;
+    padding: 0 80px 100px 80px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-./* Amélioration des cartes produits */
 .product {
     background-color: transparent;
     padding: 0;
@@ -207,12 +224,12 @@ nav .logo {
     text-decoration: none;
     color: inherit;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Ajout d'une ombre subtile */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .product:hover {
-    transform: translateY(-8px); /* Fait remonter la carte au survol */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Assombrit l'ombre pour plus de profondeur */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .product img {
@@ -225,7 +242,7 @@ nav .logo {
 }
 
 .product:hover img {
-    transform: scale(1.05); /* Zoom subtil sur l'image */
+    transform: scale(1.05);
 }
 
 .product-info-text {
@@ -314,11 +331,12 @@ nav .logo {
     font-weight: 400;
 }
 
+/* Galerie de miniatures */
 .thumbnail-gallery {
     display: flex;
+    justify-content: center;
     gap: 15px;
     margin-top: 25px;
-    justify-content: center;
 }
 
 .thumbnail-gallery .thumbnail {
@@ -328,30 +346,56 @@ nav .logo {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     cursor: pointer;
-    transition: transform 0.2s ease, border-color 0.2s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.thumbnail-gallery .thumbnail:hover {
-    transform: translateY(-5px);
+.thumbnail-gallery .thumbnail:hover,
+.thumbnail-gallery .thumbnail.active {
     border-color: var(--accent-silver-hover);
+    transform: translateY(-5px);
 }
 
-/* Page de contenu générale */
-.content-container {
-    padding: 100px 80px;
-}
-
-/* Pied de page */
-footer {
+/* Section des témoignages */
+.testimonials-section {
     text-align: center;
-    padding: 60px 40px;
-    color: var(--text-medium);
-    border-top: none;
+    padding: 100px 20px;
+    background-color: var(--secondary-bg);
+}
+
+.testimonials-section h2 {
     font-family: 'Crimson Text', serif;
-    font-size: 1em;
-    position: relative;
-    z-index: 1;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.testimonial-item {
+    max-width: 500px;
+    padding: 30px;
     background-color: var(--primary-bg);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.quote {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.author {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-top: 15px;
+    color: var(--accent-silver);
 }
 
 /* Pages 'À propos' et 'Contact' */
@@ -426,236 +470,6 @@ footer {
     margin-bottom: 20px;
 }
 
-/*
- ********************************************
- * RÈGLES DE STYLE POUR TÉLÉPHONE (INFÉRIEUR À 768px)
- ********************************************
-*/
-@media (max-width: 768px) {
-    /* Mise à jour de l'en-tête et du menu pour le mobile */
-    header {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        position: static;
-        background-color: var(--primary-bg);
-    }
-
-    nav {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        width: 100%;
-        gap: 20px;
-    }
-
-    .logo {
-        font-size: 1.8em;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-        width: 100%;
-    }
-
-    /* Réduction de la taille des polices pour la lisibilité sur mobile */
-    body {
-        font-size: 75%;
-    }
-
-    .hero-section {
-        padding: 0;
-        height: 100vh;
-    }
-
-    .hero-content {
-        padding: 0 30px;
-    }
-
-    .hero-content h1 {
-        font-size: 3em;
-        letter-spacing: 3px;
-    }
-
-    .hero-content p {
-        font-size: 1.1em;
-    }
-
-    .cta-button {
-        padding: 12px 24px;
-        font-size: 0.8em;
-    }
-
-   /* Page de boutique */
-.product-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 60px;
-    padding: 150px 80px 100px 80px;
-    max-width: 1400px; /* Limite la largeur du conteneur pour le centrer */
-    margin: 0 auto; /* Centre le conteneur horizontalement */
-}
-    .product img {
-        height: 250px;
-    }
-
-    /* Mise à jour des détails produit */
-    .product-details-container {
-        flex-direction: column;
-        gap: 40px;
-        padding: 40px 20px;
-    }
-
-    .product-info h2 {
-        font-size: 2.5em;
-    }
-
-    .product-info .price {
-        font-size: 1.8em;
-    }
-
-    .product-info .description {
-        font-size: 1em;
-    }
-
-    .thumbnail-gallery {
-        gap: 10px;
-    }
-
-    .thumbnail-gallery .thumbnail {
-        width: 70px;
-        height: 70px;
-    }
-
-    /* Pages 'À propos' et 'Contact' pour mobile */
-    .about-section, .contact-section {
-        padding: 40px 20px;
-    }
-
-    .values-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-}
-/* Styles pour la bannière de la boutique */
-.boutique-header {
-    text-align: center;
-    padding: 150px 20px 50px;
-}
-
-.boutique-header h1 {
-    font-family: 'Crimson Text', serif;
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-}
-
-.boutique-header p {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    color: var(--text-medium);
-}
-/* Styles pour la galerie de miniatures */
-.thumbnail-gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 25px;
-}
-
-.thumbnail-gallery .thumbnail {
-    width: 90px;
-    height: 90px;
-    object-fit: cover;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.thumbnail-gallery .thumbnail:hover,
-.thumbnail-gallery .thumbnail.active {
-    border-color: var(--accent-silver-hover);
-    transform: translateY(-5px);
-}
-/* Section des témoignages */
-.testimonials-section {
-    text-align: center;
-    padding: 100px 20px;
-    background-color: var(--secondary-bg);
-}
-
-.testimonials-section h2 {
-    font-family: 'Crimson Text', serif;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
-}
-
-.testimonial-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.testimonial-item {
-    max-width: 500px;
-    padding: 30px;
-    background-color: var(--primary-bg);
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-}
-
-.quote {
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--text-light);
-}
-
-.author {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    margin-top: 15px;
-    color: var(--accent-silver);
-}
-
-@media (max-width: 768px) {
-    .testimonial-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-}
-/* Améliorations du pied de page */
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 60px 40px;
-}
-
-.footer-links {
-    margin-bottom: 20px;
-    display: flex;
-    gap: 20px;
-}
-
-.footer-links a {
-    color: var(--text-medium);
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    font-size: 0.9em;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--text-light);
-}
 /* Styles pour la page de contact */
 .contact-section {
     display: flex;
@@ -743,17 +557,6 @@ footer {
     font-size: 1.1em;
 }
 
-@media (min-width: 769px) {
-    .contact-section {
-        flex-direction: row;
-        gap: 80px;
-        align-items: flex-start;
-        text-align: left;
-    }
-    .contact-form-container {
-        margin-top: 50px; /* Aligner le formulaire avec le contenu */
-    }
-}
 /* Styles pour les pages légales */
 .legal-page .content-container {
     max-width: 900px;
@@ -781,25 +584,48 @@ footer {
     font-weight: 500;
     color: var(--text-light);
 }
-/* Styles pour le menu hamburger sur mobile */
-.menu-toggle {
-    display: none;
+
+/* Améliorations du pied de page */
+footer {
+    display: flex;
     flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
 }
 
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+.footer-links {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
 }
 
-/* Version mobile de la navigation */
+.footer-links a {
+    color: var(--text-medium);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--text-light);
+}
+
+/*
+ ********************************************
+ * RÈGLES DE STYLE POUR TÉLÉPHONE (INFÉRIEUR À 768px)
+ ********************************************
+*/
 @media (max-width: 768px) {
+    /* Mise à jour de l'en-tête et du menu pour le mobile */
     header {
-        padding: 20px 40px;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        position: static;
+        background-color: var(--primary-bg);
     }
 
     nav {
@@ -827,5 +653,105 @@ footer {
     
     .nav-links.active {
         display: flex;
+    }
+    
+    .logo {
+        font-size: 1.8em;
+    }
+
+    /* Réduction de la taille des polices pour la lisibilité sur mobile */
+    body {
+        font-size: 75%;
+    }
+
+    .hero-section {
+        padding: 0;
+        height: 100vh;
+    }
+
+    .hero-content {
+        padding: 0 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+        letter-spacing: 3px;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 0.8em;
+    }
+
+    /* Mise à jour de la grille de produits */
+    .product-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 40px 20px;
+    }
+
+    .product img {
+        height: 250px;
+    }
+
+    /* Mise à jour des détails produit */
+    .product-details-container {
+        flex-direction: column;
+        gap: 40px;
+        padding: 40px 20px;
+    }
+
+    .product-info h2 {
+        font-size: 2.5em;
+    }
+
+    .product-info .price {
+        font-size: 1.8em;
+    }
+
+    .product-info .description {
+        font-size: 1em;
+    }
+
+    .thumbnail-gallery {
+        gap: 10px;
+    }
+
+    .thumbnail-gallery .thumbnail {
+        width: 70px;
+        height: 70px;
+    }
+
+    /* Pages 'À propos' et 'Contact' pour mobile */
+    .about-section, .contact-section {
+        padding: 40px 20px;
+    }
+
+    .values-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .testimonials-section {
+        padding: 50px 20px;
+    }
+    
+    .testimonial-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .contact-section {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .contact-form-container {
+        margin-top: 0;
     }
 }

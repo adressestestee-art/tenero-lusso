@@ -1048,3 +1048,51 @@ footer {
         font-size: 0.8em;
     }
 }
+@media (max-width: 768px) {
+    /* Ajustement des textes et des sections */
+    main {
+        padding: 20px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .boutique-header h1,
+    .about-section h1,
+    .legal-page h1,
+    .blog-header h1,
+    .article-title {
+        font-size: 2.5rem;
+    }
+
+    .values-container,
+    .testimonial-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .product-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .product-details-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .thumbnail-gallery {
+        justify-content: center;
+    }
+    
+    .contact-form-container,
+    .contact-info {
+        max-width: 100%;
+        padding: 20px;
+    }
+}

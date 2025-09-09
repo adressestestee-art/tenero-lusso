@@ -104,13 +104,12 @@ nav {
 .nav-links a {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 1.05rem;
+    font-size: 1.15rem; /* Augmenté de 1.05rem à 1.15rem */
     letter-spacing: 0.8px;
     position: relative;
     padding-bottom: 5px;
     color: var(--text-primary);
 }
-
 .nav-links a::after {
     content: '';
     position: absolute;

@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-shirt Basique Noir - Tenero Lusso</title>
-    <meta name="description" content="Le T-shirt basique noir de Tenero Lusso est conçu en coton de haute qualité pour un confort et une durabilité exceptionnels.">
-    <meta name="keywords" content="t-shirt, t-shirt noir, vêtement minimaliste, vêtement homme, vêtement femme, streetwear">
+    <title>T-shirt Confort - Tenero Lusso | Boutique</title>
+    <meta name="description" content="Découvrez notre T-shirt Confort, une pièce essentielle en coton bio. Un luxe discret, une coupe parfaite pour un style intemporel.">
+    <meta name="keywords" content="t-shirt luxe, t-shirt minimaliste, coton bio, vêtement durable, t-shirt blanc, t-shirt homme, t-shirt femme">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body class="product-detail-page">
+<body>
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
@@ -19,7 +20,7 @@
                 <div class="bar"></div>
             </div>
             <div class="nav-links">
-                <a href="boutique.html">Boutique</a>
+                <a href="boutique.html" class="active">Boutique</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
                 <a href="blog.html">Blog</a>
@@ -29,34 +30,67 @@
 
     <main>
         <section class="product-details-container">
-            <div class="product-image">
-                <img src="images/t-shirt-1.png" alt="T-shirt noir basique" id="main-product-image">
+            <div class="product-image-gallery">
+                <img id="main-product-image" src="images/t-shirt.png" alt="T-shirt Confort - Vue principale">
                 <div class="thumbnail-gallery">
-                    <img src="images/t-shirt-1.png" alt="T-shirt vue de face" class="thumbnail active">
-                    <img src="images/t-shirt-2.png" alt="T-shirt vue de dos" class="thumbnail">
+                    <img src="images/t-shirt-thumb-1.png" alt="T-shirt Confort vue de face" class="thumbnail active" onclick="changeImage('images/t-shirt-thumb-1.png')">
+                    <img src="images/t-shirt-thumb-2.png" alt="T-shirt Confort vue de dos" class="thumbnail" onclick="changeImage('images/t-shirt-thumb-2.png')">
+                    <img src="images/t-shirt-thumb-3.png" alt="Détail du tissu du T-shirt Confort" class="thumbnail" onclick="changeImage('images/t-shirt-thumb-3.png')">
                 </div>
             </div>
             <div class="product-info">
-                <h2>T-shirt Basique</h2>
-                <p class="price">19,99 €</p>
-                <p class="description">Un classique revisité pour une qualité irréprochable. Ce T-shirt est coupé dans un jersey de coton épais, offrant un tombé parfait et une durabilité exceptionnelle.</p>
-                <a href="https://www.vinted.fr/member/289230206" target="_blank" class="cta-button">ACHETER</a>
+                <h1>T-shirt Confort</h1>
+                <p class="price">90 €</p>
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p>
+                        Notre T-shirt Confort est une pièce maîtresse de la garde-robe minimaliste. Fabriqué à partir de coton bio de haute qualité, il offre une douceur et un confort exceptionnels. Sa coupe droite et épurée en fait un vêtement polyvalent, parfait pour toutes les occasions.
+                    </p>
+                    <h3>Détails</h3>
+                    <ul>
+                        <li>Composition : 100% coton biologique</li>
+                        <li>Couleur : Blanc intemporel</li>
+                        <li>Coupe : Droite, unisexe</li>
+                        <li>Entretien : Lavage en machine à 30°C</li>
+                    </ul>
+                </div>
+                <a href="https://www.vinted.fr/t-shirt-confort" class="buy-button">Acheter sur Vinted</a>
             </div>
         </section>
     </main>
 
     <footer>
+        <div class="newsletter-container">
+            <h3>Abonnez-vous à notre newsletter</h3>
+            <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
+            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
+                <button type="submit">S'abonner</button>
+            </form>
+            <div id="newsletter-message" class="message"></div>
+        </div>
         <div class="footer-links">
             <a href="politique.html">Politique de Confidentialité</a>
             <a href="cgv.html">Conditions Générales de Vente</a>
         </div>
         <p>&copy; 2025 Tenero Lusso</p>
     </footer>
-    <script src="js/main.js"></script>
-    <script src="js/product-carousel.js"></script>
+
     <div id="cookie-banner">
-    <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
-    <button id="accept-cookies">Accepter</button>
-</div>
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
+        <button id="accept-cookies">Accepter</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function changeImage(src) {
+            document.getElementById('main-product-image').src = src;
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>

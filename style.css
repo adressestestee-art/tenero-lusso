@@ -1443,3 +1443,20 @@ footer p {
         height: 60px;
     }
 }
+/* Style pour le message de rupture de stock */
+.out-of-stock-message {
+    color: #ff5252; /* Rouge vif pour attirer l'attention */
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+/* Style pour désactiver le bouton d'achat */
+.buy-button.disabled {
+    background-color: #555;
+    color: #999;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+}

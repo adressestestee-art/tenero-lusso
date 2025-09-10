@@ -1,5 +1,5 @@
 <!DOCTYPE html>
- <html lang="fr">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
     </header>
 
     <main>
-        <section class="hero-carousel">
+        <section class="hero-carousel animate-on-scroll">
             <div class="carousel-item active">
                 <img src="images/hero-1.png" alt="Vêtements minimalistes et élégants">
             </div>
@@ -38,7 +38,7 @@
             </div>
         </section>
 
-        <section class="introduction-section">
+        <section class="introduction-section animate-on-scroll">
             <h2>Redéfinissez votre style.</h2>
             <p>
                 Chez Tenero Lusso, nous croyons que le vrai luxe réside dans la simplicité et la qualité. Nos collections sont pensées pour celles et ceux qui cherchent à s'émanciper des tendances éphémères et à investir dans des pièces durables, élégantes et intemporelles. Chaque article est une promesse de confort et de style, conçu pour devenir la base de votre garde-robe.
@@ -46,7 +46,7 @@
             <a href="a-propos.html" class="cta-button">En savoir plus</a>
         </section>
 
-        <section class="testimonial-section">
+        <section class="testimonial-section animate-on-scroll">
             <h2>Ce qu'ils pensent de nous</h2>
             <div class="testimonial-container">
                 <div class="testimonial">
@@ -64,10 +64,10 @@
             </div>
         </section>
     </main>
-    
+
     <div class="menu-overlay"></div>
 
-    <footer>
+    <footer class="animate-on-scroll">
         <div class="newsletter-container">
             <h3>Abonnez-vous à notre newsletter</h3>
             <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
@@ -88,44 +88,26 @@
         <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
         <button id="accept-cookies">Accepter</button>
     </div>
- <script defer src="/_vercel/insights/script.js"></script>
- <script src="js/main.js" defer></script>
+
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script src="js/main.js" defer></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                    } else {
-                        entry.target.classList.remove('visible');
+                        // L'élément n'est plus observé une fois visible
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, {
-                threshold: 0.1
-            });
+            }, { threshold: 0.2 });
 
-            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-            elementsToAnimate.forEach(element => observer.observe(element));
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
         });
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
- <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Vous pouvez ajouter cette ligne pour ne plus observer l'élément une fois visible :
-                    // observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 }); // L'animation se déclenche quand 20% de l'élément est visible
-
-        document.querySelectorAll('.animate-on-scroll').forEach(element => {
-            observer.observe(element);
-        });
-    });
-</script>
 </body>
 </html>

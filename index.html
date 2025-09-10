@@ -109,5 +109,54 @@
             });
         });
     </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('newsletter-form');
+        const emailInput = document.getElementById('email-input');
+        const messageDiv = document.getElementById('newsletter-message');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Empêche la soumission par défaut du formulaire
+
+            // Remplacez 'votre-form-id' par votre ID de formulaire Formspree
+            const formAction = 'https://formspree.io/f/your-form-id';
+
+            try {
+                const response = await fetch(formAction, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    messageDiv.textContent = "Merci pour votre inscription !";
+                    messageDiv.classList.add('success');
+                    messageDiv.classList.remove('error');
+                    emailInput.value = ''; // Efface l'input
+                } else {
+                    messageDiv.textContent = "Une erreur s'est produite. Veuillez réessayer.";
+                    messageDiv.classList.add('error');
+                    messageDiv.classList.remove('success');
+                }
+            } catch (error) {
+                messageDiv.textContent = "Une erreur de connexion s'est produite. Veuillez vérifier votre connexion.";
+                messageDiv.classList.add('error');
+                messageDiv.classList.remove('success');
+            }
+
+            // Affiche le message
+            setTimeout(() => {
+                messageDiv.classList.add('visible');
+            }, 100);
+
+            // Cache le message après 5 secondes
+            setTimeout(() => {
+                messageDiv.classList.remove('visible');
+            }, 5000);
+        });
+    });
+</script>
 </body>
 </html>

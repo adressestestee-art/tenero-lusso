@@ -1600,17 +1600,6 @@ footer p {
     box-shadow: 0 8px 25px rgba(184, 134, 11, 0.5);
 }
 
-.map-section {
-    padding: 0 60px 100px;
-    max-width: 1600px;
-    margin: 0 auto;
-}
-
-.map-section iframe {
-    width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
 
 /* --- RESPONSIVE DESIGN (pour s'adapter aux petits écrans) --- */
 @media (max-width: 768px) {

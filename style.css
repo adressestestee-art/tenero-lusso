@@ -1802,12 +1802,6 @@ footer p {
     }
 }
 
-/* Pour les écrans de très petite taille (smartphones étroits) */
-@media (max-width: 480px) {
-    .contact-form-container {
-        padding: 30px;
-    }
-}
 /* Style de l'icône du menu hamburger */
 .menu-toggle {
     display: none;
@@ -1816,6 +1810,7 @@ footer p {
     width: 30px;
     height: 22px;
     cursor: pointer;
+    z-index: 20; /* Toujours au-dessus de tout */
 }
 
 .menu-toggle .bar {
@@ -1825,18 +1820,7 @@ footer p {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Affichage du menu hamburger sur mobile */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Affiche l'icône hamburger sur les écrans plus petits */
-    }
-
-    .nav-links {
-        display: none;
-        /* Les autres styles pour le menu mobile sont déjà en place */
-    }
-}
-/* Animation du menu hamburger en croix */
+/* Animation de l'icône hamburger en croix */
 .menu-toggle.active .bar:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
 }
@@ -1846,5 +1830,38 @@ footer p {
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Menu de navigation sur mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed; /* Position fixe pour qu'il ne défile pas */
+        top: 0; /* Alignement en haut de l'écran */
+        right: -300px; /* Caché hors de l'écran */
+        width: 250px;
+        height: 100%;
+        background-color: var(--secondary-bg);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        z-index: 10;
+        transition: right 0.4s ease-in-out; /* Animation d'ouverture */
+        padding-top: 80px;
+    }
+
+    .nav-links.active {
+        right: 0; /* Affiche le menu en le faisant glisser de la droite */
+    }
+
+    .nav-links a {
+        padding: 15px 20px;
+        text-align: left;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
 }

@@ -1706,10 +1706,10 @@ footer p {
         gap: 15px;
     }
 }
-/* --- BOUTON D'APPEL À L'ACTION (CTA) --- */
-.cta-button {
+/* --- BOUTON D'APPEL À L'ACTION ARGENTÉ (CTA) --- */
+.cta-button-silver {
     display: inline-block;
-    background-color: var(--accent-gold);
+    background-color: var(--accent-silver);
     color: var(--primary-bg);
     border: none;
     padding: 20px 45px;
@@ -1719,11 +1719,11 @@ footer p {
     transition: background-color 0.4s ease, transform 0.3s ease;
     border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 5px 20px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
-.cta-button:hover {
-    background-color: var(--accent-gold-hover);
+.cta-button-silver:hover {
+    background-color: var(--accent-silver-hover);
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.5);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }

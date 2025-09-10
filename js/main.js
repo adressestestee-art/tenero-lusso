@@ -1,24 +1,13 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const cookieBanner = document.getElementById("cookie-banner");
-  const acceptButton = document.getElementById("accept-cookies");
+    // --- Gestion du menu Hamburger ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-  // Vérifie si la bannière existe et qu'elle a déjà été acceptée
-  const hasAccepted = localStorage.getItem("cookie-accepted");
-  if (hasAccepted) {
-    cookieBanner.classList.add("hidden");
-  }
-
-  // Ajoute un écouteur d'événement au bouton
-  if (acceptButton) {
-    acceptButton.addEventListener("click", function() {
-      // Ajoute la classe 'hidden' pour masquer la bannière
-      cookieBanner.classList.add("hidden");
-
-      // Enregistre le choix de l'utilisateur dans le stockage local
-      localStorage.setItem("cookie-accepted", "true");
-    });
-  }
-});
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
 
         // Fermer le menu si un lien est cliqué
         navLinks.querySelectorAll('a').forEach(link => {
@@ -87,22 +76,20 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-// Gérer le bouton d'acceptation des cookies
-const cookieBanner = document.getElementById('cookie-banner');
-const acceptCookiesButton = document.getElementById('accept-cookies');
+    // --- Gérer le bouton d'acceptation des cookies ---
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptButton = document.getElementById('accept-cookies');
 
-if (cookieBanner && acceptCookiesButton) {
-    // Vérifier si le cookie a déjà été accepté
-    const isCookieAccepted = localStorage.getItem('cookieAccepted');
+    if (cookieBanner && acceptButton) {
+        // Vérifie si la bannière a déjà été acceptée
+        const hasAccepted = localStorage.getItem('cookie-accepted');
+        if (hasAccepted) {
+            cookieBanner.classList.add('hidden');
+        }
 
-    if (!isCookieAccepted) {
-        cookieBanner.classList.remove('hidden'); // S'assurer qu'il est visible au chargement
+        acceptButton.addEventListener('click', () => {
+            cookieBanner.classList.add('hidden');
+            localStorage.setItem('cookie-accepted', 'true');
+        });
     }
-
-    acceptCookiesButton.addEventListener('click', () => {
-        // Enregistrer le consentement de l'utilisateur
-        localStorage.setItem('cookieAccepted', 'true');
-        // Ajouter la classe pour masquer la bannière
-        cookieBanner.classList.add('hidden');
-    });
-}
+});

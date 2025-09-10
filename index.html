@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-import { SpeedInsights } from '@vercel/speed-insights/next';
  <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -89,8 +88,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
         <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
         <button id="accept-cookies">Accepter</button>
     </div>
-
-   <script src="js/main.js" defer></script>
+ <script defer src="/_vercel/insights/script.js"></script>
+ <script src="js/main.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
@@ -111,6 +110,5 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
-    <SpeedInsights />
 </body>
 </html>

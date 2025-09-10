@@ -88,13 +88,13 @@ if (cookieBanner && acceptCookiesButton) {
     const isCookieAccepted = localStorage.getItem('cookieAccepted');
 
     if (!isCookieAccepted) {
-        cookieBanner.style.display = 'flex';
+        cookieBanner.classList.remove('hidden'); // S'assurer qu'il est visible au chargement
     }
 
     acceptCookiesButton.addEventListener('click', () => {
         // Enregistrer le consentement de l'utilisateur
         localStorage.setItem('cookieAccepted', 'true');
-        // Masquer la bannière
-        cookieBanner.style.display = 'none';
+        // Ajouter la classe pour masquer la bannière
+        cookieBanner.classList.add('hidden');
     });
 }

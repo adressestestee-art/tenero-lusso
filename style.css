@@ -1526,9 +1526,9 @@ footer p {
     transform: translateY(0);
 }
 
-/* --- NAVIGATION & MENU MOBILE --- */
+/* --- NAVIGATION & MENU LUXUEUX --- */
 
-/* Styles pour le menu sur les ordinateurs */
+/* Style du menu par défaut (pour les ordinateurs) */
 .menu-toggle {
     display: none;
 }
@@ -1555,36 +1555,35 @@ footer p {
     display: none;
 }
 
-/* Styles pour le menu sur les téléphones */
+/* Styles du menu mobile (pour les téléphones) */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: flex;
+        display: flex; /* Le menu s'affiche uniquement en version mobile */
         flex-direction: column;
         justify-content: space-around;
         width: 25px;
         height: 20px;
         cursor: pointer;
         z-index: 1000;
-        gap: 4px;
     }
 
     .menu-toggle .bar {
         width: 100%;
         height: 2px;
         background-color: var(--text-primary);
-        transition: all 0.3s ease-in-out;
+        transition: all 0.3s cubic-bezier(0.8, 0, 0.2, 1);
     }
-
+    
     .menu-toggle.active .bar:nth-child(2) {
         opacity: 0;
     }
 
     .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
+        transform: translateY(9px) rotate(45deg);
     }
 
     .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
+        transform: translateY(-9px) rotate(-45deg);
     }
 
     .nav-links {
@@ -1593,37 +1592,42 @@ footer p {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: var(--secondary-bg);
+        background-color: var(--primary-bg); /* Fond noir uni */
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        transform: translateX(-100%);
-        transition: transform 0.4s ease-in-out;
+        transform: translateY(-100%); /* Masqué en dehors de l'écran */
+        transition: transform 0.5s ease-in-out;
         z-index: 999;
     }
 
     .nav-links.active {
-        transform: translateX(0);
+        transform: translateY(0); /* Apparition du menu */
     }
 
     .nav-links a {
-        font-size: 1.5rem;
-        padding: 15px 0;
+        font-size: 1.5rem; /* Taille plus grande pour un look premium */
+        font-weight: 300; /* Police plus fine */
+        padding: 20px 0;
     }
 
     .menu-overlay {
+        display: block;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.85); /* Fond plus sombre */
         z-index: 998;
-        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease;
     }
 
     .menu-overlay.active {
-        display: block;
+        opacity: 1;
+        visibility: visible;
     }
 }
 

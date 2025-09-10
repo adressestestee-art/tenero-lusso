@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Tenero Lusso</title>
-    <meta name="description" content="Contactez Tenero Lusso. Pour toute question sur nos produits, notre histoire ou nos valeurs, n'hésitez pas à nous écrire.">
-    <meta name="keywords" content="contact, email, questions, service client, contact Tenero Lusso">
+    <title>Contact | Tenero Lusso</title>
+    <meta name="description" content="Contactez Tenero Lusso pour toute question sur nos produits, collaborations ou suggestions.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
-<body>
+<body class="contact-page">
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
@@ -22,7 +21,7 @@
             <div class="nav-links">
                 <a href="boutique.html">Boutique</a>
                 <a href="a-propos.html">À propos</a>
-                <a href="contact.html" class="active">Contact</a>
+                <a href="contact.html">Contact</a>
                 <a href="blog.html">Blog</a>
             </div>
         </nav>
@@ -31,22 +30,24 @@
     <main>
         <section class="contact-page-container">
             <div class="contact-info">
-                <h1>Contactez-nous</h1>
+                <h1>Nous Contacter</h1>
                 <p>
-                    Pour toute question sur nos collections, un conseil de style, ou toute autre demande, nous sommes là pour vous. Écrivez-nous, et nous vous répondrons dans les plus brefs délais.
+                    Pour toute question concernant nos collections, une commande, une collaboration ou pour toute autre demande, n'hésitez pas à nous écrire. Nous vous répondrons dans les plus brefs délais.
                 </p>
                 <div class="contact-details">
-                    <p>Email : <a href="mailto:contact@tenerolusso.com">contact@tenerolusso.com</a></p>
+                    <p>Email: <a href="mailto:contact@tenero-lusso.com">contact@tenero-lusso.com</a></p>
+                    <p>Téléphone: <a href="tel:+33123456789">+33 1 23 45 67 89</a></p>
+                    <p>Adresse: 12 Rue de la Mode, 75001 Paris, France</p>
                 </div>
             </div>
             <div class="contact-form-container">
-                <form id="contact-form" action="https://formspree.io/f/xdkdvqro" method="POST">
-                    <input type="text" id="name" name="name" placeholder="Votre Nom" required>
-                    <input type="email" id="email" name="_replyto" placeholder="Votre Email" required>
-                    <textarea id="message" name="message" placeholder="Votre Message" rows="5" required></textarea>
+                <form name="contact" method="POST" data-netlify="true">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
+                    <textarea name="message" placeholder="Votre message" required></textarea>
                     <div class="checkbox-container">
-                        <input type="checkbox" id="privacy-policy" required>
-                        <label for="privacy-policy">J'ai lu et j'accepte la <a href="politique.html" target="_blank">Politique de Confidentialité</a></label>
+                        <input type="checkbox" id="privacy-policy" name="privacy-policy" required>
+                        <label for="privacy-policy">J'accepte la <a href="politique.html">politique de confidentialité</a>.</label>
                     </div>
                     <button type="submit">Envoyer</button>
                 </form>
@@ -58,7 +59,7 @@
         <div class="newsletter-container">
             <h3>Abonnez-vous à notre newsletter</h3>
             <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
-            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <form id="newsletter-form" action="https://formspree.io/f/xdkdvqro" method="POST">
                 <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
                 <button type="submit">S'abonner</button>
             </form>
@@ -71,11 +72,5 @@
         <p>&copy; 2025 Tenero Lusso</p>
     </footer>
 
-    <div id="cookie-banner">
-        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
-        <button id="accept-cookies">Accepter</button>
-    </div>
-
-    <script src="js/main.js"></script>
-</body>
-</html>
+    <div id="cookie-banner" class="hidden">
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href

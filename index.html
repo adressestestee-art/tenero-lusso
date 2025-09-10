@@ -71,7 +71,7 @@
         <div class="newsletter-container">
             <h3>Abonnez-vous à notre newsletter</h3>
             <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
-            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+            <form id="newsletter-form" action="https://getform.io/f/aolzqdqb" method="POST">
                 <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
                 <button type="submit">S'abonner</button>
             </form>
@@ -98,7 +98,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        // L'élément n'est plus observé une fois visible
                         observer.unobserve(entry.target);
                     }
                 });
@@ -109,10 +108,5 @@
             });
         });
     </script>
-    <form id="newsletter-form" action="https://getform.io/f/aolzqdqb" method="POST">
-    <input type="email" id="email-input" name="email" placeholder="Votre adresse email" required>
-    <button type="submit">S'abonner</button>
-</form>
-</form>
 </body>
 </html>

@@ -71,7 +71,7 @@
         <div class="newsletter-container">
             <h3>Abonnez-vous à notre newsletter</h3>
             <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
-            <form id="newsletter-form" action="https://formsubmit.co/tenero.lusso@gmail.com" method="POST">
+            <form id="newsletter-form" action="https://formsubmit.co/votre-email@exemple.com" method="POST">
                 <input type="email" id="email-input" name="email" placeholder="Votre adresse email" required>
                 <button type="submit">S'abonner</button>
             </form>
@@ -94,6 +94,19 @@
     <script defer src="/_vercel/speed-insights/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const menuOverlay = document.querySelector('.menu-overlay');
+
+            function toggleMenu() {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                menuOverlay.classList.toggle('active');
+            }
+
+            menuToggle.addEventListener('click', toggleMenu);
+            menuOverlay.addEventListener('click', toggleMenu);
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {

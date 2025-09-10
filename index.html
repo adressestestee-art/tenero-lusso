@@ -130,6 +130,22 @@
             document.querySelectorAll('.animate-on-scroll').forEach(element => {
                 observer.observe(element);
             });
+
+            // Script pour le bandeau de cookies
+            const cookieBanner = document.getElementById('cookie-banner');
+            const acceptCookiesButton = document.getElementById('accept-cookies');
+
+            // Vérifie si l'utilisateur a déjà accepté les cookies
+            const hasAcceptedCookies = localStorage.getItem('cookieConsent');
+            if (hasAcceptedCookies) {
+                cookieBanner.style.display = 'none';
+            }
+
+            // Gère le clic sur le bouton "Accepter"
+            acceptCookiesButton.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'true');
+                cookieBanner.style.display = 'none';
+            });
         });
     </script>
 </body>

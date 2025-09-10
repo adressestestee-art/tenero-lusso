@@ -1,16 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", function() {
+  const cookieBanner = document.getElementById("cookie-banner");
+  const acceptButton = document.getElementById("accept-cookies");
 
-   const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('.nav-links');
-const menuOverlay = document.querySelector('.menu-overlay');
+  // Vérifie si la bannière existe et qu'elle a déjà été acceptée
+  const hasAccepted = localStorage.getItem("cookie-accepted");
+  if (hasAccepted) {
+    cookieBanner.classList.add("hidden");
+  }
 
-if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-        menuOverlay.classList.toggle('active'); // Ajout de cette ligne
+  // Ajoute un écouteur d'événement au bouton
+  if (acceptButton) {
+    acceptButton.addEventListener("click", function() {
+      // Ajoute la classe 'hidden' pour masquer la bannière
+      cookieBanner.classList.add("hidden");
+
+      // Enregistre le choix de l'utilisateur dans le stockage local
+      localStorage.setItem("cookie-accepted", "true");
     });
-}
+  }
+});
 
         // Fermer le menu si un lien est cliqué
         navLinks.querySelectorAll('a').forEach(link => {

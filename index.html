@@ -89,11 +89,9 @@
         <button id="accept-cookies">Accepter</button>
     </div>
 
-    <script defer src="/_vercel/insights/script.js"></script>
-    <script src="js/main.js" defer></script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Script pour le menu mobile
             const menuToggle = document.getElementById('menu-toggle');
             const navLinks = document.querySelector('.nav-links');
             const menuOverlay = document.querySelector('.menu-overlay');
@@ -107,6 +105,19 @@
             menuToggle.addEventListener('click', toggleMenu);
             menuOverlay.addEventListener('click', toggleMenu);
 
+            // Script pour le carrousel
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            let currentIndex = 0;
+
+            function showNextItem() {
+                carouselItems[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % carouselItems.length;
+                carouselItems[currentIndex].classList.add('active');
+            }
+
+            setInterval(showNextItem, 5000); // Change d'image toutes les 5 secondes
+
+            // Script pour l'animation au défilement
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {

@@ -1526,23 +1526,24 @@ footer p {
     transform: translateY(0);
 }
 
-/* --- MENU MOBILE LUXUEUX --- */
+/* --- MENU MOBILE --- */
 .menu-toggle {
-    display: none; /* Masqué par défaut sur les grands écrans */
+    display: none; /* Masqué par défaut */
     cursor: pointer;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    width: 28px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     z-index: 1000;
+    gap: 5px;
 }
 
 .menu-toggle .bar {
     width: 100%;
     height: 2px;
     background-color: var(--text-primary);
-    transition: all 0.3s cubic-bezier(0.8, 0.0, 0.2, 1.0); /* Animation plus fluide */
+    transition: all 0.3s ease-in-out;
 }
 
 .menu-toggle.active .bar:nth-child(2) {
@@ -1550,66 +1551,70 @@ footer p {
 }
 
 .menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .nav-links {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: -100%;
+    width: 250px;
     height: 100%;
-    background-color: var(--primary-bg);
+    background-color: var(--secondary-bg);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateY(-100%);
-    transition: transform 0.6s cubic-bezier(0.8, 0.0, 0.2, 1.0); /* Animation plus lente et élégante */
+    transition: right 0.3s ease-in-out;
     z-index: 999;
-    padding-top: 0;
-}
-
-.nav-links.active {
-    transform: translateY(0);
+    padding-top: 80px;
 }
 
 .nav-links a {
     color: var(--text-primary);
-    font-size: 1.8rem; /* Taille plus grande pour un look premium */
-    font-weight: 300; /* Poids de police plus léger */
+    padding: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
     text-decoration: none;
-    padding: 20px 0;
-    opacity: 0;
-    transition: opacity 0.5s ease 0.3s;
+    transition: color 0.3s ease;
 }
 
-.nav-links.active a {
-    opacity: 1;
+.nav-links a:hover {
+    color: var(--accent-silver-hover);
+}
+
+.nav-links.active {
+    right: 0;
 }
 
 .menu-overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fond plus opaque pour un effet "luxe" */
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 998;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.3s ease;
 }
 
 .menu-overlay.active {
+    display: block;
     opacity: 1;
-    visibility: visible;
 }
 
-/* --- VERSION ORDINATEURS (plus de 768px) --- */
+/* --- VERSION MOBILE (ajustement) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+}
+
+/* --- VERSION ORDINATEURS --- */
 @media (min-width: 769px) {
     .menu-toggle {
         display: none;
@@ -1621,28 +1626,19 @@ footer p {
         height: auto;
         background-color: transparent;
         flex-direction: row;
-        transform: none;
+        transform: translateY(0);
         transition: none;
-        padding: 0;
+        padding-top: 0;
         gap: 30px;
+        right: auto;
     }
 
     .nav-links a {
         font-size: 1rem;
-        font-weight: 500;
-        opacity: 1;
-        padding: 0;
     }
-    
+
     .menu-overlay {
         display: none !important;
-    }
-}
-
-/* --- VERSION MOBILE (ajustement) --- */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
     }
 }
 

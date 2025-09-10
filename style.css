@@ -1557,4 +1557,6 @@ footer p {
         width: 60px;
         height: 60px;
     }
+}.cookie-hidden {
+    display: none !important;
 }

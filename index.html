@@ -110,5 +110,22 @@
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <script defer src="/_vercel/speed-insights/script.js"></script>
+ <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Vous pouvez ajouter cette ligne pour ne plus observer l'élément une fois visible :
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 }); // L'animation se déclenche quand 20% de l'élément est visible
+
+        document.querySelectorAll('.animate-on-scroll').forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
 </body>
 </html>

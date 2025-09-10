@@ -79,27 +79,22 @@ if (menuToggle && navLinks) {
         });
     }
 
-    // --- Bandeau de cookies ---
-    const cookieBanner = document.getElementById('cookie-banner');
-    const acceptCookiesBtn = document.getElementById('accept-cookies');
+// Gérer le bouton d'acceptation des cookies
+const cookieBanner = document.getElementById('cookie-banner');
+const acceptCookiesButton = document.getElementById('accept-cookies');
 
-    if (cookieBanner && acceptCookiesBtn) {
-        // On vérifie si l'utilisateur a déjà accepté les cookies
-        const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+if (cookieBanner && acceptCookiesButton) {
+    // Vérifier si le cookie a déjà été accepté
+    const isCookieAccepted = localStorage.getItem('cookieAccepted');
 
-        if (!cookiesAccepted) {
-            // Si non, on affiche la bannière
-            cookieBanner.classList.remove('hidden');
-        } else {
-            // Si oui, on cache la bannière
-            cookieBanner.classList.add('hidden');
-        }
-
-        acceptCookiesBtn.addEventListener('click', () => {
-            // Quand le bouton est cliqué, on sauvegarde l'acceptation
-            localStorage.setItem('cookiesAccepted', 'true');
-            // Et on cache la bannière
-            cookieBanner.classList.add('hidden');
-        });
+    if (!isCookieAccepted) {
+        cookieBanner.style.display = 'flex';
     }
-});
+
+    acceptCookiesButton.addEventListener('click', () => {
+        // Enregistrer le consentement de l'utilisateur
+        localStorage.setItem('cookieAccepted', 'true');
+        // Masquer la bannière
+        cookieBanner.style.display = 'none';
+    });
+}

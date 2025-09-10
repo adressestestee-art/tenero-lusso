@@ -90,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function() {
         acceptButton.addEventListener('click', () => {
             cookieBanner.classList.add('hidden');
             localStorage.setItem('cookie-accepted', 'true');
-            import { SpeedInsights } from "@vercel/speed-insights/next"
         });
     }
 });

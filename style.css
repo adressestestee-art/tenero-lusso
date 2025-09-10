@@ -1706,3 +1706,24 @@ footer p {
         gap: 15px;
     }
 }
+/* --- BOUTON D'APPEL À L'ACTION (CTA) --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-gold);
+    color: var(--primary-bg);
+    border: none;
+    padding: 20px 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background-color 0.4s ease, transform 0.3s ease;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(184, 134, 11, 0.3);
+}
+
+.cta-button:hover {
+    background-color: var(--accent-gold-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.5);
+}

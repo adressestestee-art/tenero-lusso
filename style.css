@@ -1693,3 +1693,17 @@ footer p {
     height: 100%;
     object-fit: cover;
 }
+/* --- STYLE DU LOGO --- */
+.logo {
+    font-family: 'Crimson Text', serif;
+    font-weight: 600; /* Plus épais pour un meilleur impact */
+    font-size: 1.8rem; /* Ajustez la taille selon vos préférences */
+    letter-spacing: 2px; /* Espacement entre les lettres pour un effet plus élégant */
+}
+
+/* Ajustement pour les téléphones */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 1.5rem; /* Réduire la taille sur mobile */
+    }
+}

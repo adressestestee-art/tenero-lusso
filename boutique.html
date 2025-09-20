@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
     <style>
         /* --- Grille responsive boutique --- */
         .product-container {
@@ -33,15 +34,32 @@
         }
 
         /* --- Menu mobile --- */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle .bar {
+            height: 4px;
+            width: 100%;
+            background-color: #fff; /* Menu blanc */
+            border-radius: 2px;
+        }
+
+        .nav-links a {
+            color: #fff; /* Menu blanc */
+            text-decoration: none;
+            padding: 0 15px;
+        }
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 30px;
-                height: 22px;
-                cursor: pointer;
-                z-index: 1001;
             }
 
             .nav-links {
@@ -54,7 +72,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: #fff;
+                background-color: #000; /* Fond noir pour contraste */
                 transform: translateY(-100%);
                 transition: transform 0.5s ease;
                 gap: 30px;
@@ -69,8 +87,33 @@
             .nav-links a {
                 font-size: 1.8rem;
                 font-weight: 500;
-                padding: 20px 0;
             }
+        }
+
+        /* --- Cookie banner --- */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #000;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            z-index: 10000;
+        }
+
+        #cookie-banner button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -83,7 +126,7 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <a href="boutique.html" class="active">Boutique</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
@@ -135,26 +178,38 @@
     </footer>
 
     <div id="cookie-banner">
-        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. 
+           En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. 
+           Pour en savoir plus, consultez notre <a href="politique.html" style="color:#fff; text-decoration:underline;">Politique de Confidentialité</a>.
+        </p>
         <button id="accept-cookies">Accepter</button>
     </div>
 
     <script>
         // Menu mobile
         const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        const navLinks = document.getElementById('nav-links');
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
-    </script>
-    <div id="cookie-banner">
-    <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. 
-       En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. 
-       Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.
-    </p>
-    <button id="accept-cookies">Accepter</button>
-</div>
 
+        // Cookies
+        document.addEventListener("DOMContentLoaded", function() {
+            const cookieBanner = document.getElementById("cookie-banner");
+            const acceptBtn = document.getElementById("accept-cookies");
+
+            if (!localStorage.getItem("cookiesAccepted")) {
+                cookieBanner.style.display = "flex";
+            } else {
+                cookieBanner.style.display = "none";
+            }
+
+            acceptBtn.addEventListener("click", function() {
+                localStorage.setItem("cookiesAccepted", "true");
+                cookieBanner.style.display = "none";
+            });
+        });
+    </script>
 </body>
 </html>

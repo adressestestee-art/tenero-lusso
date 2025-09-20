@@ -481,8 +481,9 @@ footer p {
 /* Grille de produits et d'articles */
 .grid-container {
     display: grid;
+    /* Correction : Utilise une grille flexible pour le cadrillage, qui s'adapte à la taille de l'écran */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 60px;
+    gap: 60px; /* Ajoute de l'espace entre les articles */
     padding: 0 20px 100px;
     max-width: 1400px;
     margin: 0 auto;
@@ -1190,339 +1191,332 @@ footer p {
 .precommande-section {
     max-width: 700px;
     margin: 80px auto;
-    padding: 0 20px;
+    padding: 0 20px 80px;
     text-align: center;
 }
 
-.precommande-section h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.precommande-section p {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-}
-
-.precommande-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    text-align: left;
-}
-
-.precommande-form label {
-    font-size: 1rem;
-    color: var(--text-secondary);
-}
-
-.precommande-form input,
-.precommande-form select,
-.precommande-form textarea {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.precommande-form input:focus,
-.precommande-form select:focus,
-.precommande-form textarea:focus {
-    outline: none;
-    border-color: var(--accent-silver-hover);
-}
-
-.precommande-form button {
-    padding: 12px 30px;
-    background-color: var(--accent-silver);
-    color: var(--primary-bg);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.precommande-form button:hover {
-    background-color: var(--accent-silver-hover);
-}
-
-/* --- ANIMATION AU DÉFILEMENT --- */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 0.8s ease-out;
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- RESPONSIVE DESIGN --- */
-
-/* Tablettes et petits écrans */
-@media (max-width: 1024px) {
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1.5rem;
-    }
-
-    .page-header h1,
-    .introduction-section h2,
-    .testimonial-section h2,
-    .about-header h1,
-    .contact-info h1,
-    .legal-container h1,
-    .article-title {
-        font-size: 3rem;
-    }
-
-    .product-details-container,
-    .contact-page-container {
-        gap: 40px;
-        flex-direction: column;
-    }
-
-    .product-image-gallery,
-    .product-info {
-        max-width: 100%;
-        padding-top: 0;
-    }
-
-    .product-info h1 {
-        font-size: 3rem;
-    }
-}
-
-/* Téléphones */
-@media (max-width: 768px) {
-    nav {
-        padding: 0 20px;
-    }
-
-    header {
-        padding: 0 20px;
-    }
-
-    .logo {
-        font-size: 1.5rem;
-        letter-spacing: 1px;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--primary-bg);
-        z-index: 999;
-        transition: transform 0.5s ease;
-        transform: translateY(-100%);
-        gap: 30px;
-        text-align: center;
-    }
-
-    .nav-links.active {
-        display: flex;
-        transform: translateY(0);
-    }
-
-    .nav-links a {
-        font-size: 1.8rem;
-        font-weight: 300;
-        padding: 20px 0;
-    }
-
-    .menu-toggle {
-        display: flex;
-        position: relative;
-        z-index: 1001;
-    }
-
-    .introduction-section,
-    .testimonial-section {
-        padding: 60px 20px;
-    }
-
-    .introduction-section h2,
-    .testimonial-section h2 {
-        font-size: 2.5rem;
-    }
-
-    .testimonial-section h2 {
-        margin-bottom: 40px;
-    }
-
-    .testimonial-container {
-        gap: 20px;
-    }
-
-    footer {
-        padding: 40px 20px;
-    }
-
-    .newsletter-container {
-        margin-bottom: 30px;
-    }
-
-    #newsletter-form {
-        flex-direction: column;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .precommande-section {
-        margin: 60px auto;
-    }
-
-    .precommande-section h1 {
-        font-size: 2.5rem;
-    }
-
-    .boutique-section {
-        margin: 60px auto;
-    }
-
-    .boutique-section .page-title {
-        font-size: 2.5rem;
-    }
-
-    .precommande-link-container {
-        padding: 30px;
-    }
-
-    .product-details-section {
-        margin: 60px auto;
-    }
-
-    .blog-posts-grid {
-        gap: 20px;
-    }
-}
-
-/* Exemple de classe pour masquer visuellement un élément */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* --- ORGANISATION DU BLOG --- */
-.blog-articles-container {
-    max-width: 1100px;
-    margin: 80px auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.blog-posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
-}
-
-.blog-post-card {
-    display: block;
-    text-align: left;
-    background-color: var(--secondary-bg);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.blog-post-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.blog-post-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.blog-post-card h3 {
-    font-size: 1.5rem;
-    padding: 15px 20px 0;
-}
-
-.blog-post-card .post-date {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    padding: 0 20px 20px;
-}
-/* --- SECTIONS DE PAGE (Boutique, Blog, etc.) --- */
-
-/* Grille de produits et d'articles */
-.grid-container, .blog-articles-container { /* J'ai combiné ces deux sélecteurs car ils ont des styles similaires */
-    display: grid;
-    /* Règle pour afficher les éléments sur une seule colonne, centrée */
-    grid-template-columns: minmax(auto, 800px); /* Une colonne de taille maximale 800px, pour la centrer */
-    justify-content: center; /* Centre la grille horizontalement */
-    gap: 40px; /* Espace entre les éléments */
-    padding: 0 40px 100px;
-    margin: 0 auto;
-    text-align: center; /* Centre le texte dans le conteneur */
-}
-/* --- SECTIONS DE PAGE (Boutique) --- */
-.boutique-section {
-    max-width: 1400px;
-    margin: 80px auto;
-    padding: 0 40px;
-    text-align: center;
-}
-
-.boutique-section .page-header {
+.precommande-header {
     margin-bottom: 60px;
 }
 
-/* Grille de produits */
-.products-grid {
-    display: grid;
-    /* La grille va afficher 3 colonnes de taille égale sur les grands écrans.
-       Le nombre de colonnes s'adapte automatiquement sur les petits écrans. */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 60px;
-    padding: 0 20px 100px;
-    max-width: 1400px;
-    margin: 0 auto;
+.precommande-header h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    color: var(--accent-silver);
 }
 
-.product-card {
+.precommande-header p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.precommande-info {
+    text-align: left;
+}
+
+.precommande-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.precommande-info p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.precommande-info ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.precommande-info li {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.precommande-info li::before {
+    content: '•';
+    color: var(--accent-silver);
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+.precommande-form-container {
     background-color: var(--secondary-bg);
-    padding: 30px;
-    text-align: center;
+    padding: 50px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
+    margin-top: 50px;
 }
 
-.product-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+.precommande-form-container h3 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--text-primary);
+}
+
+#precommande-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#precommande-form input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#precommande-form input:focus {
     border-color: var(--accent-silver);
+    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.2);
+    outline: none;
+}
+
+#precommande-form input::placeholder {
+    color: var(--text-secondary);
+}
+
+.quantity-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    width: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quantity-container button {
+    background-color: transparent;
+    border: none;
+    color: var(--accent-silver);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 5px 15px;
+    transition: color 0.3s ease;
+}
+
+.quantity-container button:hover {
+    color: var(--text-primary);
+}
+
+#quantity-input {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    width: 40px;
+    pointer-events: none; /* Empêche l'édition manuelle */
+}
+
+#precommande-form .cta-button-silver {
+    margin-top: 20px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1100px) {
+    .testimonial-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        background-color: var(--primary-bg);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    .hero-content p {
+        font-size: 1.5rem;
+    }
+    .introduction-section h2 {
+        font-size: 3rem;
+    }
+    .page-header h1 {
+        font-size: 3.5rem;
+    }
+    .page-header p {
+        font-size: 1.1rem;
+    }
+    .product-details-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .product-info {
+        text-align: center;
+    }
+    .product-details-container .buy-button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .contact-page-container {
+        flex-direction: column;
+    }
+    .contact-info,
+    .contact-form-container {
+        max-width: 100%;
+        min-width: unset;
+    }
+    .contact-info {
+        text-align: center;
+    }
+    .contact-info h1 {
+        font-size: 3rem;
+    }
+    .contact-details {
+        text-align: center;
+    }
+    .legal-page-container {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+    .legal-container li {
+        text-align: center;
+    }
+    .legal-container li h3 {
+        text-align: center;
+    }
+    #cookie-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 20px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card img {
+        height: 280px;
+    }
+    .blog-article img {
+        height: 180px;
+    }
+    .precommande-header h1 {
+        font-size: 3rem;
+    }
+    .precommande-header p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-padding {
+        padding: 80px 20px;
+    }
+    header, footer {
+        padding: 0 20px;
+    }
+    .logo {
+        font-size: 1.5rem;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .introduction-section h2 {
+        font-size: 2.5rem;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    .product-details-container {
+        gap: 40px;
+    }
+    .product-details-container .product-info {
+        padding-top: 0;
+    }
+    .product-info h1 {
+        font-size: 2.8rem;
+    }
+    .product-info .price {
+        font-size: 1.8rem;
+    }
+    .testimonial-section, .about-section {
+        padding: 80px 20px;
+    }
+    .testimonial-section h2, .about-header h1 {
+        font-size: 2.5rem;
+    }
+    .contact-page-container {
+        padding: 60px 20px;
+    }
+    .contact-info h1 {
+        font-size: 2.5rem;
+    }
+    .contact-form-container {
+        padding: 30px;
+    }
+    .legal-page-container {
+        padding: 0 15px;
+    }
+    .legal-header h1 {
+        font-size: 2.5rem;
+    }
+    .precommande-section {
+        padding: 0 10px 60px;
+    }
+    .precommande-header h1 {
+        font-size: 2.5rem;
+    }
+    .newsletter-container {
+        padding: 0 10px;
+    }
+    #newsletter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 }

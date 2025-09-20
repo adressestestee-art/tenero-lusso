@@ -1474,3 +1474,33 @@ footer p {
     color: var(--text-secondary);
     padding: 0 20px 20px;
 }
+/* --- SECTIONS DE PAGE (Boutique, Blog, etc.) --- */
+
+/* Grille de produits et d'articles */
+.grid-container, .blog-articles-container { /* J'ai combiné ces deux sélecteurs car ils ont des styles similaires */
+    display: grid;
+    /* Règle pour afficher les éléments sur une seule colonne, centrée */
+    grid-template-columns: minmax(auto, 800px); /* Une colonne de taille maximale 800px, pour la centrer */
+    justify-content: center; /* Centre la grille horizontalement */
+    gap: 40px; /* Espace entre les éléments */
+    padding: 0 40px 100px;
+    margin: 0 auto;
+    text-align: center; /* Centre le texte dans le conteneur */
+}
+
+/* Styles pour les cartes de produits et d'articles de blog */
+.product-card, .blog-post-card { /* Correction du sélecteur pour le blog */
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid var(--border-color);
+}
+
+.product-card:hover, .blog-post-card:hover {
+    transform: translateY(-8px); /* Légère modification pour un effet plus subtil */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-silver);
+}

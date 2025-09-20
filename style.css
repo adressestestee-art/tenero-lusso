@@ -1504,3 +1504,62 @@ footer p {
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
     border-color: var(--accent-silver);
 }
+/* --- SECTIONS DE PAGE (Boutique) --- */
+.boutique-section {
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.boutique-section .page-header {
+    margin-bottom: 60px;
+}
+
+/* Grille de produits */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    padding: 0 20px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid var(--border-color);
+}
+
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-silver);
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #222;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.product-card p {
+    font-size: 1.3rem;
+    color: var(--accent-silver);
+    font-weight: 600;
+}

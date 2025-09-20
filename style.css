@@ -1598,3 +1598,265 @@ values-container {} /* placeholder to preserve structure - ignored by browsers *
 }
 
 /* --- (FIN) --- */
+/* --- VARIABLES --- */
+:root {
+    --primary-bg: #0A0A0A;
+    --secondary-bg: #1A1A1A;
+    --text-primary: #EAEAEA;
+    --text-secondary: #B0B0B0;
+    --accent-silver: #A0A0A0;
+    --accent-silver-hover: #C0C0C0;
+    --border-color: #333333;
+    --header-height: 80px;
+}
+
+/* --- GÉNÉRAL --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    padding-top: var(--header-height);
+}
+
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-silver-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.section-padding {
+    padding: 100px 40px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- EN-TÊTE ET NAVIGATION --- */
+header {
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--accent-silver);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    letter-spacing: 0.8px;
+    position: relative;
+    padding-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-silver);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    width: 30px;
+    height: 22px;
+    justify-content: space-between;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- BOUTIQUE --- */
+.boutique-section {
+    padding: 80px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.page-header {
+    margin-bottom: 60px;
+}
+
+.page-header h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    color: var(--accent-silver);
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Grille produits */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    padding: 0 20px 100px;
+}
+
+.product-card {
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    border-color: var(--accent-silver);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #222;
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.product-card p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent-silver);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .products-grid {
+        gap: 30px;
+    }
+    .product-card {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        justify-items: center;
+    }
+    .product-card {
+        max-width: 90%;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    .page-header p {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- AUTRES STYLES DU SITE RESTENT INTACTS --- */
+/* ... ici tu peux inclure tout le reste de ton CSS existant (Héros, Témoignages, Contact, Footer, Blog, etc.) ... */

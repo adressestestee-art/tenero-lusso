@@ -33,7 +33,7 @@ body {
 
 main {
     padding-top: var(--header-height);
-} /* CORRECTION : Suppression d'une accolade "}" en trop qui se trouvait ici. */
+}
 
 a {
     color: var(--text-primary);
@@ -163,7 +163,7 @@ nav {
     width: 100%;
     overflow: hidden;
     position: relative;
-    height: 100vh; /* CORRECTION : Harmonisé avec la version dupliquée qui était à 100vh au lieu de 70vh */
+    height: 100vh;
 }
 
 .carousel-item {
@@ -202,18 +202,16 @@ nav {
     animation: fadeIn 1.5s ease-out forwards;
 }
 
-/* CORRECTION : L'animation a été simplifiée. La translation (-50%, -50%) est déjà gérée par .hero-content. */
 @keyframes fadeIn {
-    from { 
+    from {
         opacity: 0;
-        transform: translate(-50%, -40%); /* Commence un peu plus haut */
+        transform: translate(-50%, -40%);
     }
-    to { 
-        opacity: 1; 
-        transform: translate(-50%, -50%); /* Arrive à sa position finale */
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 }
-
 
 .hero-content h1 {
     font-size: 4.8rem;
@@ -510,14 +508,14 @@ footer p {
 
 .product-card img, .blog-article img {
     width: 100%;
-    object-fit: cover; /* CORRECTION : cover est souvent mieux pour les cartes */
+    object-fit: cover;
     margin-bottom: 25px;
     border-radius: 5px;
 }
 
 .product-card img {
     height: 350px;
-    object-fit: contain; /* `contain` peut être préférable pour les produits */
+    object-fit: contain;
     background-color: #222;
 }
 
@@ -975,35 +973,38 @@ footer p {
 }
 
 
-/* --- PAGES LÉGALES --- */
-.legal-page main {
-    padding-top: var(--header-height);
-}
-
-.legal-container {
-    max-width: 1000px;
+/* --- PAGE JURIDIQUE (CGV, Mentions Légales) --- */
+.legal-page-container {
+    max-width: 900px;
     margin: 80px auto;
     padding: 0 40px;
 }
 
-.legal-container.centered-text {
+.legal-header {
     text-align: center;
+    margin-bottom: 60px;
 }
 
-.legal-container h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
+.legal-header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
     color: var(--accent-silver);
 }
 
-.legal-container .last-update {
-    font-size: 0.95rem;
+.legal-header p {
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    margin-bottom: 40px;
+}
+
+.legal-container h2 {
+    font-size: 2.5rem;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    color: var(--text-primary);
 }
 
 .legal-container p {
-    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     color: var(--text-secondary);
     line-height: 1.8;
     margin-bottom: 25px;
@@ -1134,53 +1135,36 @@ footer p {
     margin-top: 20px;
     font-size: 1rem;
     font-weight: 500;
-    text-align: center;
-    min-height: 25px;
-    transition: color 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
 }
 
-#newsletter-message.success {
-    color: #4CAF50;
-    opacity: 1;
-}
 
-#newsletter-message.error {
-    color: #f44336;
-    opacity: 1;
-}
-
-/* --- PAGE 404 --- */
-.error-page {
-    text-align: center;
-    padding: 100px 40px;
-}
-
-.error-code {
-    font-size: 8rem;
-    color: var(--accent-silver);
-    font-family: 'Crimson Text', serif;
-    margin-bottom: 20px;
-}
-
-.error-message {
-    font-size: 3rem;
+/* --- BOUTONS ET LIENS --- */
+.link-primary {
+    display: inline-block;
     color: var(--text-primary);
-    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 5px;
 }
 
-.error-description {
-    font-size: 1.2rem;
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto 40px;
+.link-primary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-silver);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
 }
 
-.error-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+.link-primary:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .link-secondary {
@@ -1198,7 +1182,6 @@ footer p {
 
 .link-secondary:hover {
     background-color: var(--secondary-bg);
-    /* CORRECTION : La variable --accent-gold n'existait pas. Remplacée par une couleur du thème. */
     border-color: var(--accent-silver);
     color: var(--accent-silver);
 }
@@ -1256,7 +1239,7 @@ footer p {
 
 .precommande-form button {
     padding: 12px 30px;
-    background-color: var(--accent-silver); /* CORRECTION : harmonisation du style des boutons */
+    background-color: var(--accent-silver);
     color: var(--primary-bg);
     border: none;
     border-radius: 5px;
@@ -1268,7 +1251,6 @@ footer p {
 .precommande-form button:hover {
     background-color: var(--accent-silver-hover);
 }
-
 
 /* --- ANIMATION AU DÉFILEMENT --- */
 .animate-on-scroll {
@@ -1311,192 +1293,99 @@ footer p {
         flex-direction: column;
     }
 
-    .product-image-gallery, .product-info {
+    .product-image-gallery,
+    .product-info {
         max-width: 100%;
         padding-top: 0;
     }
 
-    .product-info h1, .contact-info h1 {
-        font-size: 2.5rem;
-    }
-
-    .product-info .price {
-        font-size: 1.8rem;
-    }
-
-    .contact-form-container {
-        padding: 40px 30px;
-    }
-
-    .grid-container {
-        padding: 0 30px 80px;
-        gap: 30px;
-    }
-
-    .blog-article {
-        padding: 25px;
-    }
-
-    .blog-article img {
-        height: 180px;
-    }
-
-    .blog-article-content {
-        margin: 60px auto;
-        padding: 0 30px;
+    .product-info h1 {
+        font-size: 3rem;
     }
 }
 
-/* Téléphones mobiles */
+
+/* Téléphones */
 @media (max-width: 768px) {
-    /* --- PADDINGS GÉNÉRAUX --- */
-    header,
-    footer,
-    .section-padding,
-    .grid-container,
-    .page-header,
-    .about-section,
-    .contact-page-container,
-    .legal-container,
-    .article-page main {
-        padding-left: 20px;
-        padding-right: 20px;
+    nav {
+        padding: 0 20px;
     }
-    
-    /* --- MENU MOBILE --- */
-    .menu-toggle {
-        display: flex; /* Le menu burger s'affiche */
+
+    header {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
     }
 
     .nav-links {
-        display: flex; /* CORRECTION : Doit être flex pour que les transitions fonctionnent, pas "none" */
+        display: none;
         flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--primary-bg);
-        z-index: 999;
         justify-content: center;
         align-items: center;
-        gap: 40px;
-        transform: translateX(-100%); /* Caché par défaut */
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .nav-links.active {
-        transform: translateX(0); /* Devient visible */
-    }
-
-    .nav-links a {
-        font-size: 2rem;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-    }
-
-    .nav-links.active a {
-        opacity: 1;
-        transform: translateY(0);
-        transition-delay: 0.2s; /* Effet d'apparition en décalé */
-    }
-    
-    .nav-links.active a:nth-child(2) { transition-delay: 0.3s; }
-    .nav-links.active a:nth-child(3) { transition-delay: 0.4s; }
-    .nav-links.active a:nth-child(4) { transition-delay: 0.5s; }
-
-    /* Overlay pour l'arrière-plan quand le menu est ouvert */
-    .menu-overlay {
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 998;
-        display: none;
-    }
-    .menu-overlay.active { display: block; }
-    
-    /* --- AUTRES STYLES MOBILES --- */
-    .logo {
-        font-size: 1.4rem;
+        background-color: var(--primary-bg);
+        z-index: 999;
+        transition: transform 0.5s ease;
+        transform: translateY(-100%);
+        gap: 30px;
+        text-align: center;
     }
 
-    .hero-carousel {
-        height: 60vh;
+    .nav-links.active {
+        display: flex;
+        transform: translateY(0);
     }
 
-    .hero-content h1 {
+    .nav-links a {
+        font-size: 1.8rem;
+        font-weight: 300;
+        padding: 20px 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .introduction-section,
+    .testimonial-section {
+        padding: 60px 20px;
+    }
+
+    .introduction-section h2,
+    .testimonial-section h2 {
         font-size: 2.5rem;
     }
 
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-    
-    .page-header h1,
-    .introduction-section h2,
-    .testimonial-section h2,
-    .about-header h1,
-    .contact-info h1,
-    .legal-container h1,
-    .article-title,
-    .error-message {
-        font-size: 2.2rem;
-    }
-    
-    .testimonial-container,
-    .values-container,
-    .grid-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .testimonial-section h2 {
+        margin-bottom: 40px;
     }
 
-    .newsletter-container h3 {
-        font-size: 1.8rem;
+    .testimonial-container {
+        gap: 20px;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .newsletter-container {
+        margin-bottom: 30px;
     }
 
     #newsletter-form {
         flex-direction: column;
-        gap: 10px;
     }
 
     .footer-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .product-details-container {
-        margin: 50px auto;
-        gap: 30px;
-    }
-
-    #main-product-image {
-        height: 350px;
-    }
-    
-    .buy-button {
-        padding: 15px 40px;
-    }
-    
-    #cookie-banner {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        padding: 20px;
-    }
-    
-    .error-code {
-        font-size: 6rem;
-    }
-    
-    .error-description {
-        font-size: 1rem;
-    }
-    
-    .error-links {
         flex-direction: column;
         gap: 15px;
     }
@@ -1508,4 +1397,82 @@ footer p {
     .precommande-section h1 {
         font-size: 2.5rem;
     }
+
+    .boutique-section {
+        margin: 60px auto;
+    }
+
+    .boutique-section .page-title {
+        font-size: 2.5rem;
+    }
+
+    .precommande-link-container {
+        padding: 30px;
+    }
+
+    .product-details-section {
+        margin: 60px auto;
+    }
+
+    .blog-posts-grid {
+        gap: 20px;
+    }
+}
+
+/* Exemple de classe pour masquer visuellement un élément */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+/* --- ORGANISATION DU BLOG --- */
+.blog-articles-container {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.blog-post-card {
+    display: block;
+    text-align: left;
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-post-card h3 {
+    font-size: 1.5rem;
+    padding: 15px 20px 0;
+}
+
+.blog-post-card .post-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 0 20px 20px;
 }

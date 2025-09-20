@@ -1872,12 +1872,6 @@ nav {
         z-index: 1001; /* pour être au-dessus */
     }
 }
-.nav-links {
-    display: flex;
-    gap: 20px; /* desktop par défaut */
-}
-
-/* sur mobile, on transforme en menu plein écran */
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
@@ -1885,7 +1879,7 @@ nav {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #fff;
+        background-color: #000; /* menu noir */
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -1896,15 +1890,44 @@ nav {
         text-align: center;
     }
 
+    .nav-links a {
+        color: #fff; /* texte blanc */
+        font-size: 1.8rem;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ccc;
+    }
+
     .nav-links.active {
         transform: translateY(0);
     }
 
-    .nav-links a {
-        font-size: 1.8rem;
+    .menu-toggle .bar {
+        background-color: #fff; /* hamburger blanc */
     }
 }
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1001;
+}
 
-
-/* --- AUTRES STYLES DU SITE RESTENT INTACTS --- */
-/* ... ici tu peux inclure tout le reste de ton CSS existant (Héros, Témoignages, Contact, Footer, Blog, etc.) ... */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .menu-toggle .bar {
+        height: 3px;
+        width: 100%;
+        background-color: #fff; /* blanc pour le contraste */
+        border-radius: 2px;
+    }
+}

@@ -6,6 +6,7 @@
     <title>Boutique - Tenero Lusso | Mode Minimaliste et Élégante</title>
     <meta name="description" content="Découvrez les collections de Tenero Lusso. Vêtements et accessoires épurés pour un style intemporel et un luxe discret.">
     <meta name="keywords" content="boutique, collection, vêtements, minimaliste, luxe, élégant, durable, tenue">
+    
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -33,7 +34,29 @@
             border-radius: 8px;
         }
 
-        /* --- Menu mobile --- */
+        /* --- Menu mobile et style menu blanc --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #000;
+        }
+
+        nav a.logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -41,25 +64,19 @@
             width: 30px;
             height: 22px;
             cursor: pointer;
-            z-index: 1001;
         }
 
         .menu-toggle .bar {
-            height: 4px;
+            height: 3px;
             width: 100%;
-            background-color: #fff; /* Menu blanc */
+            background-color: #fff;
             border-radius: 2px;
-        }
-
-        .nav-links a {
-            color: #fff; /* Menu blanc */
-            text-decoration: none;
-            padding: 0 15px;
         }
 
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex;
+                z-index: 1001;
             }
 
             .nav-links {
@@ -72,7 +89,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: #000; /* Fond noir pour contraste */
+                background-color: #000;
                 transform: translateY(-100%);
                 transition: transform 0.5s ease;
                 gap: 30px;
@@ -87,10 +104,11 @@
             .nav-links a {
                 font-size: 1.8rem;
                 font-weight: 500;
+                padding: 20px 0;
             }
         }
 
-        /* --- Cookie banner --- */
+        /* --- Cookie banner responsive --- */
         #cookie-banner {
             position: fixed;
             bottom: 0;
@@ -98,13 +116,23 @@
             width: 100%;
             background-color: #000;
             color: #fff;
-            padding: 15px;
-            text-align: center;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             z-index: 10000;
+            box-sizing: border-box;
+        }
+
+        #cookie-banner p {
+            margin: 0;
+            flex: 1 1 60%;
+        }
+
+        #cookie-banner a {
+            color: #fff;
+            text-decoration: underline;
         }
 
         #cookie-banner button {
@@ -114,6 +142,27 @@
             padding: 8px 15px;
             border-radius: 4px;
             cursor: pointer;
+            flex: 1 1 30%;
+            max-width: 120px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            #cookie-banner {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+            }
+
+            #cookie-banner p, #cookie-banner button {
+                flex: unset;
+                width: 100%;
+            }
+
+            #cookie-banner button {
+                max-width: none;
+            }
         }
     </style>
 </head>
@@ -126,7 +175,7 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            <div class="nav-links" id="nav-links">
+            <div class="nav-links">
                 <a href="boutique.html" class="active">Boutique</a>
                 <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
@@ -177,10 +226,11 @@
         <p>&copy; 2025 Tenero Lusso</p>
     </footer>
 
+    <!-- Cookie banner -->
     <div id="cookie-banner">
         <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. 
            En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. 
-           Pour en savoir plus, consultez notre <a href="politique.html" style="color:#fff; text-decoration:underline;">Politique de Confidentialité</a>.
+           Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.
         </p>
         <button id="accept-cookies">Accepter</button>
     </div>
@@ -188,13 +238,12 @@
     <script>
         // Menu mobile
         const menuToggle = document.getElementById('menu-toggle');
-        const navLinks = document.getElementById('nav-links');
-
+        const navLinks = document.querySelector('.nav-links');
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
 
-        // Cookies
+        // Cookie banner
         document.addEventListener("DOMContentLoaded", function() {
             const cookieBanner = document.getElementById("cookie-banner");
             const acceptBtn = document.getElementById("accept-cookies");

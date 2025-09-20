@@ -33,7 +33,7 @@ body {
 
 main {
     padding-top: var(--header-height);
-}
+} /* CORRECTION : Suppression d'une accolade "}" en trop qui se trouvait ici. */
 
 a {
     color: var(--text-primary);
@@ -88,9 +88,9 @@ nav {
 }
 
 .logo {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 1.6rem;
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
     color: var(--accent-silver);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -129,7 +129,7 @@ nav {
 }
 
 .menu-toggle {
-    display: none;
+    display: none; /* S'affiche uniquement en version mobile */
     cursor: pointer;
     flex-direction: column;
     gap: 6px;
@@ -163,7 +163,7 @@ nav {
     width: 100%;
     overflow: hidden;
     position: relative;
-    height: 70vh;
+    height: 100vh; /* CORRECTION : Harmonisé avec la version dupliquée qui était à 100vh au lieu de 70vh */
 }
 
 .carousel-item {
@@ -202,10 +202,18 @@ nav {
     animation: fadeIn 1.5s ease-out forwards;
 }
 
+/* CORRECTION : L'animation a été simplifiée. La translation (-50%, -50%) est déjà gérée par .hero-content. */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px) translate(-50%, -50%); }
-    to { opacity: 1; transform: translateY(0) translate(-50%, -50%); }
+    from { 
+        opacity: 0;
+        transform: translate(-50%, -40%); /* Commence un peu plus haut */
+    }
+    to { 
+        opacity: 1; 
+        transform: translate(-50%, -50%); /* Arrive à sa position finale */
+    }
 }
+
 
 .hero-content h1 {
     font-size: 4.8rem;
@@ -267,6 +275,27 @@ nav {
     color: var(--primary-bg);
     border-color: var(--accent-silver-hover);
 }
+
+/* --- BOUTON D'APPEL À L'ACTION ARGENTÉ (CTA) --- */
+.cta-button-silver {
+    display: inline-block;
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    padding: 18px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    transition: background-color 0.4s ease, transform 0.2s ease, box-shadow 0.4s ease;
+    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3);
+}
+
+.cta-button-silver:hover {
+    background-color: var(--accent-silver-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
+}
+
 
 /* --- TÉMOIGNAGES --- */
 .testimonial-section {
@@ -429,59 +458,74 @@ footer p {
     letter-spacing: 0.5px;
 }
 
-/* --- BOUTIQUE --- */
-.boutique-header {
+
+/* --- SECTIONS DE PAGE (Boutique, Blog, etc.) --- */
+
+/* Styles communs pour les en-têtes de page */
+.page-header {
     text-align: center;
     padding: 80px 40px 60px;
 }
 
-.boutique-header h1 {
+.page-header h1 {
     font-size: 4rem;
     margin-bottom: 15px;
     color: var(--accent-silver);
 }
 
-.boutique-header p {
+.page-header p {
     font-size: 1.3rem;
     color: var(--text-secondary);
     font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.product-container {
+/* Grille de produits et d'articles */
+.grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 60px;
-    padding: 0 60px;
+    padding: 0 60px 100px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.product-card {
+.product-card, .blog-article {
     background-color: var(--secondary-bg);
     padding: 30px;
     text-align: center;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     border: 1px solid var(--border-color);
 }
 
-.product-card:hover {
+.product-card:hover, .blog-article:hover {
     transform: translateY(-12px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     border-color: var(--accent-silver);
 }
 
-.product-card img {
+.product-card img, .blog-article img {
     width: 100%;
-    height: 350px;
-    object-fit: contain;
+    object-fit: cover; /* CORRECTION : cover est souvent mieux pour les cartes */
     margin-bottom: 25px;
-    background-color: #222;
     border-radius: 5px;
 }
 
-.product-card h3 {
+.product-card img {
+    height: 350px;
+    object-fit: contain; /* `contain` peut être préférable pour les produits */
+    background-color: #222;
+}
+
+.blog-article img {
+    height: 220px;
+}
+
+.product-card h3, .blog-article h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: var(--text-primary);
@@ -494,7 +538,24 @@ footer p {
     font-weight: 600;
 }
 
-/* --- DÉTAIL PRODUIT --- */
+.blog-article .article-info {
+    text-align: left;
+}
+
+.blog-article .article-date {
+    font-size: 0.95rem;
+    color: var(--accent-silver);
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.blog-article .article-preview {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* --- PAGE DÉTAIL PRODUIT --- */
 .product-details-container {
     display: flex;
     justify-content: center;
@@ -624,7 +685,77 @@ footer p {
     box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
 
-/* --- À PROPOS --- */
+/* --- PAGE ARTICLE UNIQUE --- */
+.article-page main {
+    padding-top: var(--header-height);
+}
+
+.blog-article-content {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 40px;
+    text-align: center;
+}
+
+.article-title {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--accent-silver);
+}
+
+.article-meta {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.article-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.blog-article-content p,
+.blog-article-content li {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    text-align: justify;
+    margin-bottom: 25px;
+}
+
+.blog-article-content h3 {
+    font-size: 2.2rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    text-align: left;
+}
+
+.blog-article-content ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.blog-article-content ul li {
+    background-color: var(--secondary-bg);
+    padding: 20px 30px;
+    border-left: 4px solid var(--accent-silver);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-article-content ul li::before {
+    content: none;
+}
+
+
+/* --- PAGE À PROPOS --- */
 .about-section {
     padding: 100px 40px;
     max-width: 1200px;
@@ -661,7 +792,7 @@ footer p {
     padding: 60px 40px;
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     border: 1px solid var(--border-color);
 }
 
@@ -690,7 +821,8 @@ footer p {
     line-height: 1.8;
 }
 
-/* --- CONTACT --- */
+
+/* --- PAGE CONTACT --- */
 .contact-page-container {
     display: flex;
     justify-content: center;
@@ -842,6 +974,7 @@ footer p {
     box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
 
+
 /* --- PAGES LÉGALES --- */
 .legal-page main {
     padding-top: var(--header-height);
@@ -901,7 +1034,7 @@ footer p {
     line-height: 1.7;
     text-align: left;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .legal-container li:hover {
@@ -932,6 +1065,7 @@ footer p {
 .legal-container li p:last-child {
     margin-bottom: 0;
 }
+
 
 /* --- BANDEAU COOKIES --- */
 #cookie-banner {
@@ -994,6 +1128,7 @@ footer p {
     transform: translateY(-2px);
 }
 
+
 /* --- NEWSLETTER MESSAGES --- */
 #newsletter-message {
     margin-top: 20px;
@@ -1015,413 +1150,7 @@ footer p {
     opacity: 1;
 }
 
-/* --- BLOG --- */
-.blog-page main {
-    padding-top: var(--header-height);
-}
-
-.blog-header {
-    text-align: center;
-    padding: 80px 40px 60px;
-}
-
-.blog-header h1 {
-    font-size: 4rem;
-    margin-bottom: 15px;
-    color: var(--accent-silver);
-}
-
-.blog-header p {
-    color: var(--text-secondary);
-    font-size: 1.3rem;
-    font-weight: 300;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.blog-articles-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 50px;
-    padding: 0 60px 100px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.blog-article {
-    background-color: var(--secondary-bg);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border: 1px solid var(--border-color);
-}
-
-.blog-article:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
-    border-color: var(--accent-silver-hover);
-}
-
-.blog-article img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 25px;
-}
-
-.article-info {
-    text-align: left;
-}
-
-.article-info h3 {
-    font-size: 1.8rem;
-    margin-bottom: 8px;
-    color: var(--text-primary);
-    letter-spacing: 0.5px;
-}
-
-.article-date {
-    font-size: 0.95rem;
-    color: var(--accent-silver);
-    margin-bottom: 15px;
-    font-weight: 500;
-}
-
-.article-preview {
-    font-size: 1.05rem;
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
-/* --- PAGE ARTICLE UNIQUE --- */
-.article-page main {
-    padding-top: var(--header-height);
-}
-
-.blog-article-content {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 0 40px;
-    text-align: center;
-}
-
-.article-title {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    color: var(--accent-silver);
-}
-
-.article-meta {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin-bottom: 40px;
-}
-
-.article-image {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 50px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.blog-article-content p,
-.blog-article-content li {
-    font-size: 1.15rem;
-    color: var(--text-secondary);
-    line-height: 1.9;
-    text-align: justify;
-    margin-bottom: 25px;
-}
-
-.blog-article-content h3 {
-    font-size: 2.2rem;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    color: var(--text-primary);
-    text-align: left;
-}
-
-.blog-article-content ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-.blog-article-content ul li {
-    background-color: var(--secondary-bg);
-    padding: 20px 30px;
-    border-left: 4px solid var(--accent-silver);
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.blog-article-content ul li::before {
-    content: none;
-}
-
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 1024px) {
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1.5rem;
-    }
-
-    .carousel-nav button {
-        padding: 8px 15px;
-        font-size: 2rem;
-    }
-
-    #prev-btn {
-        left: 20px;
-    }
-
-    #next-btn {
-        right: 20px;
-    }
-
-    .introduction-section h2,
-    .testimonial-section h2,
-    .boutique-header h1,
-    .about-header h1,
-    .contact-info h1,
-    .legal-container h1,
-    .blog-header h1,
-    .article-title {
-        font-size: 3rem;
-    }
-
-    .product-details-container,
-    .contact-page-container {
-        gap: 40px;
-        flex-direction: column;
-    }
-
-    .product-image-gallery {
-        max-width: 100%;
-    }
-
-    .product-info {
-        max-width: 100%;
-        padding-top: 0;
-    }
-
-    .product-info h1 {
-        font-size: 2.5rem;
-    }
-
-    .product-info .price {
-        font-size: 1.8rem;
-    }
-
-    .contact-info h1 {
-        font-size: 2.5rem;
-    }
-
-    .contact-form-container {
-        padding: 40px 30px;
-    }
-
-    .blog-articles-container {
-        padding: 0 30px 80px;
-        gap: 30px;
-    }
-
-    .blog-article {
-        padding: 25px;
-    }
-
-    .blog-article img {
-        height: 180px;
-    }
-
-    .blog-article-content {
-        margin: 60px auto;
-        padding: 0 30px;
-    }
-}
-
-@media (max-width: 768px) {
-    header,
-    footer,
-    .introduction-section,
-    .testimonial-section,
-    .boutique-header,
-    .product-container,
-    .about-section,
-    .contact-page-container,
-    .legal-container,
-    .blog-header,
-    .blog-articles-container,
-    .article-page main {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .logo {
-        font-size: 1.4rem;
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: var(--primary-bg);
-        z-index: 999;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        transform: translateX(-100%);
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .nav-links.active {
-        transform: translateX(0);
-    }
-
-    .nav-links a {
-        font-size: 2rem;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-    }
-
-    .nav-links.active a {
-        opacity: 1;
-        transform: translateY(0);
-        transition-delay: 0.2s;
-    }
-
-    .nav-links.active a:nth-child(2) {
-        transition-delay: 0.3s;
-    }
-
-    .nav-links.active a:nth-child(3) {
-        transition-delay: 0.4s;
-    }
-
-    .nav-links.active a:nth-child(4) {
-        transition-delay: 0.5s;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
-        z-index: 998;
-        display: none;
-    }
-
-    .menu-overlay.active {
-        display: block;
-    }
-
-    .hero-carousel {
-        height: 60vh;
-    }
-
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-content p {
-        font-size: 1.2rem;
-    }
-
-    .introduction-section h2,
-    .testimonial-section h2,
-    .boutique-header h1,
-    .about-header h1,
-    .contact-info h1,
-    .legal-container h1,
-    .blog-header h1,
-    .article-title {
-        font-size: 2.2rem;
-    }
-
-    .introduction-section p,
-    .testimonial blockquote,
-    .product-card h3,
-    .product-card p,
-    .value-card h3,
-    .contact-info p,
-    .contact-details p,
-    .blog-article h3,
-    .article-preview,
-    .blog-article-content p {
-        font-size: 1rem;
-    }
-
-    .testimonial-container,
-    .product-container,
-    .values-container,
-    .blog-articles-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .newsletter-container h3 {
-        font-size: 1.8rem;
-    }
-
-    #newsletter-form {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .product-details-container {
-        margin: 50px auto;
-        gap: 30px;
-    }
-
-    #main-product-image {
-        height: 350px;
-    }
-
-    .product-info h1 {
-        font-size: 2.2rem;
-    }
-
-    .buy-button {
-        padding: 15px 40px;
-    }
-
-    .contact-form-container {
-        padding: 30px;
-    }
-
-    #cookie-banner {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-        padding: 20px;
-    }
-}
-/* Style pour la page 404 */
+/* --- PAGE 404 --- */
 .error-page {
     text-align: center;
     padding: 100px 40px;
@@ -1464,249 +1193,17 @@ footer p {
     text-transform: uppercase;
     letter-spacing: 1.2px;
     border-radius: 8px;
-    transition: background-color 0.4s ease, border-color 0.4s ease;
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
 }
 
 .link-secondary:hover {
     background-color: var(--secondary-bg);
-    border-color: var(--accent-gold);
-    color: var(--accent-gold);
+    /* CORRECTION : La variable --accent-gold n'existait pas. Remplacée par une couleur du thème. */
+    border-color: var(--accent-silver);
+    color: var(--accent-silver);
 }
 
-/* Le style du bouton .cta-button est déjà défini dans votre CSS principal */
 
-/* Responsive Design pour la page 404 */
-@media (max-width: 768px) {
-    .error-code {
-        font-size: 6rem;
-    }
-
-    .error-message {
-        font-size: 2rem;
-    }
-
-    .error-description {
-        font-size: 1rem;
-    }
-
-    .error-links {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-/* --- BOUTON D'APPEL À L'ACTION ARGENTÉ (CTA) --- */
-.cta-button-silver {
-    display: inline-block;
-    background-color: var(--accent-silver);
-    color: var(--primary-bg);
-    padding: 18px 40px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    border-radius: 5px;
-    transition: background-color 0.4s ease, transform 0.2s ease, box-shadow 0.4s ease;
-    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3);
-}
-
-.cta-button-silver:hover {
-    background-color: var(--accent-silver-hover);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
-}
-
-/* --- ANIMATION AU DÉFILEMENT --- */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 0.8s ease-out;
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- NAVIGATION & MENU LUXUEUX --- */
-
-/* Style du menu par défaut (pour les ordinateurs) */
-.menu-toggle {
-    display: none;
-}
-
-.nav-links {
-    display: flex;
-    gap: 30px;
-    transition: none;
-}
-
-.nav-links a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--accent-silver-hover);
-}
-
-.menu-overlay {
-    display: none;
-}
-
-/* Styles du menu mobile (pour les téléphones) */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Le menu s'affiche uniquement en version mobile */
-        flex-direction: column;
-        justify-content: space-around;
-        width: 25px;
-        height: 20px;
-        cursor: pointer;
-        z-index: 1000;
-    }
-
-    .menu-toggle .bar {
-        width: 100%;
-        height: 2px;
-        background-color: var(--text-primary);
-        transition: all 0.3s cubic-bezier(0.8, 0, 0.2, 1);
-    }
-    
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-    }
-
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--primary-bg); /* Fond noir uni */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transform: translateY(-100%); /* Masqué en dehors de l'écran */
-        transition: transform 0.5s ease-in-out;
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        transform: translateY(0); /* Apparition du menu */
-    }
-
-    .nav-links a {
-        font-size: 1.5rem; /* Taille plus grande pour un look premium */
-        font-weight: 300; /* Police plus fine */
-        padding: 20px 0;
-    }
-
-    .menu-overlay {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.85); /* Fond plus sombre */
-        z-index: 998;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.5s ease;
-    }
-
-    .menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-/* --- VERSION MOBILE (ajustement) --- */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: flex;
-    }
-}
-
-/* --- VERSION ORDINATEURS --- */
-@media (min-width: 769px) {
-    .menu-toggle {
-        display: none;
-    }
-
-    .nav-links {
-        position: static;
-        width: auto;
-        height: auto;
-        background-color: transparent;
-        flex-direction: row;
-        transform: translateY(0);
-        transition: none;
-        padding-top: 0;
-        gap: 30px;
-        right: auto;
-    }
-
-    .nav-links a {
-        font-size: 1rem;
-    }
-
-    .menu-overlay {
-        display: none !important;
-    }
-}
-
-/* --- CARROUSEL --- */
-.hero-carousel {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.carousel-item.active {
-    opacity: 1;
-}
-
-.carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-/* --- STYLE DU LOGO --- */
-.logo {
-    font-family: 'Crimson Text', serif;
-    font-weight: 600; /* Plus épais pour un meilleur impact */
-    font-size: 1.8rem; /* Ajustez la taille selon vos préférences */
-    letter-spacing: 2px; /* Espacement entre les lettres pour un effet plus élégant */
-}
-
-/* Ajustement pour les téléphones */
-@media (max-width: 768px) {
-    .logo {
-        font-size: 1.5rem; /* Réduire la taille sur mobile */
-    }
-}
 /* --- PAGE DE PRÉCOMMANDE --- */
 .precommande-section {
     max-width: 700px;
@@ -1759,7 +1256,7 @@ footer p {
 
 .precommande-form button {
     padding: 12px 30px;
-    background-color: var(--text-primary);
+    background-color: var(--accent-silver); /* CORRECTION : harmonisation du style des boutons */
     color: var(--primary-bg);
     border: none;
     border-radius: 5px;
@@ -1770,11 +1267,240 @@ footer p {
 
 .precommande-form button:hover {
     background-color: var(--accent-silver-hover);
-    color: var(--primary-bg);
 }
 
-/* Styles pour mobile */
+
+/* --- ANIMATION AU DÉFILEMENT --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablettes et petits écrans */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+    }
+
+    .page-header h1,
+    .introduction-section h2,
+    .testimonial-section h2,
+    .about-header h1,
+    .contact-info h1,
+    .legal-container h1,
+    .article-title {
+        font-size: 3rem;
+    }
+
+    .product-details-container,
+    .contact-page-container {
+        gap: 40px;
+        flex-direction: column;
+    }
+
+    .product-image-gallery, .product-info {
+        max-width: 100%;
+        padding-top: 0;
+    }
+
+    .product-info h1, .contact-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .product-info .price {
+        font-size: 1.8rem;
+    }
+
+    .contact-form-container {
+        padding: 40px 30px;
+    }
+
+    .grid-container {
+        padding: 0 30px 80px;
+        gap: 30px;
+    }
+
+    .blog-article {
+        padding: 25px;
+    }
+
+    .blog-article img {
+        height: 180px;
+    }
+
+    .blog-article-content {
+        margin: 60px auto;
+        padding: 0 30px;
+    }
+}
+
+/* Téléphones mobiles */
 @media (max-width: 768px) {
+    /* --- PADDINGS GÉNÉRAUX --- */
+    header,
+    footer,
+    .section-padding,
+    .grid-container,
+    .page-header,
+    .about-section,
+    .contact-page-container,
+    .legal-container,
+    .article-page main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    /* --- MENU MOBILE --- */
+    .menu-toggle {
+        display: flex; /* Le menu burger s'affiche */
+    }
+
+    .nav-links {
+        display: flex; /* CORRECTION : Doit être flex pour que les transitions fonctionnent, pas "none" */
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--primary-bg);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transform: translateX(-100%); /* Caché par défaut */
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* Devient visible */
+    }
+
+    .nav-links a {
+        font-size: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    }
+
+    .nav-links.active a {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s; /* Effet d'apparition en décalé */
+    }
+    
+    .nav-links.active a:nth-child(2) { transition-delay: 0.3s; }
+    .nav-links.active a:nth-child(3) { transition-delay: 0.4s; }
+    .nav-links.active a:nth-child(4) { transition-delay: 0.5s; }
+
+    /* Overlay pour l'arrière-plan quand le menu est ouvert */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 998;
+        display: none;
+    }
+    .menu-overlay.active { display: block; }
+    
+    /* --- AUTRES STYLES MOBILES --- */
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .hero-carousel {
+        height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .page-header h1,
+    .introduction-section h2,
+    .testimonial-section h2,
+    .about-header h1,
+    .contact-info h1,
+    .legal-container h1,
+    .article-title,
+    .error-message {
+        font-size: 2.2rem;
+    }
+    
+    .testimonial-container,
+    .values-container,
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .newsletter-container h3 {
+        font-size: 1.8rem;
+    }
+
+    #newsletter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .product-details-container {
+        margin: 50px auto;
+        gap: 30px;
+    }
+
+    #main-product-image {
+        height: 350px;
+    }
+    
+    .buy-button {
+        padding: 15px 40px;
+    }
+    
+    #cookie-banner {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .error-code {
+        font-size: 6rem;
+    }
+    
+    .error-description {
+        font-size: 1rem;
+    }
+    
+    .error-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
     .precommande-section {
         margin: 60px auto;
     }
@@ -1782,89 +1508,4 @@ footer p {
     .precommande-section h1 {
         font-size: 2.5rem;
     }
-}
-/* --- PAGE DÉTAILS DU PRODUIT --- */
-.product-details-section {
-    max-width: 1000px;
-    margin: 80px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-}
-
-.product-image-gallery {
-    width: 100%;
-}
-
-.product-image-gallery img {
-    border-radius: 5px;
-    width: 100%;
-    height: auto;
-}
-
-.product-info {
-    max-width: 500px;
-    text-align: left;
-}
-
-.product-info h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.product-info .price {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: var(--accent-silver);
-}
-
-.product-info .description {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-}
-
-.purchase-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.purchase-form label {
-    font-size: 1rem;
-    color: var(--text-secondary);
-}
-
-.purchase-form select {
-    padding: 10px;
-    background-color: var(--secondary-bg);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-}
-
-.purchase-form .cta-button {
-    text-align: center;
-    margin-top: 15px;
-    padding: 12px;
-}
-
-/* Styles pour mobile */
-@media (min-width: 768px) {
-    .product-details-section {
-        flex-direction: row;
-        gap: 80px;
-        text-align: left;
-    }
-}
-/* AJUSTEMENT POUR LES IMAGES DANS LA GRILLE PRODUITS */
-.products-grid img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
 }

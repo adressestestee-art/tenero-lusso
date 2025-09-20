@@ -1474,24 +1474,7 @@ footer p {
     padding: 0 20px 20px;
 }
 
-/* --- SECTIONS DE PAGE (Boutique, Blog, etc.) --- */
-/* Grille de produits et d'articles */
-.grid-container, .blog-articles-container { /* J'ai combiné ces deux sélecteurs car ils ont des styles similaires */
-    display: grid;
-    /* Règle pour afficher les éléments sur une seule colonne, centrée */
-    grid-template-columns: minmax(auto, 800px);
-    /* Une colonne de taille maximale 800px, pour la centrer */
-    justify-content: center;
-    /* Centre la grille horizontalement */
-    gap: 40px;
-    /* Espace entre les éléments */
-    padding: 0 40px 100px;
-    margin: 0 auto;
-    text-align: center;
-    /* Centre le texte dans le conteneur */
-}
-
-/* --- BOUTIQUE : ORGANISATION EN LISTE VERTICALE --- */
+/* --- BOUTIQUE : ORGANISATION EN GRILLE FLEXIBLE --- */
 .page-header {
     text-align: center;
     padding: 80px 40px 60px;
@@ -1512,14 +1495,15 @@ footer p {
     margin-right: auto;
 }
 
-/* Nouveau conteneur pour la liste de produits */
-.products-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centre les éléments */
-    gap: 60px; /* Espace entre chaque carte de produit */
+/* Nouveau conteneur pour la grille de produits */
+.products-grid {
+    display: grid;
+    /* La grille affiche un nombre de colonnes qui s'adapte, chacune de 400px minimum. */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-content: center; /* Centre la grille horizontalement */
+    gap: 60px; /* Espace entre les cartes de produit */
     padding: 0 20px 100px;
-    max-width: 900px; /* Largeur maximale pour une meilleure lisibilité */
+    max-width: 1400px; /* Largeur maximale pour une meilleure lisibilité */
     margin: 0 auto;
 }
 
@@ -1531,7 +1515,7 @@ footer p {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     border: 1px solid var(--border-color);
-    width: 100%; /* S'étend sur toute la largeur du conteneur parent */
+    width: 100%; /* S'étend sur toute la largeur de sa cellule de grille */
 }
 
 .product-card:hover {

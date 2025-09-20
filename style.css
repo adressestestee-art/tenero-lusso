@@ -1476,3 +1476,23 @@ footer p {
     color: var(--text-secondary);
     padding: 0 20px 20px;
 }
+.product-card, .blog-article {
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid var(--border-color); /* Cette ligne gère la bordure par défaut */
+}
+
+.product-card:hover, .blog-article:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--accent-silver); /* CORRECTION : La bordure est définie complètement ici pour qu'elle change de couleur au survol. */
+}
+.product-card:hover, .blog-article:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--accent-silver); /* CORRECTION : Définir la bordure complète ici */
+}

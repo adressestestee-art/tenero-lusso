@@ -1861,3 +1861,10 @@ footer p {
         text-align: left;
     }
 }
+/* AJUSTEMENT POUR LES IMAGES DANS LA GRILLE PRODUITS */
+.products-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}

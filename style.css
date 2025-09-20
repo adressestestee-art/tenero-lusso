@@ -478,18 +478,18 @@ footer p {
     margin-right: auto;
 }
 
-/* Grille de produits et d'articles */
+/* --- BOUTIQUE : Cadrillage de produits (non modifié) --- */
 .grid-container {
     display: grid;
-    /* Correction : Utilise une grille flexible pour le cadrillage, qui s'adapte à la taille de l'écran */
+    /* Ce style est maintenu comme demandé */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 60px; /* Ajoute de l'espace entre les articles */
+    gap: 60px;
     padding: 0 20px 100px;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.product-card, .blog-article {
+.product-card {
     background-color: var(--secondary-bg);
     padding: 30px;
     text-align: center;
@@ -499,30 +499,22 @@ footer p {
     border: 1px solid var(--border-color);
 }
 
-.product-card:hover, .blog-article:hover {
+.product-card:hover {
     transform: translateY(-12px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
     border: 1px solid var(--accent-silver);
 }
 
-.product-card img, .blog-article img {
+.product-card img {
     width: 100%;
-    object-fit: cover;
+    height: 350px;
+    object-fit: contain;
+    background-color: #222;
     margin-bottom: 25px;
     border-radius: 5px;
 }
 
-.product-card img {
-    height: 350px;
-    object-fit: contain;
-    background-color: #222;
-}
-
-.blog-article img {
-    height: 220px;
-}
-
-.product-card h3, .blog-article h3 {
+.product-card h3 {
     font-size: 1.8rem;
     margin-bottom: 10px;
     color: var(--text-primary);
@@ -533,6 +525,49 @@ footer p {
     font-size: 1.3rem;
     color: var(--accent-silver);
     font-weight: 600;
+}
+
+/* --- BLOG : Cadrillage de articles --- */
+/* Pour votre blog, j'ai conservé un style de grille pour que ce soit épuré,
+   mais j'ai utilisé des sélecteurs plus précis. */
+.blog-articles-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    padding: 0 20px 100px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.blog-article {
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid var(--border-color);
+}
+
+.blog-article:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--accent-silver);
+}
+
+.blog-article img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.blog-article h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
 }
 
 .blog-article .article-info {
@@ -1405,9 +1440,6 @@ footer p {
     .contact-info {
         text-align: center;
     }
-    .contact-info h1 {
-        font-size: 3rem;
-    }
     .contact-details {
         text-align: center;
     }
@@ -1437,9 +1469,19 @@ footer p {
         height: 180px;
     }
     .precommande-header h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     .precommande-header p {
+        font-size: 1rem;
+    }
+    .quantity-container {
+        width: 120px;
+    }
+    .quantity-container button {
+        font-size: 1.5rem;
+        padding: 5px 10px;
+    }
+    #quantity-input {
         font-size: 1.1rem;
     }
 }

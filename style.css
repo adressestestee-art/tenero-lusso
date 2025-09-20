@@ -294,7 +294,6 @@ nav {
     box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
 
-
 /* --- TÉMOIGNAGES --- */
 .testimonial-section {
     background-color: var(--secondary-bg);
@@ -456,7 +455,6 @@ footer p {
     letter-spacing: 0.5px;
 }
 
-
 /* --- SECTIONS DE PAGE (Boutique, Blog, etc.) --- */
 
 /* Styles communs pour les en-têtes de page */
@@ -485,7 +483,7 @@ footer p {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 60px;
-    padding: 0 60px 100px;
+    padding: 0 20px 100px;
     max-width: 1400px;
     margin: 0 auto;
 }
@@ -503,7 +501,7 @@ footer p {
 .product-card:hover, .blog-article:hover {
     transform: translateY(-12px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    border-color: var(--accent-silver);
+    border: 1px solid var(--accent-silver);
 }
 
 .product-card img, .blog-article img {
@@ -741,6 +739,7 @@ footer p {
 
 .blog-article-content ul li {
     background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
     padding: 20px 30px;
     border-left: 4px solid var(--accent-silver);
     border-radius: 8px;
@@ -751,7 +750,6 @@ footer p {
 .blog-article-content ul li::before {
     content: none;
 }
-
 
 /* --- PAGE À PROPOS --- */
 .about-section {
@@ -819,7 +817,6 @@ footer p {
     line-height: 1.8;
 }
 
-
 /* --- PAGE CONTACT --- */
 .contact-page-container {
     display: flex;
@@ -879,6 +876,13 @@ footer p {
     border-radius: 10px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form-container:hover {
+    border-color: var(--accent-silver);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 #contact-form {
@@ -971,7 +975,6 @@ footer p {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
-
 
 /* --- PAGE JURIDIQUE (CGV, Mentions Légales) --- */
 .legal-page-container {
@@ -1067,7 +1070,6 @@ footer p {
     margin-bottom: 0;
 }
 
-
 /* --- BANDEAU COOKIES --- */
 #cookie-banner {
     position: fixed;
@@ -1129,14 +1131,12 @@ footer p {
     transform: translateY(-2px);
 }
 
-
 /* --- NEWSLETTER MESSAGES --- */
 #newsletter-message {
     margin-top: 20px;
     font-size: 1rem;
     font-weight: 500;
 }
-
 
 /* --- BOUTONS ET LIENS --- */
 .link-primary {
@@ -1185,7 +1185,6 @@ footer p {
     border-color: var(--accent-silver);
     color: var(--accent-silver);
 }
-
 
 /* --- PAGE DE PRÉCOMMANDE --- */
 .precommande-section {
@@ -1264,7 +1263,6 @@ footer p {
     transform: translateY(0);
 }
 
-
 /* --- RESPONSIVE DESIGN --- */
 
 /* Tablettes et petits écrans */
@@ -1303,7 +1301,6 @@ footer p {
         font-size: 3rem;
     }
 }
-
 
 /* Téléphones */
 @media (max-width: 768px) {
@@ -1389,11 +1386,11 @@ footer p {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .precommande-section {
         margin: 60px auto;
     }
-    
+
     .precommande-section h1 {
         font-size: 2.5rem;
     }
@@ -1431,6 +1428,7 @@ footer p {
   white-space: nowrap;
   border-width: 0;
 }
+
 /* --- ORGANISATION DU BLOG --- */
 .blog-articles-container {
     max-width: 1100px;
@@ -1475,24 +1473,4 @@ footer p {
     font-size: 0.9rem;
     color: var(--text-secondary);
     padding: 0 20px 20px;
-}
-.product-card, .blog-article {
-    background-color: var(--secondary-bg);
-    padding: 30px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    border: 1px solid var(--border-color); /* Cette ligne gère la bordure par défaut */
-}
-
-.product-card:hover, .blog-article:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--accent-silver); /* CORRECTION : La bordure est définie complètement ici pour qu'elle change de couleur au survol. */
-}
-.product-card:hover, .blog-article:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--accent-silver); /* CORRECTION : Définir la bordure complète ici */
 }

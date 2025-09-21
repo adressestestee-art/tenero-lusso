@@ -1566,8 +1566,8 @@ values-container {} /* placeholder to preserve structure - ignored by browsers *
 }
 
 .product-card h3 {
-    font-family: 'Montserrat', sans-serif; /* MODIFICATION APPLIQUÉE ICI */
-    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem; /* TAILLE MODIFIÉE (de 1.8rem à 1.5rem) */
     margin-bottom: 10px;
     color: var(--text-primary);
     letter-spacing: 0.5px;

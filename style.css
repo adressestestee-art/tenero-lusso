@@ -5,50 +5,50 @@
 
 /* --- VARIABLES --- */
 :root {
-    --primary-bg: #0A0A0A; /* Noir profond */ [cite: 239, 240]
-    --secondary-bg: #1A1A1A; /* Gris très foncé pour les sections secondaires */ [cite: 240]
-    --text-primary: #EAEAEA; /* Blanc cassé pour le texte principal */ [cite: 241]
-    --text-secondary: #B0B0B0; /* Gris clair pour les textes secondaires/légers */ [cite: 242]
-    --accent-silver: #A0A0A0; /* Argent discret pour les accents */ [cite: 243]
-    --accent-silver-hover: #C0C0C0; /* Argent plus lumineux au survol */ [cite: 244]
-    --border-color: #333333; /* Bordures subtiles */ [cite: 245]
-    --header-height: 80px; [cite: 245]
+    --primary-bg: #0A0A0A; /* Noir profond */
+    --secondary-bg: #1A1A1A; /* Gris très foncé pour les sections secondaires */
+    --text-primary: #EAEAEA; /* Blanc cassé pour le texte principal */
+    --text-secondary: #B0B0B0; /* Gris clair pour les textes secondaires/légers */
+    --accent-silver: #A0A0A0; /* Argent discret pour les accents */
+    --accent-silver-hover: #C0C0C0; /* Argent plus lumineux au survol */
+    --border-color: #333333; /* Bordures subtiles */
+    --header-height: 80px;
 }
 
 /* --- GÉNÉRAL --- */
 * {
-    box-sizing: border-box; [cite: 246]
-    margin: 0; [cite: 246]
-    padding: 0; [cite: 246]
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-    scroll-behavior: smooth; [cite: 246]
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--primary-bg); [cite: 247]
-    color: var(--text-primary); [cite: 247]
-    font-family: 'Montserrat', sans-serif; [cite: 247]
-    line-height: 1.7; [cite: 247]
-    overflow-x: hidden; [cite: 247]
-    -webkit-font-smoothing: antialiased; [cite: 247]
-    -moz-osx-font-smoothing: grayscale; [cite: 247]
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 main {
-    padding-top: var(--header-height); [cite: 248]
+    padding-top: var(--header-height);
 }
 
 a {
-    color: var(--text-primary); [cite: 248]
-    text-decoration: none; [cite: 248]
-    transition: color 0.3s ease; [cite: 248]
-    outline: none; [cite: 249]
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    outline: none;
 }
 
 a:hover {
-    color: var(--accent-silver-hover); [cite: 249]
+    color: var(--accent-silver-hover);
 }
 
 /* Accessibilité : focus-visible pour liens et boutons */
@@ -56,453 +56,451 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible {
-    outline: 3px solid rgba(192,192,192,0.25); [cite: 249]
-    outline-offset: 3px; [cite: 250]
-    border-radius: 4px; [cite: 250]
+    outline: 3px solid rgba(192,192,192,0.25);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 
 /* fallback for older browsers - don't remove */
-a:focus { outline: none; } [cite: 250]
-button:focus { outline: none; [cite: 251]
-}
+a:focus { outline: none; }
+button:focus { outline: none; }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Crimson Text', serif; [cite: 251]
-    font-weight: 600; [cite: 252]
-    line-height: 1.3; [cite: 252]
-    color: var(--text-primary); [cite: 252]
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
 }
 
 p {
-    color: var(--text-secondary); [cite: 252]
-    font-size: 1rem; [cite: 252]
+    color: var(--text-secondary);
+    font-size: 1rem;
 }
 
 .section-padding {
-    padding: 100px 40px; [cite: 253]
+    padding: 100px 40px;
 }
 
 .text-center {
-    text-align: center; [cite: 253]
+    text-align: center;
 }
 
 /* --- EN-TÊTE ET NAVIGATION --- */
 header {
-    background-color: var(--primary-bg); [cite: 254]
-    border-bottom: 1px solid var(--border-color); [cite: 254]
-    padding: 0 40px; [cite: 254]
-    position: sticky; [cite: 254]
-    top: 0; [cite: 254]
-    z-index: 1000; [cite: 254]
-    height: var(--header-height); [cite: 254]
-    display: flex; [cite: 254]
-    align-items: center; [cite: 255]
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
 }
 
 nav {
-    display: flex; [cite: 255]
-    justify-content: space-between; [cite: 255]
-    align-items: center; [cite: 255]
-    width: 100%; [cite: 255]
-    max-width: 1400px; [cite: 255]
-    margin: 0 auto; [cite: 256]
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .logo {
-    font-family: 'Crimson Text', serif; [cite: 256]
-    font-weight: 600; [cite: 256]
-    font-size: 1.8rem; [cite: 256]
-    color: var(--accent-silver); [cite: 256]
-    text-transform: uppercase; [cite: 256]
-    letter-spacing: 2px; [cite: 257]
-    margin-right: auto; [cite: 257]
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--accent-silver);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: auto;
 }
 
 .nav-links {
-    display: flex; [cite: 257]
-    gap: 30px; [cite: 257]
+    display: flex;
+    gap: 30px;
 }
 
 .nav-links a {
-    font-family: 'Montserrat', sans-serif; [cite: 257]
-    font-weight: 500; [cite: 258]
-    font-size: 1.15rem; [cite: 258]
-    letter-spacing: 0.8px; [cite: 258]
-    position: relative; [cite: 258]
-    padding-bottom: 5px; [cite: 258]
-    color: var(--text-primary); [cite: 258]
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    letter-spacing: 0.8px;
+    position: relative;
+    padding-bottom: 5px;
+    color: var(--text-primary);
 }
 
 .nav-links a::after {
-    content: ''; [cite: 259]
-    position: absolute; [cite: 259]
-    bottom: 0; [cite: 259]
-    left: 0; [cite: 259]
-    width: 0; [cite: 259]
-    height: 2px; [cite: 259]
-    background-color: var(--accent-silver); [cite: 260]
-    transition: width 0.3s ease; [cite: 260]
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-silver);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
-    width: 100%; [cite: 260]
+    width: 100%;
 }
 
 .menu-toggle {
-    display: none; /* S'affiche uniquement en version mobile */ [cite: 261]
-    cursor: pointer; [cite: 261]
-    flex-direction: column; [cite: 261]
-    gap: 6px; [cite: 261]
-    width: 30px; [cite: 261]
-    height: 22px; [cite: 262]
-    justify-content: space-between; [cite: 262]
-    z-index: 1001; [cite: 262]
+    display: none; /* S'affiche uniquement en version mobile */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    width: 30px;
+    height: 22px;
+    justify-content: space-between;
+    z-index: 1001;
 }
 
 .menu-toggle .bar {
-    width: 100%; [cite: 262]
-    height: 2px; [cite: 262]
-    background-color: var(--text-primary); [cite: 262]
-    transition: all 0.3s ease; [cite: 263]
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: all 0.3s ease;
 }
 
 .menu-toggle.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg); [cite: 263]
+    transform: translateY(8px) rotate(45deg);
 }
 
 .menu-toggle.active .bar:nth-child(2) {
-    opacity: 0; [cite: 264]
+    opacity: 0;
 }
 
 .menu-toggle.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg); [cite: 264]
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* --- HÉROS (CARROUSEL) --- */
 .hero-carousel {
-    width: 100%; [cite: 264]
-    overflow: hidden; [cite: 265]
-    position: relative; [cite: 265]
-    height: 100vh; [cite: 265]
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
 }
 
 .carousel-item {
-    position: absolute; [cite: 265]
-    top: 0; [cite: 265]
-    left: 0; [cite: 265]
-    width: 100%; [cite: 266]
-    height: 100%; [cite: 266]
-    opacity: 0; [cite: 266]
-    transition: opacity 1.5s ease-in-out; [cite: 266]
-    z-index: 1; [cite: 267]
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
 }
 
 .carousel-item.active {
-    opacity: 1; [cite: 267]
-    z-index: 2; [cite: 267]
+    opacity: 1;
+    z-index: 2;
 }
 
 .carousel-item img {
-    width: 100%; [cite: 267]
-    height: 100%; [cite: 267]
-    object-fit: cover; [cite: 268]
-    display: block; [cite: 268]
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .hero-content {
-    position: absolute; [cite: 268]
-    top: 50%; [cite: 268]
-    left: 50%; [cite: 268]
-    transform: translate(-50%, -50%); [cite: 269]
-    text-align: center; [cite: 269]
-    color: var(--text-primary); [cite: 269]
-    z-index: 10; [cite: 269]
-    width: 100%; [cite: 269]
-    padding: 0 20px; [cite: 270]
-    animation: fadeIn 1.5s ease-out forwards; [cite: 270]
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--text-primary);
+    z-index: 10;
+    width: 100%;
+    padding: 0 20px;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 @keyframes fadeIn {
     from {
-        opacity: 0; [cite: 270]
-        transform: translate(-50%, -40%); [cite: 271]
+        opacity: 0;
+        transform: translate(-50%, -40%);
     }
     to {
-        opacity: 1; [cite: 271]
-        transform: translate(-50%, -50%); [cite: 272]
+        opacity: 1;
+        transform: translate(-50%, -50%);
     }
 }
 
 .hero-content h1 {
-    font-size: 4.8rem; [cite: 272]
-    margin-bottom: 15px; [cite: 272]
-    letter-spacing: 2px; [cite: 273]
-    color: var(--accent-silver-hover); [cite: 273]
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); [cite: 273]
+    font-size: 4.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    color: var(--accent-silver-hover);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content p {
-    font-size: 1.8rem; [cite: 273]
-    color: var(--text-primary); [cite: 274]
-    font-weight: 300; [cite: 274]
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); [cite: 274]
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    font-weight: 300;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .carousel-nav {
-    display: none; [cite: 275]
+    display: none;
 }
 
 /* --- INTRODUCTION --- */
 .introduction-section {
-    padding: 100px 40px; [cite: 275]
-    max-width: 1000px; [cite: 276]
-    margin: 0 auto; [cite: 276]
-    text-align: center; [cite: 276]
+    padding: 100px 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .introduction-section h2 {
-    font-size: 3.5rem; [cite: 276]
-    margin-bottom: 30px; [cite: 277]
-    color: var(--accent-silver); [cite: 277]
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    color: var(--accent-silver);
 }
 
 .introduction-section p {
-    font-size: 1.15rem; [cite: 277]
-    color: var(--text-secondary); [cite: 278]
-    margin-bottom: 50px; [cite: 278]
-    max-width: 800px; [cite: 278]
-    margin-left: auto; [cite: 278]
-    margin-right: auto; [cite: 278]
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .cta-button {
-    display: inline-block; [cite: 278]
-    background-color: transparent; [cite: 278]
-    border: 2px solid var(--accent-silver); [cite: 279]
-    color: var(--accent-silver); [cite: 279]
-    padding: 18px 40px; [cite: 279]
-    font-weight: 700; [cite: 279]
-    text-transform: uppercase; [cite: 279]
-    letter-spacing: 1.5px; [cite: 279]
-    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease; [cite: 279]
-    border-radius: 5px; [cite: 280]
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid var(--accent-silver);
+    color: var(--accent-silver);
+    padding: 18px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+    border-radius: 5px;
 }
 
 .cta-button:hover {
-    background-color: var(--accent-silver); [cite: 280]
-    color: var(--primary-bg); [cite: 280]
-    border-color: var(--accent-silver-hover); [cite: 280]
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    border-color: var(--accent-silver-hover);
 }
 
 /* --- BOUTON D'APPEL À L'ACTION ARGENTÉ (CTA) --- */
 .cta-button-silver {
-    display: inline-block; [cite: 281]
-    background-color: var(--accent-silver); [cite: 281]
-    color: var(--primary-bg); [cite: 281]
-    padding: 18px 40px; [cite: 282]
-    font-weight: 700; [cite: 282]
-    text-transform: uppercase; [cite: 282]
-    letter-spacing: 1.5px; [cite: 282]
-    border-radius: 5px; [cite: 282]
-    transition: background-color 0.4s ease, transform 0.2s ease, box-shadow 0.4s ease; [cite: 282]
-    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3); [cite: 283]
+    display: inline-block;
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    padding: 18px 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    transition: background-color 0.4s ease, transform 0.2s ease, box-shadow 0.4s ease;
+    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3);
 }
 
 .cta-button-silver:hover {
-    background-color: var(--accent-silver-hover); [cite: 283]
-    transform: translateY(-3px); [cite: 283]
-    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4); [cite: 284]
+    background-color: var(--accent-silver-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
 
 /* --- TÉMOIGNAGES --- */
 .testimonial-section {
-    background-color: var(--secondary-bg); [cite: 284]
-    padding: 100px 40px; [cite: 285]
-    text-align: center; [cite: 285]
+    background-color: var(--secondary-bg);
+    padding: 100px 40px;
+    text-align: center;
 }
 
 .testimonial-section h2 {
-    font-size: 3.5rem; [cite: 285]
-    margin-bottom: 60px; [cite: 286]
-    color: var(--accent-silver); [cite: 286]
+    font-size: 3.5rem;
+    margin-bottom: 60px;
+    color: var(--accent-silver);
 }
 
 .testimonial-container {
-    display: grid; [cite: 286]
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); [cite: 286]
-    gap: 40px; [cite: 287]
-    max-width: 1200px; [cite: 287]
-    margin: 0 auto; [cite: 287]
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .testimonial {
-    background-color: var(--primary-bg); [cite: 287]
-    padding: 40px; [cite: 287]
-    border-radius: 10px; [cite: 288]
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); [cite: 288]
-    transition: transform 0.3s ease, box-shadow 0.3s ease; [cite: 288]
+    background-color: var(--primary-bg);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .testimonial:hover {
-    transform: translateY(-8px); [cite: 288]
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); [cite: 289]
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
 .testimonial blockquote {
-    font-family: 'Crimson Text', serif; [cite: 289]
-    font-size: 1.3rem; [cite: 289]
-    font-style: italic; [cite: 290]
-    color: var(--text-primary); [cite: 290]
-    margin-bottom: 25px; [cite: 290]
-    line-height: 1.6; [cite: 290]
+    font-family: 'Crimson Text', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--text-primary);
+    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
 .testimonial p {
-    font-weight: 600; [cite: 290]
-    color: var(--accent-silver); [cite: 291]
-    font-size: 1.1rem; [cite: 291]
-    letter-spacing: 0.5px; [cite: 291]
+    font-weight: 600;
+    color: var(--accent-silver);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
 }
 
 /* --- PIED DE PAGE --- */
 footer {
-    background-color: var(--primary-bg); [cite: 291]
-    border-top: 1px solid var(--border-color); [cite: 292]
-    text-align: center; [cite: 292]
-    padding: 60px 40px 30px; [cite: 292]
+    background-color: var(--primary-bg);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    padding: 60px 40px 30px;
 }
 
 .newsletter-container {
-    margin-bottom: 50px; [cite: 293]
-    max-width: 600px; [cite: 293]
-    margin-left: auto; [cite: 293]
-    margin-right: auto; [cite: 293]
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .newsletter-container h3 {
-    font-family: 'Crimson Text', serif; [cite: 293]
-    font-size: 2.2rem; [cite: 294]
-    margin-bottom: 15px; [cite: 294]
-    color: var(--accent-silver); [cite: 294]
+    font-family: 'Crimson Text', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    color: var(--accent-silver);
 }
 
 .newsletter-container p {
-    font-size: 1.05rem; [cite: 294]
-    color: var(--text-secondary); [cite: 295]
-    margin-bottom: 30px; [cite: 295]
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
 }
 
 #newsletter-form {
-    display: flex; [cite: 295]
-    justify-content: center; [cite: 295]
-    gap: 15px; [cite: 295]
-    width: 100%; [cite: 295]
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
 }
 
 #email-input {
-    flex-grow: 1; [cite: 295]
-    padding: 15px 20px; [cite: 296]
-    border: 1px solid var(--border-color); [cite: 296]
-    background-color: var(--secondary-bg); [cite: 296]
-    color: var(--text-primary); [cite: 297]
-    border-radius: 5px; [cite: 297]
-    font-size: 1rem; [cite: 297]
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; [cite: 297]
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #email-input:focus {
-    border-color: var(--accent-silver); [cite: 297]
-    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.2); [cite: 298]
-    outline: none; [cite: 298]
+    border-color: var(--accent-silver);
+    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.2);
+    outline: none;
 }
 
 #email-input::placeholder {
-    color: var(--text-secondary); [cite: 298]
+    color: var(--text-secondary);
 }
 
 #newsletter-form button {
-    padding: 15px 30px; [cite: 299]
-    background-color: var(--accent-silver); [cite: 299]
-    color: var(--primary-bg); [cite: 299]
-    border: none; [cite: 299]
-    border-radius: 5px; [cite: 299]
-    cursor: pointer; [cite: 299]
-    font-weight: 700; [cite: 300]
-    text-transform: uppercase; [cite: 300]
-    letter-spacing: 0.8px; [cite: 300]
-    transition: background-color 0.3s ease; [cite: 300]
+    padding: 15px 30px;
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: background-color 0.3s ease;
 }
 
 #newsletter-form button:hover {
-    background-color: var(--accent-silver-hover); [cite: 300]
+    background-color: var(--accent-silver-hover);
 }
 
 .footer-links {
-    display: flex; [cite: 301]
-    justify-content: center; [cite: 301]
-    gap: 30px; [cite: 301]
-    margin-top: 30px; [cite: 301]
-    margin-bottom: 30px; [cite: 301]
-    padding: 0 20px; [cite: 301]
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 0 20px;
 }
 
 .footer-links a {
-    font-size: 0.95rem; [cite: 302]
-    color: var(--text-secondary); [cite: 302]
-    position: relative; [cite: 302]
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    position: relative;
 }
 
 .footer-links a::after {
-    content: ''; [cite: 302]
-    position: absolute; [cite: 303]
-    bottom: -3px; [cite: 303]
-    left: 50%; [cite: 303]
-    transform: translateX(-50%); [cite: 303]
-    width: 0; [cite: 303]
-    height: 1px; [cite: 303]
-    background-color: var(--accent-silver); [cite: 303]
-    transition: width 0.3s ease; [cite: 304]
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-silver);
+    transition: width 0.3s ease;
 }
 
 .footer-links a:hover::after {
-    width: 100%; [cite: 304]
+    width: 100%;
 }
 
 footer p {
-    margin-top: 0; [cite: 304]
-    font-size: 0.85rem; [cite: 305]
-    color: var(--text-secondary); [cite: 305]
-    letter-spacing: 0.5px; [cite: 305]
+    margin-top: 0;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
 }
 
 /* --- SECTIONS DE PAGE (Boutique, Blog, etc.) --- */
-/* Styles communs pour les en-têtes de page */ [cite: 305, 306]
+/* Styles communs pour les en-têtes de page */
 .page-header {
-    text-align: center; [cite: 306]
-    padding: 80px 40px 60px; [cite: 306]
+    text-align: center;
+    padding: 80px 40px 60px;
 }
 
 .page-header h1 {
-    font-size: 4rem; [cite: 306]
-    margin-bottom: 15px; [cite: 307]
-    color: var(--accent-silver); [cite: 307]
+    font-size: 4rem;
+    margin-bottom: 15px;
+    color: var(--accent-silver);
 }
 
 .page-header p {
-    font-size: 1.3rem; [cite: 307]
-    color: var(--text-secondary); [cite: 308]
-    font-weight: 300; [cite: 308]
-    max-width: 800px; [cite: 308]
-    margin-left: auto; [cite: 308]
-    margin-right: auto; [cite: 308]
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Nouveau conteneur pour la grille de produits */
-.products-grid {
+/* Grille de produits et d'articles */
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 60px;
     padding: 0 20px 100px;
     max-width: 1400px;
@@ -511,296 +509,286 @@ footer p {
 
 /* Première déclaration .product-card (garde structure d'origine) */
 .product-card, .blog-article {
-    background-color: var(--secondary-bg); [cite: 310]
-    padding: 30px; [cite: 310]
-    text-align: center; [cite: 310]
-    border-radius: 10px; [cite: 311]
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); [cite: 311]
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; [cite: 311]
-    border: 1px solid var(--border-color); [cite: 312]
-    width: 100%;
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid var(--border-color);
 }
 
 .product-card:hover, .blog-article:hover {
-    transform: translateY(-12px); [cite: 312]
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); [cite: 313]
-    border: 1px solid var(--accent-silver); [cite: 313]
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--accent-silver);
 }
 
 .product-card img, .blog-article img {
-    width: 100%; [cite: 313]
-    object-fit: cover; [cite: 314]
-    margin-bottom: 25px; [cite: 314]
-    border-radius: 5px; [cite: 314]
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border-radius: 5px;
 }
 
 .product-card img {
-    height: 350px; [cite: 314]
-    object-fit: contain; [cite: 315]
-    background-color: #222; [cite: 315]
+    height: 350px;
+    object-fit: contain;
+    background-color: #222;
 }
 
 .blog-article img {
-    height: 220px; [cite: 315]
+    height: 220px;
 }
 
-.product-card h3 {
-    font-family: 'Montserrat', sans-serif;
+.product-card h3, .blog-article h3 {
     font-size: 1.8rem;
-    margin-bottom: 10px; [cite: 316]
-    color: var(--text-primary); [cite: 316]
-    letter-spacing: 0.5px; [cite: 316]
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
 }
-
-.blog-article h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px; [cite: 316]
-    color: var(--text-primary); [cite: 316]
-    letter-spacing: 0.5px; [cite: 316]
-}
-
 
 .product-card p {
-    font-size: 1.3rem; [cite: 316]
-    color: var(--accent-silver); [cite: 317]
-    font-weight: 600; [cite: 317]
+    font-size: 1.3rem;
+    color: var(--accent-silver);
+    font-weight: 600;
 }
 
 .blog-article .article-info {
-    text-align: left; [cite: 317]
+    text-align: left;
 }
 
 .blog-article .article-date {
-    font-size: 0.95rem; [cite: 318]
-    color: var(--accent-silver); [cite: 318]
-    margin-bottom: 15px; [cite: 318]
-    font-weight: 500; [cite: 318]
+    font-size: 0.95rem;
+    color: var(--accent-silver);
+    margin-bottom: 15px;
+    font-weight: 500;
 }
 
 .blog-article .article-preview {
-    font-size: 1.05rem; [cite: 318]
-    color: var(--text-secondary); [cite: 319]
-    line-height: 1.7; [cite: 319]
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
 }
 
 /* --- PAGE DÉTAIL PRODUIT --- */
 .product-details-container {
-    display: flex; [cite: 319]
-    justify-content: center; [cite: 320]
-    align-items: flex-start; [cite: 320]
-    gap: 80px; [cite: 320]
-    max-width: 1300px; [cite: 320]
-    margin: 80px auto; [cite: 320]
-    padding: 0 40px; [cite: 320]
-    flex-wrap: wrap; [cite: 320]
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 0 40px;
+    flex-wrap: wrap;
 }
 
 .product-image-gallery {
-    flex: 1; [cite: 321]
-    min-width: 300px; [cite: 321]
-    max-width: 550px; [cite: 321]
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
 }
 
 #main-product-image {
-    width: 100%; [cite: 321]
-    height: 500px; [cite: 322]
-    object-fit: contain; [cite: 322]
-    margin-bottom: 20px; [cite: 322]
-    border-radius: 8px; [cite: 322]
-    background-color: var(--secondary-bg); [cite: 322]
-    border: 1px solid var(--border-color); [cite: 322]
+    width: 100%;
+    height: 500px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
 }
 
 .thumbnail-gallery {
-    display: flex; [cite: 323]
-    gap: 15px; [cite: 323]
-    justify-content: center; [cite: 323]
-    margin-top: 15px; [cite: 323]
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
 }
 
 .thumbnail {
-    width: 100px; [cite: 323]
-    height: 100px; [cite: 324]
-    object-fit: cover; [cite: 324]
-    border: 2px solid var(--border-color); [cite: 324]
-    cursor: pointer; [cite: 324]
-    transition: border-color 0.3s ease, transform 0.2s ease; [cite: 324]
-    border-radius: 5px; [cite: 324]
-    background-color: var(--secondary-bg); [cite: 324]
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+    border-radius: 5px;
+    background-color: var(--secondary-bg);
 }
 
 .thumbnail:hover,
 .thumbnail.active {
-    border-color: var(--accent-silver); [cite: 325]
-    transform: scale(1.05); [cite: 325]
+    border-color: var(--accent-silver);
+    transform: scale(1.05);
 }
 
 .product-info {
-    flex: 1; [cite: 325]
-    min-width: 300px; [cite: 326]
-    max-width: 550px; [cite: 326]
-    padding-top: 20px; [cite: 326]
+    flex: 1;
+    min-width: 300px;
+    max-width: 550px;
+    padding-top: 20px;
 }
 
 .product-info h1 {
-    font-size: 3.5rem; [cite: 326]
-    margin-bottom: 15px; [cite: 327]
-    color: var(--accent-silver); [cite: 327]
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: var(--accent-silver);
 }
 
 .product-info .price {
-    font-size: 2.2rem; [cite: 327]
-    color: var(--accent-silver-hover); [cite: 327]
-    font-weight: 700; [cite: 328]
-    margin-bottom: 40px; [cite: 328]
-    letter-spacing: 1px; [cite: 328]
+    font-size: 2.2rem;
+    color: var(--accent-silver-hover);
+    font-weight: 700;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
 }
 
 .product-description h3 {
-    font-size: 2rem; [cite: 328]
-    margin-top: 30px; [cite: 328]
-    margin-bottom: 15px; [cite: 329]
-    color: var(--text-primary); [cite: 329]
+    font-size: 2rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--text-primary);
 }
 
 .product-description p {
-    font-size: 1.1rem; [cite: 329]
-    color: var(--text-secondary); [cite: 329]
-    margin-bottom: 15px; [cite: 329]
-    line-height: 1.8; [cite: 330]
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.8;
 }
 
 .product-description ul {
-    list-style-type: none; [cite: 330]
-    padding-left: 0; [cite: 330]
-    margin-top: 20px; [cite: 330]
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 20px;
 }
 
 .product-description ul li {
-    font-size: 1.1rem; [cite: 331]
-    color: var(--text-secondary); [cite: 331]
-    margin-bottom: 10px; [cite: 331]
-    padding-left: 25px; [cite: 331]
-    position: relative; [cite: 331]
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
 }
 
 .product-description ul li::before {
-    content: '•'; [cite: 332]
-    color: var(--accent-silver); [cite: 332]
-    position: absolute; [cite: 332]
-    left: 0; [cite: 332]
-    font-size: 1.2em; [cite: 332]
-    line-height: 1; [cite: 332]
+    content: '•';
+    color: var(--accent-silver);
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1;
 }
 
 .buy-button {
-    display: inline-block; [cite: 333]
-    background-color: var(--accent-silver); [cite: 333]
-    color: var(--primary-bg); [cite: 333]
-    padding: 18px 50px; [cite: 333]
-    font-weight: 700; [cite: 333]
-    text-transform: uppercase; [cite: 333]
-    border-radius: 8px; [cite: 333]
-    margin-top: 50px; [cite: 333]
-    letter-spacing: 1px; [cite: 334]
-    transition: background-color 0.4s ease, transform 0.2s ease; [cite: 334]
-    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3); [cite: 334]
+    display: inline-block;
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    padding: 18px 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 8px;
+    margin-top: 50px;
+    letter-spacing: 1px;
+    transition: background-color 0.4s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3);
 }
 
 .buy-button:hover {
-    background-color: var(--accent-silver-hover); [cite: 334]
-    transform: translateY(-3px); [cite: 335]
-    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4); [cite: 335]
+    background-color: var(--accent-silver-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
 
 /* --- PAGE ARTICLE UNIQUE --- */
 .article-page main {
-    padding-top: var(--header-height); [cite: 336]
+    padding-top: var(--header-height);
 }
 
 .blog-article-content {
-    max-width: 900px; [cite: 336]
-    margin: 80px auto; [cite: 337]
-    padding: 0 40px; [cite: 337]
-    text-align: center; [cite: 337]
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 40px;
+    text-align: center;
 }
 
 .article-title {
-    font-size: 4rem; [cite: 337]
-    margin-bottom: 20px; [cite: 338]
-    color: var(--accent-silver); [cite: 338]
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--accent-silver);
 }
 
 .article-meta {
-    font-size: 1rem; [cite: 338]
-    color: var(--text-secondary); [cite: 338]
-    margin-bottom: 40px; [cite: 338]
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
 }
 
 .article-image {
-    width: 100%; [cite: 339]
-    height: 500px; [cite: 339]
-    object-fit: cover; [cite: 339]
-    border-radius: 10px; [cite: 339]
-    margin-bottom: 50px; [cite: 339]
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); [cite: 340]
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .blog-article-content p,
 .blog-article-content li {
-    font-size: 1.15rem; [cite: 340]
-    color: var(--text-secondary); [cite: 340]
-    line-height: 1.9; [cite: 340]
-    text-align: justify; [cite: 340]
-    margin-bottom: 25px; [cite: 341]
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.9;
+    text-align: justify;
+    margin-bottom: 25px;
 }
 
 .blog-article-content h3 {
-    font-size: 2.2rem; [cite: 341]
-    margin-top: 50px; [cite: 341]
-    margin-bottom: 20px; [cite: 341]
-    color: var(--text-primary); [cite: 341]
-    text-align: left; [cite: 341]
+    font-size: 2.2rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    text-align: left;
 }
 
 .blog-article-content ul {
-    list-style: none; [cite: 342]
-    padding: 0; [cite: 342]
-    margin-top: 20px; [cite: 342]
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
 }
 
 .blog-article-content ul li {
-    background-color: var(--secondary-bg); [cite: 342]
-    border: 1px solid var(--border-color); [cite: 343]
-    padding: 20px 30px; [cite: 343]
-    border-left: 4px solid var(--accent-silver); [cite: 343]
-    border-radius: 8px; [cite: 344]
-    margin-bottom: 15px; [cite: 344]
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); [cite: 344]
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px 30px;
+    border-left: 4px solid var(--accent-silver);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .blog-article-content ul li::before {
-    content: none; [cite: 344]
+    content: none;
 }
 
 /* --- PAGE À PROPOS --- */
 .about-section {
-    padding: 100px 40px; [cite: 345]
-    max-width: 1200px; [cite: 345]
-    margin: 0 auto; [cite: 345]
-    text-align: center; [cite: 346]
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .about-header {
-    margin-bottom: 80px; [cite: 346]
+    margin-bottom: 80px;
 }
 
 about-header { /* safe-guard selector typo avoidance - left intentionally if used */ }
 
 .about-header h1 {
-    font-size: 4rem; [cite: 347]
-    margin-bottom: 25px; [cite: 347]
-    color: var(--accent-silver); [cite: 347]
+    font-size: 4rem;
+    margin-bottom: 25px;
+    color: var(--accent-silver);
 }
 
 about-header p { /* fallback - no rules */ }
@@ -809,481 +797,1209 @@ about-header p {} /* no-op */
 
 /* Correction: ensure about-header p exists */
 .about-header p {
-    color: var(--text-secondary); [cite: 348]
-    font-size: 1.3rem; [cite: 348]
-    max-width: 900px; [cite: 348]
-    margin-left: auto; [cite: 348]
-    margin-right: auto; [cite: 348]
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 values-container {} /* placeholder to preserve structure - ignored by browsers */
 
 .values-container {
-    display: grid; [cite: 349]
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); [cite: 349]
-    gap: 50px; [cite: 350]
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
 }
 
 .value-card {
-    background-color: var(--secondary-bg); [cite: 350]
-    padding: 60px 40px; [cite: 350]
-    border-radius: 10px; [cite: 350]
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); [cite: 350]
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; [cite: 351]
-    border: 1px solid var(--border-color); [cite: 351]
+    background-color: var(--secondary-bg);
+    padding: 60px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid var(--border-color);
 }
 
 .value-card:hover {
-    transform: translateY(-8px); [cite: 352]
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); [cite: 352]
-    border-color: var(--accent-silver); [cite: 352]
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    border-color: var(--accent-silver);
 }
 
 .value-card img {
-    width: 90px; [cite: 352]
-    height: 90px; [cite: 353]
-    margin-bottom: 35px; [cite: 353]
-    filter: grayscale(100%) brightness(150%) contrast(80%); [cite: 353]
+    width: 90px;
+    height: 90px;
+    margin-bottom: 35px;
+    filter: grayscale(100%) brightness(150%) contrast(80%);
 }
 
 .value-card h3 {
-    font-size: 2.5rem; [cite: 353]
-    margin-bottom: 20px; [cite: 354]
-    color: var(--accent-silver); [cite: 354]
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--accent-silver);
 }
 
 .value-card p {
-    color: var(--text-secondary); [cite: 354]
-    font-size: 1.15rem; [cite: 355]
-    line-height: 1.8; [cite: 355]
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    line-height: 1.8;
 }
 
 /* --- PAGE CONTACT --- */
 .contact-page-container {
-    display: flex; [cite: 355]
-    justify-content: center; [cite: 356]
-    align-items: flex-start; [cite: 356]
-    gap: 80px; [cite: 356]
-    padding: 80px 40px; [cite: 356]
-    max-width: 1400px; [cite: 356]
-    margin: 0 auto; [cite: 357]
-    flex-wrap: wrap; [cite: 357]
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    padding: 80px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 .contact-info {
-    flex: 1; [cite: 357]
-    min-width: 300px; [cite: 357]
-    max-width: 500px; [cite: 357]
-    text-align: left; [cite: 358]
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: left;
 }
 
 .contact-info h1 {
-    font-size: 4rem; [cite: 358]
-    margin-bottom: 25px; [cite: 358]
-    color: var(--accent-silver); [cite: 358]
+    font-size: 4rem;
+    margin-bottom: 25px;
+    color: var(--accent-silver);
 }
 
 .contact-info p {
-    color: var(--text-secondary); [cite: 359]
-    margin-bottom: 25px; [cite: 359]
-    font-size: 1.15rem; [cite: 359]
-    line-height: 1.8; [cite: 359]
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    font-size: 1.15rem;
+    line-height: 1.8;
 }
 
 .contact-details {
-    margin-top: 30px; [cite: 360]
+    margin-top: 30px;
 }
 
 .contact-details p {
-    font-size: 1.1rem; [cite: 360]
-    margin-bottom: 10px; [cite: 360]
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
 
 .contact-details a {
-    color: var(--accent-silver); [cite: 360]
-    transition: color 0.3s ease; [cite: 361]
+    color: var(--accent-silver);
+    transition: color 0.3s ease;
 }
 
 .contact-details a:hover {
-    color: var(--accent-silver-hover); [cite: 361]
+    color: var(--accent-silver-hover);
 }
 
 .contact-form-container {
-    flex: 1; [cite: 361]
-    min-width: 300px; [cite: 362]
-    max-width: 600px; [cite: 362]
-    background-color: var(--secondary-bg); [cite: 362]
-    padding: 50px; [cite: 362]
-    border-radius: 10px; [cite: 362]
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); [cite: 363]
-    border: 1px solid var(--border-color); [cite: 363]
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; [cite: 363]
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    background-color: var(--secondary-bg);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .contact-form-container:hover {
-    border-color: var(--accent-silver); [cite: 364]
-    transform: translateY(-5px); [cite: 364]
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); [cite: 364]
+    border-color: var(--accent-silver);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 #contact-form {
-    display: flex; [cite: 365]
-    flex-direction: column; [cite: 365]
-    gap: 25px; [cite: 365]
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
-#contact-form input, #contact-form textarea {
-    width: 100%; [cite: 365]
-    padding: 15px 20px; [cite: 366]
-    border: 1px solid var(--border-color); [cite: 366]
-    background-color: var(--primary-bg); [cite: 366]
-    color: var(--text-primary); [cite: 366]
-    border-radius: 5px; [cite: 367]
-    font-family: 'Montserrat', sans-serif; [cite: 367]
-    font-size: 1rem; [cite: 367]
-    transition: border-color 0.3s ease, box-shadow 0.3s ease; [cite: 367]
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#contact-form input:focus, #contact-form textarea:focus {
-    border-color: var(--accent-silver); [cite: 368]
-    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.2); [cite: 368]
-    outline: none; [cite: 368]
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--accent-silver);
+    box-shadow: 0 0 0 3px rgba(160, 160, 160, 0.2);
+    outline: none;
 }
 
-#contact-form input::placeholder, #contact-form textarea::placeholder {
-    color: var(--text-secondary); [cite: 368]
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: var(--text-secondary);
 }
 
 #contact-form textarea {
-    resize: vertical; [cite: 369]
-    min-height: 120px; [cite: 369]
+    resize: vertical;
+    min-height: 120px;
 }
 
 .checkbox-container {
-    display: flex; [cite: 369]
-    align-items: flex-start; [cite: 370]
-    gap: 12px; [cite: 370]
-    margin-top: 10px; [cite: 370]
-    margin-bottom: 10px; [cite: 370]
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .checkbox-container input[type="checkbox"] {
-    width: 20px; [cite: 370]
-    height: 20px; [cite: 371]
-    min-width: 20px; [cite: 371]
-    min-height: 20px; [cite: 371]
-    margin-top: 2px; [cite: 371]
-    accent-color: var(--accent-silver); [cite: 371]
-    border: 1px solid var(--border-color); [cite: 371]
-    cursor: pointer; [cite: 372]
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin-top: 2px;
+    accent-color: var(--accent-silver);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
 }
 
 .checkbox-container label {
-    font-size: 0.95em; [cite: 372]
-    color: var(--text-secondary); [cite: 372]
-    line-height: 1.5; [cite: 372]
-    text-align: left; [cite: 372]
+    font-size: 0.95em;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    text-align: left;
 }
 
 .checkbox-container a {
-    color: var(--accent-silver); [cite: 373]
-    text-decoration: underline; [cite: 373]
+    color: var(--accent-silver);
+    text-decoration: underline;
 }
 
 .checkbox-container a:hover {
-    color: var(--accent-silver-hover); [cite: 373]
+    color: var(--accent-silver-hover);
 }
 
 #contact-form button {
-    background-color: var(--accent-silver); [cite: 374]
-    color: var(--primary-bg); [cite: 374]
-    border: none; [cite: 374]
-    padding: 18px 30px; [cite: 374]
-    border-radius: 8px; [cite: 375]
-    cursor: pointer; [cite: 375]
-    font-weight: 700; [cite: 375]
-    text-transform: uppercase; [cite: 375]
-    letter-spacing: 1px; [cite: 376]
-    transition: background-color 0.4s ease, transform 0.2s ease; [cite: 376]
-    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3); [cite: 376]
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    border: none;
+    padding: 18px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.4s ease, transform 0.2s ease;
+    box-shadow: 0 5px 15px rgba(160, 160, 160, 0.3);
 }
 
 #contact-form button:hover {
-    background-color: var(--accent-silver-hover); [cite: 377]
-    transform: translateY(-3px); [cite: 377]
-    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4); [cite: 377]
+    background-color: var(--accent-silver-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(160, 160, 160, 0.4);
 }
 
 /* --- PAGE JURIDIQUE (CGV, Mentions Légales) --- */
 .legal-page-container {
-    max-width: 900px; [cite: 377]
-    margin: 80px auto; [cite: 378]
-    padding: 0 40px; [cite: 378]
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 40px;
 }
 
 .legal-header {
-    text-align: center; [cite: 378]
-    margin-bottom: 60px; [cite: 379]
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .legal-header h1 {
-    font-size: 3rem; [cite: 379]
-    margin-bottom: 15px; [cite: 380]
-    color: var(--accent-silver); [cite: 380]
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: var(--accent-silver);
 }
 
 .legal-header p {
-    font-size: 1.1rem; [cite: 380]
-    color: var(--text-secondary); [cite: 381]
+    font-size: 1.1rem;
+    color: var(--text-secondary);
 }
 
 .legal-container h2 {
-    font-size: 2.5rem; [cite: 381]
-    margin-top: 60px; [cite: 381]
-    margin-bottom: 30px; [cite: 382]
-    color: var(--text-primary); [cite: 382]
+    font-size: 2.5rem;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    color: var(--text-primary);
 }
 
 .legal-container p {
-    font-size: 1.1rem; [cite: 382]
-    color: var(--text-secondary); [cite: 382]
-    line-height: 1.8; [cite: 383]
-    margin-bottom: 25px; [cite: 383]
-    text-align: justify; [cite: 383]
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: justify;
 }
 
 .legal-container p:first-of-type {
-    text-align: center; [cite: 383]
-    max-width: 800px; [cite: 384]
-    margin-left: auto; [cite: 384]
-    margin-right: auto; [cite: 384]
-    margin-bottom: 40px; [cite: 384]
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
 }
 
 .legal-container ul {
-    list-style-type: none; [cite: 384]
-    padding: 0; [cite: 385]
-    margin-top: 50px; [cite: 385]
+    list-style-type: none;
+    padding: 0;
+    margin-top: 50px;
 }
 
 .legal-container li {
-    background-color: var(--secondary-bg); [cite: 385]
-    border: 1px solid var(--border-color); [cite: 386]
-    padding: 30px 40px; [cite: 386]
-    border-radius: 10px; [cite: 386]
-    margin-bottom: 30px; [cite: 386]
-    line-height: 1.7; [cite: 387]
-    text-align: left; [cite: 387]
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); [cite: 387]
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; [cite: 388]
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    padding: 30px 40px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+    text-align: left;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .legal-container li:hover {
-    transform: translateY(-8px); [cite: 388]
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); [cite: 389]
-    border-color: var(--accent-silver); [cite: 389]
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--accent-silver);
 }
 
 .legal-container li h3 {
-    font-family: 'Crimson Text', serif; [cite: 389]
-    font-size: 1.8em; [cite: 390]
-    color: var(--accent-silver); [cite: 390]
-    margin-top: 0; [cite: 390]
-    margin-bottom: 15px; [cite: 390]
-    text-align: left; [cite: 390]
-    letter-spacing: 0.5px; [cite: 390]
+    font-family: 'Crimson Text', serif;
+    font-size: 1.8em;
+    color: var(--accent-silver);
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: left;
+    letter-spacing: 0.5px;
 }
 
 .legal-container li p {
-    font-family: 'Montserrat', sans-serif; [cite: 391]
-    font-size: 1.05em; [cite: 391]
-    color: var(--text-secondary); [cite: 391]
-    line-height: 1.8; [cite: 392]
-    text-align: left; [cite: 392]
-    margin-bottom: 10px; [cite: 392]
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05em;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    text-align: left;
+    margin-bottom: 10px;
 }
 
 .legal-container li p:last-child {
-    margin-bottom: 0; [cite: 392]
+    margin-bottom: 0;
 }
 
 /* --- BANDEAU COOKIES --- */
 #cookie-banner {
-    position: fixed; [cite: 227]
-    bottom: 30px; [cite: 227]
-    left: 50%; [cite: 227]
-    transform: translateX(-50%); [cite: 228]
-    background-color: var(--secondary-bg); [cite: 228]
-    color: var(--text-primary); [cite: 228]
-    padding: 25px 40px; [cite: 228]
-    border-radius: 10px; [cite: 229]
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); [cite: 229]
-    display: flex; [cite: 229]
-    justify-content: center; /* Centre le contenu horizontalement */
-    align-items: center; [cite: 230]
-    gap: 40px; [cite: 230]
-    max-width: 90%; [cite: 230]
-    min-width: 300px; [cite: 230]
-    z-index: 2000; [cite: 231]
-    font-family: 'Montserrat', sans-serif; [cite: 231]
-    font-size: 0.95rem; [cite: 231]
-    line-height: 1.7; [cite: 232]
-    border: 1px solid var(--border-color); [cite: 232]
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    padding: 25px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    max-width: 90%;
+    min-width: 300px;
+    z-index: 2000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    border: 1px solid var(--border-color);
 }
 
 #cookie-banner.hidden {
-    display: none; [cite: 232]
+    display: none;
 }
 
 #cookie-banner p {
-    margin: 0; [cite: 233]
-    color: var(--text-secondary); [cite: 233]
-    text-align: center; [cite: 233]
+    margin: 0;
+    color: var(--text-secondary);
 }
 
 #cookie-banner a {
-    color: var(--accent-silver); [cite: 234]
-    text-decoration: underline; [cite: 234]
-    transition: color 0.3s ease; [cite: 234]
+    color: var(--accent-silver);
+    text-decoration: underline;
+    transition: color 0.3s ease;
 }
 
 #cookie-banner a:hover {
-    color: var(--accent-silver-hover); [cite: 235]
+    color: var(--accent-silver-hover);
 }
 
 #cookie-banner button {
-    background-color: var(--accent-silver); [cite: 235]
-    color: var(--primary-bg); [cite: 235]
-    border: none; [cite: 236]
-    padding: 12px 25px; [cite: 236]
-    border-radius: 6px; [cite: 236]
-    cursor: pointer; [cite: 237]
-    font-weight: 700; [cite: 237]
-    text-transform: uppercase; [cite: 237]
-    letter-spacing: 0.8px; [cite: 237]
-    transition: background-color 0.3s ease, transform 0.2s ease; [cite: 238]
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #cookie-banner button:hover {
-    background-color: var(--accent-silver-hover); [cite: 238]
-    transform: translateY(-2px); [cite: 238]
+    background-color: var(--accent-silver-hover);
+    transform: translateY(-2px);
+}
+
+/* --- NEWSLETTER MESSAGES --- */
+#newsletter-message {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* --- BOUTONS ET LIENS --- */
+.link-primary {
+    display: inline-block;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.link-primary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-silver);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-out;
+}
+
+.link-primary:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.link-secondary {
+    background-color: transparent;
+    display: inline-block;
+    color: var(--text-primary);
+    border: 2px solid var(--text-secondary);
+    padding: 18px 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-radius: 8px;
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+.link-secondary:hover {
+    background-color: var(--secondary-bg);
+    border-color: var(--accent-silver);
+    color: var(--accent-silver);
+}
+
+/* --- PAGE DE PRÉCOMMANDE --- */
+.precommande-section {
+    max-width: 700px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.precommande-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.precommande-section p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+.precommande-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.precommande-form label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.precommande-form input,
+.precommande-form select,
+.precommande-form textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.precommande-form input:focus,
+.precommande-form select:focus,
+.precommande-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-silver-hover);
+}
+
+.precommande-form button {
+    padding: 12px 30px;
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.precommande-form button:hover {
+    background-color: var(--accent-silver-hover);
+}
+
+/* --- ANIMATION AU DÉFILEMENT --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+/* Tablettes et petits écrans */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.5rem;
+    }
+
+    .page-header h1,
+    .introduction-section h2,
+    .testimonial-section h2,
+    .about-header h1,
+    .contact-info h1,
+    .legal-header h1,
+    .article-title {
+        font-size: 3rem;
+    }
+
+    .product-details-container,
+    .contact-page-container {
+        gap: 40px;
+        flex-direction: column;
+    }
+
+    .product-image-gallery,
+    .product-info {
+        max-width: 100%;
+        padding-top: 0;
+    }
+
+    .product-info h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Téléphones */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 20px;
+    }
+
+    header {
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--primary-bg);
+        z-index: 999;
+        transition: transform 0.5s ease;
+        transform: translateY(-100%);
+        gap: 30px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .nav-links a {
+        font-size: 1.8rem;
+        font-weight: 300;
+        padding: 20px 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .introduction-section,
+    .testimonial-section {
+        padding: 60px 20px;
+    }
+
+    .introduction-section h2,
+    .testimonial-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .testimonial-section h2 {
+        margin-bottom: 40px;
+    }
+
+    .testimonial-container {
+        gap: 20px;
+    }
+
+    footer {
+        padding: 40px 20px;
+    }
+
+    .newsletter-container {
+        margin-bottom: 30px;
+    }
+
+    #newsletter-form {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .precommande-section {
+        margin: 60px auto;
+    }
+
+    .precommande-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .boutique-section {
+        margin: 60px auto;
+    }
+
+    .boutique-section .page-title {
+        font-size: 2.5rem;
+    }
+
+    .precommande-link-container {
+        padding: 30px;
+    }
+
+    .product-details-section {
+        margin: 60px auto;
+    }
+
+    .blog-posts-grid {
+        gap: 20px;
+    }
+}
+
+/* Exemple de classe pour masquer visuellement un élément */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --- ORGANISATION DU BLOG --- */
+.blog-articles-container {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.blog-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.blog-post-card {
+    display: block;
+    text-align: left;
+    background-color: var(--secondary-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-post-card h3 {
+    font-size: 1.5rem;
+    padding: 15px 20px 0;
+}
+
+.blog-post-card .post-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    padding: 0 20px 20px;
+}
+
+/* --- BOUTIQUE : ORGANISATION EN GRILLE FLEXIBLE --- */
+/* (Redéclaration volontaire pour garder la structure originelle) */
+.page-header {
+    text-align: center;
+    padding: 80px 40px 60px;
+}
+
+.page-header h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    color: var(--accent-silver);
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Nouveau conteneur pour la grille de produits (redondant par choix de structure) */
+.products-grid {
+    display: grid;
+    /* La grille affiche un nombre de colonnes qui s'adapte, chacune de 400px minimum. */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-content: center; /* Centre la grille horizontalement */
+    gap: 60px; /* Espace entre les cartes de produit */
+    padding: 0 20px 100px;
+    max-width: 1400px; /* Largeur maximale pour une meilleure lisibilité */
+    margin: 0 auto;
+}
+
+/* Seconde déclaration .product-card — conservée pour rester fidèle à la structure originale,
+   mais harmonisée pour éviter conflits : */
+.product-card {
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    border: 1px solid var(--border-color);
+    width: 100%; /* S'étend sur toute la largeur de sa cellule de grille */
+}
+
+.product-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--accent-silver);
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #222;
+    margin-bottom: 25px;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    letter-spacing: 0.5px;
+}
+
+.product-card p {
+    font-size: 1.3rem;
+    color: var(--accent-silver);
+    font-weight: 600;
+}
+
+/* --- BOUTIQUE : NOUVELLES RÈGLES RESPONSIVE POUR CENTRER SUR MOBILE --- */
+/* Version desktop/tablette = garde la grille existante (auto-fit/auto columns) */
+/* Version mobile : 1 colonne, cartes centrées, max-width pour éviter débordement */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr; /* une colonne */
+        justify-items: center;      /* centre les items dans la colonne */
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .product-card {
+        max-width: 92%;
+        margin: 0 auto;
+    }
+
+    /* Si tu veux cartes plus petites encore, décommente suivant */
+    /* .product-card { max-width: 420px; } */
+}
+
+/* --- (FIN) --- */
+/* --- VARIABLES --- */
+:root {
+    --primary-bg: #0A0A0A;
+    --secondary-bg: #1A1A1A;
+    --text-primary: #EAEAEA;
+    --text-secondary: #B0B0B0;
+    --accent-silver: #A0A0A0;
+    --accent-silver-hover: #C0C0C0;
+    --border-color: #333333;
+    --header-height: 80px;
+}
+
+/* --- GÉNÉRAL --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    padding-top: var(--header-height);
+}
+
+a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-silver-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.section-padding {
+    padding: 100px 40px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* --- EN-TÊTE ET NAVIGATION --- */
+header {
+    background-color: var(--primary-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: 0 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-family: 'Crimson Text', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: var(--accent-silver);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: auto;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 1.15rem;
+    letter-spacing: 0.8px;
+    position: relative;
+    padding-bottom: 5px;
+    color: var(--text-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-silver);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+    width: 30px;
+    height: 22px;
+    justify-content: space-between;
+    z-index: 1001;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- BOUTIQUE --- */
+.boutique-section {
+    padding: 80px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.page-header {
+    margin-bottom: 60px;
+}
+
+.page-header h1 {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    color: var(--accent-silver);
+}
+
+.page-header p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Grille produits */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    padding: 0 20px 100px;
+}
+
+.product-card {
+    background-color: var(--secondary-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.4);
+    border-color: var(--accent-silver);
+}
+
+.product-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #222;
+}
+
+.product-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.product-card p {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent-silver);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .products-grid {
+        gap: 30px;
+    }
+    .product-card {
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        justify-items: center;
+    }
+    .product-card {
+        max-width: 90%;
+    }
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    .page-header p {
+        font-size: 1.1rem;
+    }
+}
+.menu-toggle {
+    display: none; /* sur desktop, c’est normal */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* doit apparaître sur mobile */
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 22px;
+        cursor: pointer;
+        z-index: 1001; /* pour être au-dessus */
+    }
+}
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000; /* menu noir */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateY(-100%);
+        transition: transform 0.5s ease;
+        z-index: 999;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .nav-links a {
+        color: #fff; /* texte blanc */
+        font-size: 1.8rem;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #ccc;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .menu-toggle .bar {
+        background-color: #fff; /* hamburger blanc */
+    }
+}
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .menu-toggle .bar {
+        height: 3px;
+        width: 100%;
+        background-color: #fff; /* blanc pour le contraste */
+        border-radius: 2px;
+    }
+}
+/* --- BANDEAU COOKIES --- */
+#cookie-banner {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    padding: 25px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center;
+    gap: 40px;
+    max-width: 90%;
+    min-width: 300px;
+    z-index: 2000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    border: 1px solid var(--border-color);
+}
+
+#cookie-banner.hidden {
+    display: none;
+}
+
+#cookie-banner p {
+    margin: 0;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+#cookie-banner a {
+    color: var(--accent-silver);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+#cookie-banner a:hover {
+    color: var(--accent-silver-hover);
+}
+
+#cookie-banner button {
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#cookie-banner button:hover {
+    background-color: var(--accent-silver-hover);
+    transform: translateY(-2px);
 }
 
 /* RESPONSIVE (ajustement pour les petits écrans) */
 @media (max-width: 550px) {
     #cookie-banner {
-        flex-direction: column; /* Empile les éléments verticalement */ [cite: 239]
-        gap: 20px; [cite: 239]
-        text-align: center; [cite: 240]
-        width: 95%; /* Utilise une plus grande largeur pour les petits écrans */ [cite: 240]
-        min-width: auto; [cite: 240]
+        flex-direction: column; /* Empile les éléments verticalement */
+        gap: 20px;
+        text-align: center;
+        width: 95%; /* Utilise une plus grande largeur pour les petits écrans */
+        min-width: auto;
     }
-}
-/* --- ORGANISATION DU BLOG --- */ [cite: 392]
-.blog-articles-container {
-    max-width: 1100px; [cite: 393]
-    margin: 80px auto; [cite: 393]
-    padding: 0 20px; [cite: 393]
-    text-align: center; [cite: 393]
-}
-
-.blog-posts-grid {
-    display: grid; [cite: 394]
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); [cite: 394]
-    gap: 40px; [cite: 394]
-    margin-top: 50px; [cite: 394]
-}
-
-.blog-post-card {
-    display: block; [cite: 395]
-    text-align: left; [cite: 395]
-    background-color: var(--secondary-bg); [cite: 395]
-    border-radius: 10px; [cite: 396]
-    overflow: hidden; [cite: 396]
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); [cite: 396]
-    transition: transform 0.4s ease, box-shadow 0.4s ease; [cite: 397]
-}
-
-.blog-post-card:hover {
-    transform: translateY(-8px); [cite: 397]
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4); [cite: 397]
-}
-
-.blog-post-card img {
-    width: 100%; [cite: 398]
-    height: 250px; [cite: 398]
-    object-fit: cover; [cite: 398]
-}
-
-.blog-post-content {
-    padding: 30px; [cite: 399]
-}
-
-.blog-post-content h3 {
-    font-size: 1.8rem; [cite: 399]
-    margin-bottom: 10px; [cite: 399]
-    color: var(--text-primary); [cite: 399]
-    line-height: 1.4; [cite: 400]
-}
-
-.blog-post-content .post-meta {
-    font-size: 0.95rem; [cite: 400]
-    color: var(--text-secondary); [cite: 401]
-    margin-bottom: 20px; [cite: 401]
-}
-
-.blog-post-content .post-preview {
-    font-size: 1rem; [cite: 401]
-    color: var(--text-secondary); [cite: 401]
-    line-height: 1.7; [cite: 402]
-}
-
-/* --- BLOG ARTICLE PAGE SPECIFICS (not a general file) --- */
-.article-header {
-    max-width: 900px; [cite: 402]
-    margin: 80px auto 40px; [cite: 402]
-    padding: 0 40px; [cite: 403]
-    text-align: center; [cite: 403]
-}
-
-.article-header h1 {
-    font-size: 4rem; [cite: 403]
-    margin-bottom: 20px; [cite: 404]
-    color: var(--accent-silver); [cite: 404]
-}
-
-.article-meta {
-    font-size: 1rem; [cite: 404]
-    color: var(--text-secondary); [cite: 405]
-}
-
-.article-image {
-    width: 100%; [cite: 405]
-    height: 500px; [cite: 405]
-    object-fit: cover; [cite: 406]
-    border-radius: 10px; [cite: 406]
-    margin-bottom: 50px; [cite: 406]
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); [cite: 406]
-}
-
-.article-body {
-    max-width: 900px; [cite: 407]
-    margin: 0 auto 80px; [cite: 407]
-    padding: 0 40px; [cite: 407]
-}
-
-.article-body p {
-    font-size: 1.15rem; [cite: 408]
-    color: var(--text-secondary); [cite: 408]
-    line-height: 1.9; [cite: 408]
-    text-align: justify; [cite: 408]
-    margin-bottom: 25px; [cite: 408]
-}
-
-.article-body h2,
-.article-body h3 {
-    font-size: 2.2rem; [cite: 409]
-    margin-top: 50px; [cite: 409]
-    margin-bottom: 20px; [cite: 409]
-    color: var(--text-primary); [cite: 410]
 }

@@ -1960,3 +1960,75 @@ nav {
     cursor: pointer;
     border-radius: 5px;
 }
+/* --- BANDEAU COOKIES --- */
+#cookie-banner {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary-bg);
+    color: var(--text-primary);
+    padding: 25px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center;
+    gap: 40px;
+    max-width: 90%;
+    min-width: 300px;
+    z-index: 2000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    border: 1px solid var(--border-color);
+}
+
+#cookie-banner.hidden {
+    display: none;
+}
+
+#cookie-banner p {
+    margin: 0;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+#cookie-banner a {
+    color: var(--accent-silver);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+#cookie-banner a:hover {
+    color: var(--accent-silver-hover);
+}
+
+#cookie-banner button {
+    background-color: var(--accent-silver);
+    color: var(--primary-bg);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#cookie-banner button:hover {
+    background-color: var(--accent-silver-hover);
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVE (ajustement pour les petits écrans) */
+@media (max-width: 550px) {
+    #cookie-banner {
+        flex-direction: column; /* Empile les éléments verticalement */
+        gap: 20px;
+        text-align: center;
+        width: 95%; /* Utilise une plus grande largeur pour les petits écrans */
+        min-width: auto;
+    }
+}

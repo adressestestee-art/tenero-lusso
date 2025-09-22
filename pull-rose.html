@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pull Blanc et Rose | TENERO LUSSO</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Jogging Urbain - Tenero Lusso | Boutique</title>
+    <meta name="description" content="Découvrez notre Jogging Urbain. Conçu pour le confort et l'élégance, idéal pour un style décontracté et sophistiqué.">
+    <meta name="keywords" content="jogging luxe, jogging homme, jogging femme, vêtement sportswear, mode urbaine, confort, élégance">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
-
     <header>
         <nav>
             <a href="index.html" class="logo">TENERO LUSSO</a>
@@ -20,43 +20,77 @@
                 <div class="bar"></div>
             </div>
             <div class="nav-links">
-                <a href="boutique.html">Boutique</a>
-                <a href="a-prpos.html">A propos</a>
+                <a href="boutique.html" class="active">Boutique</a>
+                <a href="a-propos.html">À propos</a>
                 <a href="contact.html">Contact</a>
+                <a href="blog.html">Blog</a>
             </div>
-            <div class="menu-overlay"></div>
         </nav>
     </header>
 
     <main>
-        <section class="product-details-section">
+        <section class="product-details-container">
             <div class="product-image-gallery">
-                <!-- Mettez ici les images de votre produit -->
-                <img src="image/pull_rose.png" alt="Pull Blanc et Rose - Vue 1">
+                <img id="main-product-image" src="images/pull_rose.png" alt="Pull du Creew - Vue principale">
+                <div class="thumbnail-gallery">
+                    <img src="images/pull_rose.png" alt="Jogging Urbain vue de face" class="thumbnail active" onclick="changeImage('images/jogger-1.png')">
+                    <img src="images/jogger-2.png" alt="Jogging Urbain vue de dos" class="thumbnail" onclick="changeImage('images/jogger-2.png')">
+                </div>
             </div>
             <div class="product-info">
-                <h1>Pull Blanc et Rose</h1>
-                <p class="price">19.99 €</p>
-                <p class="description">
-                    Ce pull incarne l'élégance décontractée de Tenero Lusso. Confectionné dans une maille de coton biologique, il offre un confort exceptionnel et une douceur incomparable. Son design bicolore minimaliste, avec une base blanche et une bande rose subtile, en fait une pièce intemporelle pour toutes les saisons.
-                </p>
-                <form class="purchase-form">
-                    <label for="size">Taille :</label>
-                    <select id="size" name="Taille">
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                    </select>
-                    <button type="submit" class="cta-button">Ajouter au panier</button>
-                </form>
+                <h1>Pull Rose</h1>
+                <p class="out-of-stock-message">bientot disponible</p>
+                <p class="price">19,99 €</p>
+                <div class="product-description">
+                    <h3>Description</h3>
+                    <p>
+                        Douceur et style se rencontrent dans ce pull bicolore blanc et rose. Sa coupe confortable et ses teintes poudrées en font le nouvel essentiel de votre garde-robe. Parfait pour une touche de couleur tout en légèreté.
+                    </p>
+                    <h3>Détails</h3>
+                    <ul>
+                        <li>Composition : 100% coton</li>
+                        <li>Couleur : blanc,rose</li>
+                        <li>Coupe : Fuselée, confortable</li>
+                        <li>Entretien : Lavage en machine à 30°C</li>
+                    </ul>
+                </div>
+                <a href="#" class="buy-button disabled" onclick="return false;">Bientot Disponible</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <!-- Votre code de pied de page ici -->
+        <div class="newsletter-container">
+            <h3>Abonnez-vous à notre newsletter</h3>
+            <p>Recevez en exclusivité nos nouveautés, promotions et inspirations.</p>
+            <form id="newsletter-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="email" id="email-input" name="_replyto" placeholder="Votre adresse email" required>
+                <button type="submit">S'abonner</button>
+            </form>
+            <div id="newsletter-message" class="message"></div>
+        </div>
+        <div class="footer-links">
+            <a href="politique.html">Politique de Confidentialité</a>
+            <a href="cgv.html">Conditions Générales de Vente</a>
+        </div>
+        <p>&copy; 2025 Tenero Lusso</p>
     </footer>
 
+    <div id="cookie-banner">
+        <p>Nous utilisons des cookies pour vous offrir la meilleure expérience sur notre site. En poursuivant votre navigation, vous consentez à l’utilisation de ces cookies. Pour en savoir plus, consultez notre <a href="politique.html">Politique de Confidentialité</a>.</p>
+        <button id="accept-cookies">Accepter</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function changeImage(src) {
+            document.getElementById('main-product-image').src = src;
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
